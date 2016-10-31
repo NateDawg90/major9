@@ -69,3 +69,8 @@
 **SearchResultContainer**
   - SearchBar
   - SearchResultComponent
+
+  **CollectionContainer**
+    - AlbumItem
+    - UserInfo
+    - DownloadModal
