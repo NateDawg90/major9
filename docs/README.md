@@ -1,9 +1,9 @@
-#Good Animes
+#major9
 [Heroku link][heroku]
 
 [Trello link][trello]
 
-[heroku]:
+[heroku]: https://major9.herokuapp.com/
 [trello]: https://trello.com/b/Y65B4Kak
 
 ##Minimum Viable Product
