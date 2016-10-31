@@ -66,7 +66,7 @@ Objective: Users will be able to search songs by title, album, and description.
 
 Objective: User will be able to upload whole albums and individual tracks.
 
-###Phase 7: CSS Styling (Until end-of-day Friday)
+###Phase 8: CSS Styling (Until end-of-day Friday)
 
 Objective: Final styling and adjustments
 
