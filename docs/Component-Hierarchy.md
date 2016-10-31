@@ -70,7 +70,7 @@
   - SearchBar
   - SearchResultComponent
 
-  **CollectionContainer**
-    - AlbumItem
-    - UserInfo
-    - DownloadModal
+**CollectionContainer**
+  - AlbumItem
+  - UserInfo
+  - DownloadModal

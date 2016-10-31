@@ -7,7 +7,7 @@ id              | integer   | not null, primary key
 artist_id       | integer   | not null
 album_id        | integer   | not null, foreign key (references albums
 release_date    | data      | not null
-downloadable    | boolean   |*
+downloadable    | boolean   |
 price           | integer   | not null
 fixed_price     | boolean   |
 description     | text      |
