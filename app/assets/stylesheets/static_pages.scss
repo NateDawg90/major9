@@ -1,0 +1,29 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+div .login {
+  // display:inline-block;
+  padding: 8px 5px 9px;
+  background-color: lightgray;
+  margin: 0 auto;
+  text-decoration: none;
+  border-top: 5px solid gray;
+  border-bottom: 1px dotted gray;
+    ul {
+      display: flex;
+      justify-content:flex-end;
+
+      li {
+        padding: 5px 10px;
+      }
+    }
+}
+
+
+
+
+body {
+  background-color: #ecf0f1;
+}
