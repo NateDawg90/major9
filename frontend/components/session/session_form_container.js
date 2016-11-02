@@ -5,11 +5,11 @@ import {signup, login} from '../../actions/session_actions';
 const mapStateToProps = (state, ownProps) => ({
   loggedIn: (state.session.currentUser !== null ? true : false ),
   errors: state.session.errors,
-  formType: ownProps.formType
+  // formType: ownProps.formType
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  // formType: location.hash,
+  formType: location.hash,
 
   processForm: (formType, user) => {
     // debugger;

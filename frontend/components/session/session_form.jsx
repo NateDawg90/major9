@@ -15,18 +15,19 @@ class SessionForm extends React.Component {
     this.header = this.header.bind(this);
     this.oppositeLink = this.oppositeLink.bind(this);
     this.buttonText = this.buttonText.bind(this);
+    this.changeForm = this.changeForm.bind(this);
   }
 
 
   header() {
-    if (this.props.formType === "#/signup") {
+    if (this.state.formType === "#/signup") {
       return (
         <div className="session-header">
         <h2> Sign Up for an Artist Account </h2>
         <h3> Already have an account? {this.oppositeLink()} </h3>
         </div>
       );
-    } else if (this.props.formType === "#/login") {
+    } else if (this.state.formType === "#/login") {
       return (
         <div className="session-header">
         <h2> Account Log In </h2>
@@ -36,12 +37,16 @@ class SessionForm extends React.Component {
     }
   }
 
+  changeForm() {
+      this.setState({formType: (this.state.formType === "#/login" ? "#/signup" : "#/login")})
+  }
+
   oppositeLink() {
-    if (this.props.formType === '#/signup') {
-      return (<Link to="/login"
+    if (this.state.formType === '#/signup') {
+      return (<Link to="/login" onClick={this.changeForm}
       > Log In. </Link>);
-    } else if (this.props.formType === '#/login') {
-      return (<Link to="/signup"
+    } else if (this.state.formType === '#/login' ) {
+      return (<Link to="/signup" onClick={this.changeForm}
       > Sign up as an artist.</Link>);
     }
   }
@@ -68,7 +73,7 @@ class SessionForm extends React.Component {
 
   render() {
     // debugger;
-    console.log(location.hash);
+    console.log(this.props.formType);
     let errors = this.props.errors.map((error, index) => (
       <h3 className="error">{error}</h3>
     ));
