@@ -29,6 +29,7 @@ export const logout = (success, error) => {
 
 //Consider whether or not I want to grab ALL the albums or
 //ALL the albums from one user. Currently pulling from one user on backend.
+// If no albums, show page will only have links to add Album or add Tracks
 export const fetchAlbums = (userId, success, error) => {
   $.ajax({
     url: '/api/albums',
