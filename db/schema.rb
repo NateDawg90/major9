@@ -11,10 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101172355) do
+ActiveRecord::Schema.define(version: 20161102165928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.integer  "artist_id",                                            null: false
+    t.string   "album_name",                                           null: false
+    t.date     "release_date",                                         null: false
+    t.boolean  "downloadable",                         default: true
+    t.decimal  "price",        precision: 8, scale: 2,                 null: false
+    t.boolean  "fixed_price",                          default: false
+    t.text     "description"
+    t.string   "image_url"
+    t.string   "artist"
+    t.text     "about"
+    t.text     "credits"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.integer  "album_id",                                             null: false
+    t.date     "release_date",                                         null: false
+    t.boolean  "downloadable",                         default: true
+    t.decimal  "price",        precision: 8, scale: 2,                 null: false
+    t.boolean  "fixed_price",                          default: false
+    t.text     "description"
+    t.string   "image_url"
+    t.string   "artist"
+    t.text     "about"
+    t.text     "lyrics"
+    t.text     "credits"
+    t.boolean  "bonus",                                default: false
+    t.text     "track_name",                                           null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.integer  "track_number",                                         null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false

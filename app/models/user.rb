@@ -7,6 +7,16 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  has_many :albums,
+  foreign_key: :artist_id,
+  primary_key: :id,
+  class_name: :Album
+
+  has_many :tracks,
+  through: :albums,
+  source: :tracks
+
+
   def self.find_by_credentials(username, password)
     @user = User.find_by(username: username)
     return nil unless @user && @user.is_password?(password)
