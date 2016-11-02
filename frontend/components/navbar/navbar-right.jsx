@@ -15,9 +15,9 @@ const NavbarRight = (props) => {
   } else {
     return (
       <ul>
-        <li><Link to="/signup">Sign Up</Link></li>
-        <li><Link to="/login">Log In</Link></li>
-        <li><Link to="/" onClick={props.guestLogin}>Guest Login</Link></li>
+        <Link to="/signup"<li>>Sign Up</li></Link>
+        <Link to="/login"><li>Log In</li></Link>
+        <Link to="/" onClick={props.guestLogin}><li>Guest Login</li></Link>
       </ul>
   );
   }

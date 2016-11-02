@@ -16,8 +16,8 @@ const Root = ({store}) => {
   return (<Provider store = {store}>
     <Router history = {hashHistory}>
       <Route path="/" component={App} >
-        <Route path="/signup"/>
-        <Route path="/login"/>
+        <Route path="signup"/>
+        <Route path="login"/>
       </Route>
     </Router>
   </Provider>);

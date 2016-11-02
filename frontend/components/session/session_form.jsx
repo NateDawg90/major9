@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
       username: "",
       password: ""
       },
-      formType: this.props.formType
+      formType: location.hash
     };
     this.update = this.update.bind(this);
     this.header = this.header.bind(this);
@@ -36,13 +36,12 @@ class SessionForm extends React.Component {
     }
   }
 
-
   oppositeLink() {
     if (this.props.formType === '#/signup') {
-      return (<Link to="login"
+      return (<Link to="/login"
       > Log In. </Link>);
     } else if (this.props.formType === '#/login') {
-      return (<Link to="signup"
+      return (<Link to="/signup"
       > Sign up as an artist.</Link>);
     }
   }
@@ -69,7 +68,7 @@ class SessionForm extends React.Component {
 
   render() {
     // debugger;
-    console.log(this.state);
+    console.log(location.hash);
     let errors = this.props.errors.map((error, index) => (
       <h3 className="error">{error}</h3>
     ));
@@ -87,10 +86,10 @@ class SessionForm extends React.Component {
             {this.header()}
             <br />
             <form onSubmit={this.handleSubmit.bind(this)}>
-              <input onChange={this.update('username')} placeholder="Username"/>
+              <input onChange={this.update('username')} placeholder=" Username"/>
               <br />
               <br />
-              <input onChange={this.update('password')} placeholder="Password"/>
+              <input onChange={this.update('password')} placeholder=" Password"/>
               <br />
               {errors}
               <br />

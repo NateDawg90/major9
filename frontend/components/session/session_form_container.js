@@ -2,13 +2,14 @@ import { connect } from "react-redux";
 import sessionForm from './session_form';
 import {signup, login} from '../../actions/session_actions';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   loggedIn: (state.session.currentUser !== null ? true : false ),
-  errors: state.session.errors
+  errors: state.session.errors,
+  formType: ownProps.formType
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  formType: location.hash,
+  // formType: location.hash,
 
   processForm: (formType, user) => {
     // debugger;
