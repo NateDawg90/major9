@@ -10,6 +10,7 @@ class Navbar extends React.Component{
       modalOpen: false
     }
     this.handleClick = this.handleClick.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
   handleClick() {
@@ -20,15 +21,19 @@ class Navbar extends React.Component{
     this.setState({modalOpen: false});
 
   }
+
+  handleLogout() {
+    this.onModalClose()
+    this.props.logout()
+  }
+  
   render () {
   if (this.props.currentUser !== null) {
     return (
       <nav className="navbar">
         <ul >
-
           <li><h3>Welcome, {this.props.currentUser.username}!</h3></li>
-          <li><Link to="/" onClick={this.props.logout}>Logout</Link></li>
-
+          <Link to="/" className="navbar-link" onClick={this.handleLogout}><li>Logout</li></Link>
         </ul>
       </nav>
     );
@@ -36,9 +41,9 @@ class Navbar extends React.Component{
     return (<nav className="navbar">
       <ul>
 
-        <li><Link to="/signup" onClick={this.handleClick} className="navbar-link">Sign Up</Link></li>
-        <li><Link to="/login" onClick={this.handleClick} className="navbar-link">Log In</Link></li>
-        <li><Link to="/" onClick={this.props.guestLogin} className="navbar-link">Guest Login</Link></li>
+        <Link to="/signup" onClick={this.handleClick} className="navbar-link"><li>Sign Up</li></Link>
+        <Link to="/login" onClick={this.handleClick} className="navbar-link"><li>Log In</li></Link>
+        <Link to="/" onClick={this.props.guestLogin} className="navbar-link"><li>Guest Login</li></Link>
 
       </ul>
 

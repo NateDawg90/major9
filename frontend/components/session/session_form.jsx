@@ -5,10 +5,8 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
       username: "",
-      password: ""
-      },
+      password: "",
       formType: location.hash
     };
     this.update = this.update.bind(this);
@@ -43,18 +41,20 @@ class SessionForm extends React.Component {
 
   oppositeLink() {
     if (this.state.formType === '#/signup') {
-      return (<Link to="/login" onClick={this.changeForm}
+      return (<Link key="login" to="/login" onClick={this.changeForm}
       > Log In. </Link>);
     } else if (this.state.formType === '#/login' ) {
-      return (<Link to="/signup" onClick={this.changeForm}
+      return (<Link key="signup" to="/signup" onClick={this.changeForm}
       > Sign up as an artist.</Link>);
     }
   }
 
   handleSubmit(e){
     // debugger
+
     e.preventDefault();
-    this.props.processForm(this.props.formType, this.state.user);
+    this.props.processForm(this.state.formType, this.state);
+
   }
 
   update(property){
@@ -64,18 +64,18 @@ class SessionForm extends React.Component {
   }
 
   buttonText() {
-    if (this.props.formType === '#/signup') {
+    if (this.state.formType === '#/signup') {
       return ("Sign Up");
-    } else if (this.props.formType === '#/login') {
+    } else if (this.state.formType === '#/login') {
       return ("Log In");
     }
   }
 
   render() {
     // debugger;
-    console.log(this.props.formType);
+    console.log(this.state.formType);
     let errors = this.props.errors.map((error, index) => (
-      <h3 className="error">{error}</h3>
+      <h3 key="index" className="error">{error}</h3>
     ));
 
     if (this.props.loggedIn) {
