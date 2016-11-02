@@ -17,7 +17,8 @@ class Navbar extends React.Component{
   }
 
   onModalClose() {
-    
+    this.setState({modalOpen: false});
+
   }
   render () {
   if (this.props.currentUser !== null) {
@@ -39,8 +40,19 @@ class Navbar extends React.Component{
 
       <Modal
          isOpen={this.state.modalOpen}
-         onRequestClose={}
+         onRequestClose={this.onModalClose.bind(this)}
+         style = {{content :{
+            top                   : '50%',
+            left                  : '50%',
+            right                 : 'auto',
+            bottom                : 'auto',
+            marginRight           : '-50%',
+            transform             : 'translate(-50%, -50%)'
+            }
+          }
+        }
         >
+        <button onClick={this.onModalClose.bind(this)}>Close</button>
         <SessionFormContainer />
       </Modal>
     </nav>
