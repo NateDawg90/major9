@@ -8,17 +8,17 @@ const Navbar = (props) => {
     return (
       <nav className="navbar">
         <ul >
-          <li><h3>Welcome, {props.currentUser.username}!</h3></li>
-          <Link to="/" onClick={props.logout} className="navbar-link"><li>Logout</li></Link>
+          <li><h2>Welcome, {props.currentUser.username}!</h2></li>
+          <li><Link to="/" onClick={props.logout}>Logout</Link></li>
         </ul>
       </nav>
     );
   } else {
     return (<nav className="navbar">
       <ul>
-        <Link to="/login" className="navbar-link" ><li>Log In</li></Link>
-        <Link to="/signup" className="navbar-link"><li>Sign Up</li></Link>
-        <Link to="/" onClick={props.guestLogin} className="navbar-link"><li>Guest Login</li></Link>
+        <Link to="/signup"><li>Sign Up</li></Link>
+        <Link to="/login"><li>Log In</li></Link>
+        <Link to="/" onClick={props.guestLogin}><li>Guest Login</li></Link>
       </ul>
     </nav>
   );
