@@ -1,11 +1,11 @@
 import React from "react";
-import GreetingContainer from './greeting/greeting_container';
+import NavbarContainer from './navbar/navbar_container';
 
 const App = (store) => {
   // console.log(store);
   return (
   <div>
-    <GreetingContainer/>
+    <NavbarContainer/>
     {store.children}
   </div>
 );};

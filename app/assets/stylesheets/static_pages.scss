@@ -6,9 +6,9 @@ a {
   text-decoration: none;
 }
 
-div .login {
-  // display:inline-block;
-  padding: 8px 5px 9px;
+.navbar {
+  display: block;
+  padding: 8px 5px;
   background-color: lightgray;
   margin: 0 auto;
   text-decoration: none;
@@ -24,9 +24,54 @@ div .login {
     }
 }
 
+#root {
+  // padding: 8px 5px 9px;
+  margin: 0 auto;
+  text-decoration: none;
+  // display: flex;
+}
 
 
+.session {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.session-parts {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.session h1 {
+  font-size:30px;
+  margin: 0 auto;
+}
+
+.error {
+  color:red;
+}
+.session form button {
+  margin: 0 auto;
+}
+
+.session-header {
+  float: left;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 700;
+
+}
 
 body {
   background-color: #ecf0f1;
+}
+
+input {
+  width: 300px;
+  height: 25px;
 }

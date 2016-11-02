@@ -16,17 +16,26 @@ class SessionForm extends React.Component {
 
   header() {
     if (this.props.formType === "#/signup") {
-      return "Sign Up";
+      return (
+        <div className="session-header">
+        <h2> Sign Up for an Artist Account </h2>
+        <h3> Already have an account? {this.oppositeLink()} </h3>
+        </div>
+      );
     } else if (this.props.formType === "#/login") {
-      return "Log In";
+      return (
+        <div className="session-header">
+        <h2> Account Log In </h2>
+        <h3> Don't have an account? {this.oppositeLink()} </h3>
+        </div>
+  );
     }
   }
-
   oppositeLink() {
     if (this.props.formType === '#/signup') {
-      return (<Link to="login" > Click to Log In </Link>);
+      return (<Link to="login" > Log In. </Link>);
     } else if (this.props.formType === '#/login') {
-      return (<Link to="signup"> Click to Sign Up</Link>);
+      return (<Link to="signup"> Sign up as an artist.</Link>);
     }
   }
 
@@ -47,7 +56,7 @@ class SessionForm extends React.Component {
   render() {
     // debugger;
     let errors = this.props.errors.map((error, index) => (
-      <h4>{error}</h4>
+      <h3 className="error">{error}</h3>
     ));
 
     if (this.props.loggedIn) {
@@ -58,21 +67,25 @@ class SessionForm extends React.Component {
       );
     } else {
       return (
-        <div>
-          <h1>{this.header()}</h1>
-          <form onSubmit={this.handleSubmit.bind(this)}>
-            <label>Username </label>
-            <input onChange={this.update('username')}/>
+        <div className="session">
+          <div className="session-parts">
+            {this.header()}
             <br />
-            <label>Password </label>
-            <input onChange={this.update('password')}/>
-            <br />
-            {errors}
-            <button>Submit</button>
-          </form>
-          <br/>
-          {this.oppositeLink()}
-        </div>
+            <form onSubmit={this.handleSubmit.bind(this)}>
+              <input onChange={this.update('username')} placeholder="Username"/>
+              <br />
+              <br />
+              <input onChange={this.update('password')} placeholder="Password"/>
+              <br />
+              {errors}
+              <br />
+
+              <button>Log In</button>
+            </form>
+            <br/>
+
+          </div>
+      </div>
       );
     }
   }

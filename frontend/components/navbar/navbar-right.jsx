@@ -1,27 +1,26 @@
 import React from 'react';
 import { Link } from "react-router";
 
-const Greeting = (props) => {
+const NavbarRight = (props) => {
+  console.log(props);
   // debugger
+  // TODO: turn Greeting into Navbar Components Left and Right
   if (props.currentUser !== null) {
     return (
-      <div className="login">
-        <ul >
+        <ul>
           <li><h2>Welcome, {props.currentUser.username}!</h2></li>
-          <li><button onClick={props.logout}>Logout</button></li>
+          <li><Link to="/" onClick={props.logout}>Logout</Link></li>
         </ul>
-      </div>
     );
   } else {
-    return (<div className="login">
+    return (
       <ul>
         <li><Link to="/signup">Sign Up</Link></li>
         <li><Link to="/login">Log In</Link></li>
         <li><Link to="/" onClick={props.guestLogin}>Guest Login</Link></li>
       </ul>
-    </div>
   );
   }
-};
+}
 
-export default Greeting;
+export default NavbarRight
