@@ -18,7 +18,7 @@ const Root = ({store}) => {
       <Route path="/" component={App} >
         <Route path="/signup" component={SessionFormContainer} />
         <Route path="/login" component={SessionFormContainer} />
-        <Route path="/artist/:artistId"  />
+        <Route path="/artist/:artistId" component={StoreFrontContainer} />
           <Route path="/album/:albumId"  />
             <Route path="/track/:trackId" />
 
