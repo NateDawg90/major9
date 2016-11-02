@@ -4,6 +4,7 @@
 
 a {
   text-decoration: none;
+<<<<<<< HEAD
   color: blue;
 }
 
@@ -15,6 +16,13 @@ a:hover{
 }
 .navbar-link:hover{
   background: rgba(0,0,0,0.08);
+=======
+
+}
+
+a :hover {
+  background: black;
+>>>>>>> modal
 }
 
 .navbar {
@@ -57,7 +65,7 @@ a:hover{
 
 
 .session {
-  padding-top: 50px;
+  padding-top: 25px;
   display: flex;
   justify-content: center;
 }

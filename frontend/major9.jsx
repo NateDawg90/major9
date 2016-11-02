@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import configureStore from './store/store';
 import Root from './components/root';
 import Modal from 'react-modal';
+<<<<<<< HEAD
 //testing
 import rootMiddleware from './middlewares/root_middleware';
 import { fetchAlbums, fetchAlbum, createAlbum,
@@ -17,6 +18,10 @@ import { fetchTracks, fetchTrack, createTrack,
 
 document.addEventListener("DOMContentLoaded", () => {
   Modal.setAppElement(document.body);
+=======
+document.addEventListener("DOMContentLoaded", () => {
+  Modal.setAppElement(document.body)
+>>>>>>> modal
   let store;
   if (window.currentUser) {
     const preloadedState = {
