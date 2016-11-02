@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       render "api/users/show"
     else
-      render json: ["User Not Found"], status: 404
+      render json: ["Invalid Username/Password"], status: 404
     end
   end
 
