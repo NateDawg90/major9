@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import {Router, Route, hashHistory, indexRoute } from 'react-router';
 import App from './app';
 import SessionFormContainer from './session/session_form_container';
-// import StoreFrontContainer from './storefront/store_front_container';
+import StoreFrontContainer from './storefront/storefront_container';
 
 // const _redirectIfLoggedIn = (store) => {
 //   if (store.getState().session.currentUser) {
