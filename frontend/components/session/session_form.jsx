@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     this.update = this.update.bind(this);
     this.header = this.header.bind(this);
     this.oppositeLink = this.oppositeLink.bind(this);
+    this.buttonText = this.buttonText.bind(this);
   }
 
 
@@ -51,7 +52,13 @@ class SessionForm extends React.Component {
     };
   }
 
-
+  buttonText() {
+    if (this.props.formType === '#/signup') {
+      return ("Sign Up");
+    } else if (this.props.formType === '#/login') {
+      return ("Log In");
+    }
+  }
 
   render() {
     // debugger;
@@ -80,7 +87,7 @@ class SessionForm extends React.Component {
               {errors}
               <br />
 
-              <button>Log In</button>
+              <button>{this.buttonText()}</button>
             </form>
             <br/>
 
