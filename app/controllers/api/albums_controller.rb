@@ -1,6 +1,7 @@
 class Api::AlbumsController < ApplicationController
   def index
-    @albums = Album.all
+    @albums = Album.where(artist_id: params[:artist_id])
+    # Shape for object should be {artist_id: #}
   end
 
   def create
