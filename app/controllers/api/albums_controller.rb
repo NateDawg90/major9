@@ -1,6 +1,11 @@
 class Api::AlbumsController < ApplicationController
   def index
     @albums = Album.where(artist_id: params[:artist_id])
+    if @albums.count != 0
+      render :index
+    else
+      render json: ["No Albums found"], status: 404
+    end
     # Shape for object should be {artist_id: #}
   end
 
@@ -15,7 +20,12 @@ class Api::AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find(params[:id])
+    if Album.find(params[:id])
+      @album = Album.find(params[:id])
+      render :show
+    else
+      render json: ["Album Not Found"], status: 404
+    end
   end
 
   def update

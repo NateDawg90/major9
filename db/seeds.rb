@@ -21,7 +21,15 @@ Album.create(
   )
 Album.create(artist_id:2, album_name:"The Funkiest", price: 10, release_date:Date.new)
 Album.create(artist_id:1, album_name:"Greatest Hits from the Greatest Recruiter", price: 30, release_date:Date.new)
-
+Album.create(artist_id:2,
+about: "This album is super real.",
+album_name: "The Rockiest",
+credits: "Walmart has the okay deals.",
+description: "A rock album? Or an album for unstable roads? You decide.",
+id: 4,
+image_url: "Rock Picture",
+price: 10,
+release_date: "11/2/2016")
 
 Track.create(album_id:1,
   release_date: Date.new,

@@ -28,19 +28,19 @@ export const updateAlbum = (album) => ({
   album
 })
 
-export const deleteAlbum = (album) => ({
+export const deleteAlbum = (albumId) => ({
   type: DELETE_ALBUM,
-  album
+  albumId
 })
 
 export const receiveAlbums = (albums) => ({
   type: RECEIVE_ALBUMS,
-  tracks
+  albums
 })
 
 export const receiveAlbum = (album) => ({
   type: RECEIVE_ALBUM,
-  track
+  album
 })
 
 export const receiveAlbumErrors = (albumErrors) => ({

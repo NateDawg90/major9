@@ -34,7 +34,7 @@ export const fetchAlbums = (userId, success, error) => {
   $.ajax({
     url: '/api/albums',
     method: 'GET',
-    artist_id: userId,
+    data:{artist_id: userId},
     success,
     error
   })
@@ -88,14 +88,14 @@ export const fetchTracks = (albumId, success, error) => {
 }
 
 // Not sure if I need this yet or not
-// export const fetchTrack = (albumId, trackId, success, error) => {
-//   $.ajax({
-//     url: `/api/albums/${albumId}/tracks/${trackId}`,
-//     method: 'GET',
-//     success,
-//     error
-//   })
-// }
+export const fetchTrack = (albumId, trackId, success, error) => {
+  $.ajax({
+    url: `/api/albums/${albumId}/tracks/${trackId}`,
+    method: 'GET',
+    success,
+    error
+  })
+}
 
 
 export const createTrack = (albumId, track, success, error) => {
@@ -110,7 +110,7 @@ export const createTrack = (albumId, track, success, error) => {
 
 export const updateTrack = (albumId, track, success, error) => {
   $.ajax({
-    url: `/api/albums/${albumId}/tracks/${track.id}`,
+    url: `/api/albums/${albumId}/tracks/${track.track_number}`,
     method: 'PATCH',
     data: {track},
     success,
@@ -118,9 +118,9 @@ export const updateTrack = (albumId, track, success, error) => {
   })
 }
 
-export const deleteTrack = (albumId, trackId, success, error) => {
+export const deleteTrack = (albumId, trackNum, success, error) => {
   $.ajax({
-    url: `/api/albums/${albumId}/tracks/${trackId}`,
+    url: `/api/albums/${albumId}/tracks/${trackNum}`,
     method: "DELETE",
     success,
     error

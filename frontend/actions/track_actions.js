@@ -4,7 +4,7 @@ export const CREATE_TRACK = "CREATE_TRACK";
 export const UPDATE_TRACK = "UPDATE_TRACK";
 export const DELETE_TRACK = "DELETE_TRACK";
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
-export const RECEIEVE_TRACK = "RECEIVE_TRACK";
+export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const RECEIVE_TRACK_ERRORS = "RECEIVE_TRACK_ERRORS";
 
 export const fetchTracks = (albumId) => ({
@@ -27,13 +27,13 @@ export const createTrack = (albumId, track) => ({
 export const updateTrack = (albumId, track) => ({
   type: UPDATE_TRACK,
   albumId,
-  track
+  track: track
 })
 
-export const deleteTrack = (albumId, trackId) => ({
+export const deleteTrack = (albumId, trackNum) => ({
   type: DELETE_TRACK,
   albumId,
-  trackId
+  trackNum
 })
 
 export const receiveTracks = (tracks) => ({
