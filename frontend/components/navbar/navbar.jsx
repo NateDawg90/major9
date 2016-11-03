@@ -26,7 +26,7 @@ class Navbar extends React.Component{
     this.onModalClose()
     this.props.logout()
   }
-  
+
   render () {
   if (this.props.currentUser !== null) {
     return (
@@ -43,27 +43,28 @@ class Navbar extends React.Component{
 
         <Link to="/signup" onClick={this.handleClick} className="navbar-link"><li>Sign Up</li></Link>
         <Link to="/login" onClick={this.handleClick} className="navbar-link"><li>Log In</li></Link>
-        <Link to="/" onClick={this.props.guestLogin} className="navbar-link"><li>Guest Login</li></Link>
+        <Link to="/artist/1" onClick={this.props.guestLogin} className="navbar-link"><li>Guest Login</li></Link>
 
       </ul>
-
-      <Modal
-         isOpen={this.state.modalOpen}
-         onRequestClose={this.onModalClose.bind(this)}
-         style = {{content :{
-            top                   : '50%',
-            left                  : '50%',
-            right                 : 'auto',
-            bottom                : 'auto',
-            marginRight           : '-50%',
-            transform             : 'translate(-50%, -50%)'
+        <Modal
+           isOpen={this.state.modalOpen}
+           onRequestClose={this.onModalClose.bind(this)}
+           style = {{content :{
+              top                   : '50%',
+              left                  : '50%',
+              right                 : 'auto',
+              bottom                : 'auto',
+              marginRight           : '-50%',
+              transform             : 'translate(-50%, -50%)'
+              }
             }
           }
-        }
-        >
-        <button onClick={this.onModalClose.bind(this)}>Close</button>
-        <SessionFormContainer />
-      </Modal>
+          >
+          <div className="session-box">
+            <button className="session-parts" onClick={this.onModalClose.bind(this)}>Close</button>
+            <SessionFormContainer />
+          </div>
+        </Modal>
     </nav>
     );
     }

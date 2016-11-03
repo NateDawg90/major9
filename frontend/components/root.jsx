@@ -4,6 +4,7 @@ import {Router, Route, hashHistory, indexRoute } from 'react-router';
 import App from './app';
 import SessionFormContainer from './session/session_form_container';
 import StoreFrontContainer from './storefront/storefront_container';
+import AlbumContainer from './storefront/album/album_container';
 
 // const _redirectIfLoggedIn = (store) => {
 //   if (store.getState().session.currentUser) {
@@ -18,10 +19,12 @@ const Root = ({store}) => {
       <Route path="/" component={App} >
         <Route path="signup"/>
         <Route path="login"/>
-        <Route path="/artist/:artistId" />
-          <Route path="/album/:albumId"  />
-            <Route path="/track/:trackId" />
+        <Route path="/artist/:artistId" component={StoreFrontContainer}>
+          <Route path="album/:albumId" component={AlbumContainer}>
+            <Route path="track/:trackId" />
+          </Route>
         </Route>
+      </Route>
     </Router>
   </Provider>);
 };

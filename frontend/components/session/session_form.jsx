@@ -51,10 +51,8 @@ class SessionForm extends React.Component {
 
   handleSubmit(e){
     // debugger
-
     e.preventDefault();
     this.props.processForm(this.state.formType, this.state);
-
   }
 
   update(property){
@@ -99,10 +97,9 @@ class SessionForm extends React.Component {
               {errors}
               <br />
 
-              <button>{this.buttonText()}</button>
+              <button className = "session-parts">{this.buttonText()}</button>
             </form>
             <br/>
-
           </div>
       </div>
       );

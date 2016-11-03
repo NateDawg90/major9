@@ -1,6 +1,6 @@
-import {connect} from 'react-router';
-
-
+import {connect} from 'react-redux';
+import {fetchAlbums} from '../../actions/album_actions';
+import storeFront from './storefront';
 const mapStateToProps = (state) => ({
   tracks: state.tracks,
   albums: state.albums,
@@ -8,5 +8,10 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  
+  fetchAlbums: (userId) => dispatch(fetchAlbums(userId))
 })
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(storeFront)

@@ -4,7 +4,17 @@
 
 a {
   text-decoration: none;
-  color: blue;
+  color:#408294;
+}
+
+button {
+  background-color: #3498db;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
 }
 
 a:hover{
@@ -65,7 +75,7 @@ a:hover{
 .session-parts {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -106,4 +116,8 @@ body {
 input {
   width: 300px;
   height: 25px;
+}
+
+Modal button{
+  // color: blue;
 }
