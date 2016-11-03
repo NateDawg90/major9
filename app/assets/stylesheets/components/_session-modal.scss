@@ -1,0 +1,32 @@
+.session-parts button {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 10px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.session-header {
+  float: left;
+}
+
+.session {
+  padding-top: 25px;
+  display: flex;
+  justify-content:flex-start;
+}
+
+.session-parts {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.session h1 {
+  font-size:30px;
+  margin: 0 auto;
+}

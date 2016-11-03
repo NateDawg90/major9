@@ -8,7 +8,6 @@ const _nullState = {
 
 const sessionReducer = (state = _nullState, action) => {
   Object.freeze(state);
-  // debugger
   switch(action.type) {
     case LOGOUT:
       return merge({},_nullState)

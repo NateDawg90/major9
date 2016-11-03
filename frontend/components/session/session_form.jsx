@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory, withRouter } from 'react-router';
+import Modal from 'react-modal';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -7,15 +9,28 @@ class SessionForm extends React.Component {
     this.state = {
       username: "",
       password: "",
-      formType: location.hash
+      formType: location.hash,
+      modalOpen: false
     };
     this.update = this.update.bind(this);
     this.header = this.header.bind(this);
     this.oppositeLink = this.oppositeLink.bind(this);
     this.buttonText = this.buttonText.bind(this);
     this.changeForm = this.changeForm.bind(this);
+    this.handleErrors = this.handleErrors.bind(this);
+    this.userErrors = [];
+    this.passErrors = [];
+
   }
 
+  handleClick() {
+    this.setState({modalOpen: true});
+  }
+
+  onModalClose() {
+    this.setState({modalOpen: false});
+
+  }
 
   header() {
     if (this.state.formType === "#/signup") {
@@ -36,7 +51,15 @@ class SessionForm extends React.Component {
   }
 
   changeForm() {
-      this.setState({formType: (this.state.formType === "#/login" ? "#/signup" : "#/login")})
+    this.userErrors = [];
+    this.passErrors = [];
+    this.props.clearErrors;
+    this.handleErrors();
+    this.setState({formType: (this.state.formType === "#/login" ? "#/signup" : "#/login")})
+  }
+
+  clearErrors() {
+    this.props.clearErrors;
   }
 
   oppositeLink() {
@@ -51,14 +74,31 @@ class SessionForm extends React.Component {
 
   handleSubmit(e){
     // debugger
+    this.clearErrors();
+    console.log("I'm out here");
     e.preventDefault();
-    this.props.processForm(this.state.formType, this.state);
+    this.props.processForm(this.state.formType, this.state)
+    this.handleLogin();
   }
 
+  handleLogin() {
+    // console.log(this.props.loggedIn);
+    // if (this.props.loggedIn){
+    //   console.log("Why hello there.");
+    // }
+    this.setState({})
+  }
   update(property){
     return (e) => {
         this.setState({[property]: e.target.value});
     };
+  }
+
+  componentWillReceiveProps(newProps) {
+
+    if (newProps.currentUser) {
+    this.props.router.push(`/artist/${newProps.currentUser.id}`)
+    }
   }
 
   buttonText() {
@@ -69,42 +109,61 @@ class SessionForm extends React.Component {
     }
   }
 
-  render() {
-    // debugger;
-    console.log(this.state.formType);
-    let errors = this.props.errors.map((error, index) => (
-      <h3 key="index" className="error">{error}</h3>
-    ));
+  handleErrors () {
+    this.userErrors = [];
+    this.passErrors = [];
+    let errors = this.props.errors.forEach((error, index) => {
+      if (error[0] === 'U') {
+      this.userErrors.push(<h3 key={index} className="error">{error}</h3>)
+      } else {
+      this.passErrors.push(<h3 key={index+1} className="error">{error}</h3>)
+      }
+    });
+  }
 
+  render() {
+    this.handleErrors();
     if (this.props.loggedIn) {
       return (
-        <div>
-
-        </div>
-      );
+        <div>What's Up</div>
+      )
+      // console.log("I am logged in maybe.");
+      // this.props.router.push('artist/1')
     } else {
       return (
-        <div className="session">
-          <div className="session-parts">
-            {this.header()}
-            <br />
-            <form onSubmit={this.handleSubmit.bind(this)}>
-              <input onChange={this.update('username')} placeholder=" Username"/>
+        <div>
+          <nav className="navbar">
+            <ul>
+              <Link to="/signup" onClick={this.handleClick} className="navbar-link"><li>Sign Up</li></Link>
+              <Link to="/login" onClick={this.handleClick} className="navbar-link"><li>Log In</li></Link>
+              <Link to="/artist/1" onClick={this.props.guestLogin} className="navbar-link"><li>Guest Login</li></Link>
+            </ul>
+          </nav>
+          <Modal>
+          <div className="session">
+            <div className="session-parts">
+              {this.header()}
               <br />
-              <br />
-              <input onChange={this.update('password')} placeholder=" Password"/>
-              <br />
-              {errors}
-              <br />
+              <form onSubmit={this.handleSubmit.bind(this)}>
+                <input onChange={this.update('username')} placeholder=" Username"/>
+                <br />
+                {this.userErrors}
+                <br />
+                <input type="password" onChange={this.update('password')} placeholder=" Password"/>
+                <br />
+                {this.passErrors[0]}
+                <br />
 
-              <button className = "session-parts">{this.buttonText()}</button>
-            </form>
-            <br/>
+                <button className = "session-parts">{this.buttonText()}</button>
+              </form>
+              <br/>
+            </div>
           </div>
-      </div>
+          </Modal>
+        </div>
       );
     }
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

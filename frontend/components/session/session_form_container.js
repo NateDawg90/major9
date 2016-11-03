@@ -1,19 +1,24 @@
 import { connect } from "react-redux";
 import sessionForm from './session_form';
-import {signup, login} from '../../actions/session_actions';
+import {signup, login, receiveErrors} from '../../actions/session_actions';
+import { Router, Route, IndexRoute, hashHistory, withRouter } from 'react-router';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, ownProps) => {
+  debugger
+  return {
   loggedIn: (state.session.currentUser !== null ? true : false ),
   errors: state.session.errors,
-  // formType: ownProps.formType
-});
+  currentUser: state.session.currentUser
+  }
+};
+
+
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   formType: location.hash,
-
+  clearErrors: () => dispatch(receiveErrors([])),
   processForm: (formType, user) => {
     // debugger;
-
     let userObject = { user : user};
     if (formType === '#/signup') {
       dispatch(signup(userObject));
@@ -22,10 +27,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     }
   }
 
+
 });
 
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(sessionForm);
+)(sessionForm));
