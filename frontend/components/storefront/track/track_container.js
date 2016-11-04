@@ -2,16 +2,14 @@ import {connect} from 'react-redux';
 import Track from './track';
 import {fetchTracks} from '../../../actions/track_actions';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   albums: state.albums,
-  tracks: state.tracks
+  tracks: state.tracks,
+  trackId: ownProps.trackId
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchTracks: (albumId) => dispatch(fetchTracks(albumId))
-})
+
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
 )(Track)

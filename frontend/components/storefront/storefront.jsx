@@ -51,7 +51,7 @@ class storeFront extends React.Component{
   // Have Art and Sidebar components explicit
   render() {
     let parsedAlbums = this.albums();
-    console.log(parsedAlbums);
+    console.log(this.props);
   return (
   <div className = "StoreFront">
     <h1>Banner Goes Here</h1>

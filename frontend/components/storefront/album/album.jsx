@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router";
+import TrackContainer from "../track/track_container";
 
 class Album extends React.Component{
   constructor(props){
@@ -15,7 +16,7 @@ class Album extends React.Component{
     let tracks = []
 
     for(var prop in obj){
-      let trackLink = `/artist/${this.currentArtist('id')}/track/${prop}`
+      let trackLink = `/artist/${this.currentArtist('id')}/album/${this.currentAlbum('id')}/track/${prop}`
 
       tracks.push(
         <li className="TrackListItem-box">
@@ -57,9 +58,18 @@ class Album extends React.Component{
     }
   }
 
+  // {this.props.children}
 
   render() {
     // debugger
+    console.log(this.props);
+    if (this.props.children) {
+      return(
+      <div className ="track">
+        <TrackContainer trackId={this.props.params.trackId}/>
+      </div>
+      );
+    } else {
     let featAlbumId = Object.keys(this.props.albums.albums)[0]
     let artistLink = `/artist/${this.currentArtist('id')}/album/${featAlbumId}`
     return(
@@ -87,11 +97,9 @@ class Album extends React.Component{
       <br />
       <h4> {this.currentAlbum('credits')}</h4>
       <br />
-
-
-
     </div>
   )
+  }
   }
 }
 

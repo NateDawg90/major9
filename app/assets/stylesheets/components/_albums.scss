@@ -43,7 +43,14 @@
     display: none;
   }
 
+  .trackHoverLink:hover{
+    display:flex;
+  }
+
   .TrackListItem:hover ~ .trackHoverLink{
     display:flex;
   }
+  // .TrackListItem-box ~ .trackHoverLink{
+  //   display:flex;
+  // }
 }

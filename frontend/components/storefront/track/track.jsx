@@ -9,13 +9,13 @@ class Track extends React.Component{
     this.currentTrack = this.currentTrack.bind(this)
   }
 
-  componentWillMount() {
-    this.props.fetchTracks(this.props.params.albumId);
-  }
 
   currentTrack(prop) {
-    if (Object.keys(this.props.tracks).length !== 0){
-      return this.props.tracks[this.props.params.trackId][prop]
+    console.log(this.props.tracks);
+    console.log(this.props);
+    console.log('break');
+      if (Object.keys(this.props.tracks.tracks).length !== 0){
+      return this.props.tracks.tracks[this.props.trackId][prop]
     }
   }
 
@@ -32,40 +32,35 @@ class Track extends React.Component{
     }
   }
 
+  // <h3>by <Link to={artistLink}>
+  //   {this.currentArtist('username')}
+  // </Link></h3>
+  // <h2> Song Player goes here</h2>
+  // <h3>Buy the Full Digital Album</h3>
+  // <br/>
+  // <h2> Purchasing Component </h2>
+  // <h2>Buy Now {this.currentAlbum('price')}</h2>
+  // <ol>
+  //   {this.displayTracks()}
+  // </ol>
+  // <br />
+  // <h4>released {this.currentAlbum('release_date')} </h4>
+  // <br />
+  // <h4>{this.currentAlbum('description')}</h4>
+  // <br />
+  // <h4>Created by {this.currentArtist('username')}</h4>
+  // <br />
+  // <h4> {this.currentAlbum('credits')}</h4>
+  // <br />
 
   render() {
     // debugger
-    let artistLink = `artist/${this.currentArtist('id')}`
+    // let artistLink = `artist/${this.currentArtist('id')}`
     return(
     <div className="Tracks">
       <h1>{this.currentTrack('track_name')}</h1>
-      <h3>by <Link to={artistLink}>
-        {this.currentArtist('username')}
-      </Link></h3>
-      <h2> Song Player goes here</h2>
-      <h3>Digital Album</h3>
-      <h4>Includes unlimited streaming via the free Major9 app, plus
-      high-quality download in MP3.</h4>
-      <br/>
-      <h2> Purchasing Component </h2>
-      <h2>Buy Now {this.currentAlbum('price')}</h2>
-      <ol>
-        {this.displayTracks()}
-      </ol>
-      <br />
-      <h4>released {this.currentAlbum('release_date')} </h4>
-      <br />
-      <h4>{this.currentAlbum('description')}</h4>
-      <br />
-      <h4>Created by {this.currentArtist('username')}</h4>
-      <br />
-      <h4> {this.currentAlbum('credits')}</h4>
-      <br />
-
-
-
     </div>
-  )
+    )
   }
 }
 

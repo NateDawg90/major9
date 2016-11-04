@@ -20,7 +20,6 @@ const Root = ({store}) => {
   const requestAlbumsOnEnter = (nextState, replace) => {
     store.dispatch(fetchAlbums(nextState.params.artistId))
     let albumIds = Object.keys(store.getState().albums.albums)
-
   }
 
   const redirectIfLoggedIn = (nextState, replace) => {
@@ -59,8 +58,9 @@ const Root = ({store}) => {
       <Route path="/" component={App} onEnter={redirectIfLoggedOut} >
         <Route path="/artist/:artistId" component={StoreFrontContainer}
            onEnter={requestAlbumsOnEnter}>
-          <Route path="album/:albumId" component={AlbumContainer}/>
-          <Route path="track/:trackId" component={TrackContainer}/>
+          <Route path="album/:albumId" component={AlbumContainer}>
+            <Route path="track/:trackId" component={TrackContainer}/>
+          </Route>
         </Route>
       </Route>
     </Router>
