@@ -10,7 +10,6 @@ class SessionForm extends React.Component {
       username: "",
       password: "",
       formType: location.hash,
-      modalOpen: false
     };
     this.update = this.update.bind(this);
     this.header = this.header.bind(this);
@@ -23,14 +22,7 @@ class SessionForm extends React.Component {
 
   }
 
-  handleClick() {
-    this.setState({modalOpen: true});
-  }
-
-  onModalClose() {
-    this.setState({modalOpen: false});
-
-  }
+  
 
   header() {
     if (this.state.formType === "#/signup") {
@@ -131,15 +123,6 @@ class SessionForm extends React.Component {
       // this.props.router.push('artist/1')
     } else {
       return (
-        <div>
-          <nav className="navbar">
-            <ul>
-              <Link to="/signup" onClick={this.handleClick} className="navbar-link"><li>Sign Up</li></Link>
-              <Link to="/login" onClick={this.handleClick} className="navbar-link"><li>Log In</li></Link>
-              <Link to="/artist/1" onClick={this.props.guestLogin} className="navbar-link"><li>Guest Login</li></Link>
-            </ul>
-          </nav>
-          <Modal>
           <div className="session">
             <div className="session-parts">
               {this.header()}
@@ -153,13 +136,10 @@ class SessionForm extends React.Component {
                 <br />
                 {this.passErrors[0]}
                 <br />
-
                 <button className = "session-parts">{this.buttonText()}</button>
               </form>
               <br/>
             </div>
-          </div>
-          </Modal>
         </div>
       );
     }

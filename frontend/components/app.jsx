@@ -8,6 +8,7 @@ const App = (store) => {
   // console.log(store);
   return (
   <div>
+    <NavbarContainer />
     {store.children}
   </div>
 );};

@@ -4,7 +4,6 @@ import {signup, login, receiveErrors} from '../../actions/session_actions';
 import { Router, Route, IndexRoute, hashHistory, withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
   loggedIn: (state.session.currentUser !== null ? true : false ),
   errors: state.session.errors,

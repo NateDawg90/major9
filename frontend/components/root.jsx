@@ -46,10 +46,8 @@ const Root = ({store}) => {
   return (<Provider store = {store}>
     <Router history = {hashHistory}>
       <Route path="/" component={App} onEnter={redirectIfLoggedOut} >
-        <Route path="splash" component={SessionFormContainer}>
           <Route path="signup" onEnter={redirectIfLoggedIn}/>
           <Route path="login" onEnter={redirectIfLoggedIn}/>
-        </Route>
         <Route path="/artist/:artistId" component={StoreFrontContainer}
            onEnter={requestAlbumsOnEnter}>
           <Route path="album/:albumId" component={AlbumContainer}>
