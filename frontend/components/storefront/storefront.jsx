@@ -50,11 +50,14 @@ class storeFront extends React.Component{
     let parsedAlbums = this.albums();
     console.log(parsedAlbums);
   return (
-  <div className="Albums">
-    <h2> Here my albums:</h2>
-    {parsedAlbums}
-    <br / >
-    {this.props.children}
+  <div className = "StoreFront">
+    <h1>Banner Goes Here</h1>
+    <div className="Albums">
+      <h2> Here my albums:</h2>
+      {parsedAlbums}
+      <br / >
+      {this.props.children}
+    </div>
   </div>
     )
   };

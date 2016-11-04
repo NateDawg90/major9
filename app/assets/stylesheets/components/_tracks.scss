@@ -3,4 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .Tracks {
   background-color:green;
+
+  h1 {
+    font-size: 40px;
+    font-weight: 700px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 300px;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 1000px;
+    padding-bottom: 5px;
+  }
+
+  h4 {
+    font-size: 14px;
+
+  }
 }

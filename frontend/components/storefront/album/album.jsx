@@ -18,6 +18,7 @@ class Album extends React.Component{
       tracks.push(<li className="trackListItem"
        key={prop}>{obj[prop].track_number}. {obj[prop].track_name}</li>)
     }
+    //Add track lengths when we get to downloadable files
     return tracks
   }
 
@@ -45,12 +46,31 @@ class Album extends React.Component{
     return(
     <div className="Tracks">
       <h1>{this.currentAlbum('album_name')}</h1>
-      <h2>by <Link to={artistLink}>
+      <h3>by <Link to={artistLink}>
         {this.currentArtist('username')}
-      </Link></h2>
+      </Link></h3>
+      <h2> Song Player goes here</h2>
+      <h3>Digital Album</h3>
+      <h4>Includes unlimited streaming via the free Major9 app, plus
+      high-quality download in MP3.</h4>
+      <br/>
+      <h2> Purchasing Component </h2>
+      <h2>Buy Now {this.currentAlbum('price')}</h2>
       <ol>
         {this.displayTracks()}
       </ol>
+      <br />
+      <h4>released {this.currentAlbum('release_date')} </h4>
+      <br />
+      <h4>{this.currentAlbum('description')}</h4>
+      <br />
+      <h4>Created by {this.currentArtist('username')}</h4>
+      <br />
+      <h4> {this.currentAlbum('credits')}</h4>
+      <br />
+
+
+
     </div>
   )
   }
