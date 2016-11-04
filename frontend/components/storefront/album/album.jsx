@@ -19,12 +19,12 @@ class Album extends React.Component{
       let trackLink = `/artist/${this.currentArtist('id')}/album/${this.currentAlbum('id')}/track/${prop}`
 
       tracks.push(
-        <li className="TrackListItem-box">
+        <div className="TrackListItem-box" key={prop}>
           <ul className="TrackListItem">
             <li className="trackNumber" key={`Track_${prop}`}>
               {obj[prop].track_number}.
             </li>
-            <li className="trackListLink" key={prop}>
+            <li className="trackListLink" key={`Track_link_${prop}`}>
               <Link to={trackLink}>{obj[prop].track_name}</Link>
             </li>
             <li className="trackLength" key={`Length_${prop}`}>
@@ -34,7 +34,7 @@ class Album extends React.Component{
           <li className="trackHoverLink" key={`hover${prop}`}>
             <Link to={trackLink}>info</Link>
           </li>
-       </li>
+       </div>
      )
     }
     //Add track lengths when we get to downloadable files
@@ -47,26 +47,39 @@ class Album extends React.Component{
 
   currentAlbum(prop) {
     // debugger
-    if (Object.keys(this.props.albums.albums).length !== 0){
+    if (Object.keys(this.props.albums.albums).length !== 0 &&
+  this.props.albums.albums.hasOwnProperty(this.props.params.albumId)){
     return this.props.albums.albums[this.props.params.albumId][prop]
-    }
+  }
   }
 
   currentArtist(prop) {
-    if (Object.keys(this.props.albums.albums).length !== 0){
+    // debugger
+    if (Object.keys(this.props.albums.albums).length !== 0 &&
+    this.props.albums.albums.hasOwnProperty(this.props.params.albumId)){
+
     return this.props.albums.albums[this.props.params.albumId].artist[prop]
     }
   }
+
+  currentArtistObject() {
+    if (Object.keys(this.props.albums.albums).length !== 0){
+    return this.props.albums.albums[this.props.params.albumId].artist
+    }
+  }
+
+
 
   // {this.props.children}
 
   render() {
     // debugger
-    console.log(this.props);
     if (this.props.children) {
+      // debugger
       return(
       <div className ="track">
-        <TrackContainer trackId={this.props.params.trackId}/>
+        <TrackContainer trackId={this.props.params.trackId}
+          album={this.props.albums.albums[this.props.params.albumId]}/>
       </div>
       );
     } else {
@@ -85,9 +98,9 @@ class Album extends React.Component{
       <br/>
       <h2> Purchasing Component </h2>
       <h2>Buy Now {this.currentAlbum('price')}</h2>
-      <ol>
+      <div>
         {this.displayTracks()}
-      </ol>
+      </div>
       <br />
       <h4>released {this.currentAlbum('release_date')} </h4>
       <br />

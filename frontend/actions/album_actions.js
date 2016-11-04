@@ -8,9 +8,14 @@ export const RECEIVE_ALBUMS = "RECEIVE_ALBUMS";
 export const RECEIVE_ALBUM_ERRORS = "RECEIVE_ALBUM_ERRORS";
 export const FETCH_ARTIST = "FETCH_ARTIST";
 export const RECEIVE_ARTIST = "RECEIVE_ARTIST";
-
+export const FETCH_ALBUMS_FEATURED = "FETCH_ALBUMS_FEATURED"
 export const fetchAlbums = (userId) => ({
   type: FETCH_ALBUMS,
+  userId
+})
+
+export const fetchAlbumsFeatured = (userId) => ({
+  type: FETCH_ALBUMS_FEATURED,
   userId
 })
 

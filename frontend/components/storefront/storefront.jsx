@@ -49,15 +49,14 @@ class storeFront extends React.Component{
   //Probably flex on StoreFront and put the children components in order
   // Only child should be album and track components
   // Have Art and Sidebar components explicit
+  // <h2> Here my albums:</h2>
+  // {parsedAlbums}
   render() {
     let parsedAlbums = this.albums();
-    console.log(this.props);
   return (
   <div className = "StoreFront">
     <h1>Banner Goes Here</h1>
     <div className="Albums">
-      <h2> Here my albums:</h2>
-      {parsedAlbums}
       <br / >
       {this.props.children}
     </div>

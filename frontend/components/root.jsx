@@ -6,7 +6,8 @@ import SessionFormContainer from './session/session_form_container';
 import StoreFrontContainer from './storefront/storefront_container';
 import AlbumContainer from './storefront/album/album_container';
 import TrackContainer from './storefront/track/track_container';
-import {fetchAlbums} from '../actions/album_actions';
+import {fetchAlbums,fetchAlbumsFeatured,
+        fetchAlbum} from '../actions/album_actions';
 import {fetchTracks} from '../actions/track_actions';
 import {receiveErrors} from '../actions/session_actions';
 // const _redirectIfLoggedIn = (store) => {
@@ -18,7 +19,7 @@ import {receiveErrors} from '../actions/session_actions';
 
 const Root = ({store}) => {
   const requestAlbumsOnEnter = (nextState, replace) => {
-    store.dispatch(fetchAlbums(nextState.params.artistId))
+    store.dispatch(fetchAlbumsFeatured(nextState.params.artistId))
     let albumIds = Object.keys(store.getState().albums.albums)
   }
 
@@ -35,6 +36,12 @@ const Root = ({store}) => {
         replace(`splash`)
       }
     }
+  }
+
+  const requestAlbumOnEnter = (nextState, replace) => {
+    store.dispatch(fetchAlbum(nextState.params.albumId))
+    store.dispatch(fetchTracks(nextState.params.albumId))
+    store.dispatch(fetchAlbums(nextState.params.albumId))
   }
 
   const redirectToFeatured = (nextState, replace) => {
@@ -58,8 +65,10 @@ const Root = ({store}) => {
       <Route path="/" component={App} onEnter={redirectIfLoggedOut} >
         <Route path="/artist/:artistId" component={StoreFrontContainer}
            onEnter={requestAlbumsOnEnter}>
-          <Route path="album/:albumId" component={AlbumContainer}>
-            <Route path="track/:trackId" component={TrackContainer}/>
+          <Route path="album/:albumId" component={AlbumContainer}
+            onEnter={requestAlbumOnEnter}>
+            <Route path="track/:trackId" component={TrackContainer}
+              onEnter={requestAlbumOnEnter}/>
           </Route>
         </Route>
       </Route>

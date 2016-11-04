@@ -4,6 +4,7 @@ import { receiveAlbum,
          receiveArtist,
          FETCH_ARTIST,
          FETCH_ALBUM,
+         FETCH_ALBUMS_FEATURED,
          FETCH_ALBUMS,
          CREATE_ALBUM,
          UPDATE_ALBUM,
@@ -22,14 +23,20 @@ const albumMiddleware = ({getState, dispatch}) => next => action => {
     hashHistory.replace(`/artist/${firstAlbum.artist.id}/album/${firstAlbumId}`)
   }
   let handleAlbum = (album) => dispatch(receiveAlbum(album));
-  let handleAlbums = (albums) => {
+  let handleAlbumsFeatured = (albums) => {
     dispatch(receiveAlbums(albums))
     redirectToFeaturedAlbum();
   };
+  let handleAlbums = (albums) => {
+    dispatch(receiveAlbums(albums))
+  }
   let handleAlbumErrors = (errors) => dispatch(receiveAlbumErrors(errors.responseText));
   let handleArtist = (artist) => dispatch(receiveArtist(artist))
 
   switch(action.type){
+    case FETCH_ALBUMS_FEATURED:
+      fetchAlbums(action.userId, handleAlbumsFeatured, handleAlbumErrors)
+      return next(action);
     case FETCH_ALBUMS:
       fetchAlbums(action.userId, handleAlbums, handleAlbumErrors)
       return next(action);
