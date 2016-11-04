@@ -6,7 +6,8 @@ export const DELETE_ALBUM = "DELETE_ALBUM";
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 export const RECEIVE_ALBUMS = "RECEIVE_ALBUMS";
 export const RECEIVE_ALBUM_ERRORS = "RECEIVE_ALBUM_ERRORS";
-
+export const FETCH_ARTIST = "FETCH_ARTIST";
+export const RECEIVE_ARTIST = "RECEIVE_ARTIST";
 
 export const fetchAlbums = (userId) => ({
   type: FETCH_ALBUMS,
@@ -46,4 +47,15 @@ export const receiveAlbum = (album) => ({
 export const receiveAlbumErrors = (albumErrors) => ({
   type: RECEIVE_ALBUM_ERRORS,
   albumErrors
+})
+
+
+export const fetchArtist = (artistId) => ({
+  type: FETCH_ARTIST,
+  artist_id
+})
+
+export const receiveArtist = (artist) => ({
+  type: RECEIVE_ARTIST,
+  artist
 })

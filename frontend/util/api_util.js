@@ -126,3 +126,12 @@ export const deleteTrack = (albumId, trackNum, success, error) => {
     error
   })
 }
+
+export const fetchArtist = (artistId, success, error) => {
+  $.ajax({
+    url: `/api/users/${artistId}`,
+    method: "GET",
+    success,
+    error
+  })
+}

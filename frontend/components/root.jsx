@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from 'react-redux';
-import {Router, Route, hashHistory, indexRoute } from 'react-router';
+import {Router, Route, hashHistory,IndexRoute,IndexRedirect, DefaultRoute } from 'react-router';
 import App from './app';
 import SessionFormContainer from './session/session_form_container';
 import StoreFrontContainer from './storefront/storefront_container';
@@ -16,7 +16,7 @@ import {receiveErrors} from '../actions/session_actions';
 
 
 const Root = ({store}) => {
-  const requestAlbumsOnEnter = (nextState) => {
+  const requestAlbumsOnEnter = (nextState, replace) => {
     store.dispatch(fetchAlbums(nextState.params.artistId))
     let albumIds = Object.keys(store.getState().albums.albums)
     store.dispatch(fetchTracks(albumIds[0]));
@@ -37,10 +37,19 @@ const Root = ({store}) => {
     }
   }
 
+  const redirectToFeatured = (nextState, replace) => {
+    if (nextState.params.albumId === 'featured') {
+    let albumIds = Object.keys(store.getState().albums.albums)
+    store.dispatch(fetchTracks(nextState.params.albumId))
+    replace(`/artist/${nextState.params.artistId}/album/${albumIds[0]}`)
+    }
+  }
   const requestTracksOnEnter = (nextState) => {
     store.dispatch(fetchTracks(nextState.params.albumId))
   }
 //make whole page for logged out user with access to session form
+//Add a featured artists/albums page as indexroute/defaultroute
+// Maybe need to add featured_rank_num: to albums?
 
 
   return (<Provider store = {store}>
@@ -48,7 +57,10 @@ const Root = ({store}) => {
       <Route path="/" component={App} onEnter={redirectIfLoggedOut} >
         <Route path="/artist/:artistId" component={StoreFrontContainer}
            onEnter={requestAlbumsOnEnter}>
-          <Route path="album/:albumId" component={AlbumContainer}>
+           <IndexRedirect to="/artist/:artistId/album/featured" />
+
+          <Route path="album/:albumId" component={AlbumContainer}
+            onEnter={redirectToFeatured}>
             <Route path="track/:trackId" />
           </Route>
         </Route>

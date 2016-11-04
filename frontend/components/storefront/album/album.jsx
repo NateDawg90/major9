@@ -1,9 +1,12 @@
 import React from "react";
+import {Link} from "react-router";
 
 class Album extends React.Component{
   constructor(props){
     super(props)
     this.displayTracks = this.displayTracks.bind(this)
+    this.currentAlbum = this.currentAlbum.bind(this)
+    this.currentArtist = this.currentArtist.bind(this)
   }
 
   displayTracks() {
@@ -12,7 +15,8 @@ class Album extends React.Component{
     let obj = this.props.tracks.tracks
     let tracks = []
     for(var prop in obj){
-      tracks.push(<li key={prop}>{obj[prop].track_name}</li>)
+      tracks.push(<li className="trackListItem"
+       key={prop}>{obj[prop].track_number}. {obj[prop].track_name}</li>)
     }
     return tracks
   }
@@ -21,21 +25,32 @@ class Album extends React.Component{
     this.props.fetchTracks(this.props.params.albumId);
   }
 
-  currentAlbumName() {
-    console.log(this.props.albums);
+  currentAlbum(prop) {
+    // debugger
     if (Object.keys(this.props.albums.albums).length !== 0){
-    return this.props.albums.albums[this.props.params.albumId].album_name
+    return this.props.albums.albums[this.props.params.albumId][prop]
     }
   }
+
+  currentArtist(prop) {
+    if (Object.keys(this.props.albums.albums).length !== 0){
+    return this.props.albums.albums[this.props.params.albumId].artist[prop]
+    }
+  }
+
+
   render() {
     // debugger
+    let artistLink = `artist/${this.currentArtist('id')}`
     return(
-    <div>
-      <h1>{this.currentAlbumName.bind(this)()}</h1>
-      <h1>Here are my tracks:</h1>
-      <ul>
+    <div className="Tracks">
+      <h1>{this.currentAlbum('album_name')}</h1>
+      <h2>by <Link to={artistLink}>
+        {this.currentArtist('username')}
+      </Link></h2>
+      <ol>
         {this.displayTracks()}
-      </ul>
+      </ol>
     </div>
   )
   }

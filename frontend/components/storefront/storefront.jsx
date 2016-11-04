@@ -5,9 +5,12 @@ class storeFront extends React.Component{
   constructor (props) {
     super(props)
     this.albums = this.albums.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   albums() {
+    //This should eventually be passed to the sidebar container
+    // Currently using this to test different tracks
     this.props.fetchAlbums
     return this.parseAlbums()
   }
@@ -19,6 +22,13 @@ class storeFront extends React.Component{
   //   }
   // }
 
+  handleClick(albumId) {
+    return e => {
+      this.props.fetchTracks(albumId)
+      this.props.router.push(`artist/${this.props.params.artistId}/album/${albumId}`)
+    }
+  }
+
   parseAlbums() {
     const albumNames = []
     let obj = this.props.albums.albums
@@ -26,22 +36,23 @@ class storeFront extends React.Component{
     // console.log(this.props.children);
       for (var prop in obj ) {
         // debugger
-        albumNames.push(<h1 key={prop}>{obj[prop].album_name}</h1>)
+        albumNames.push(<h2 className="albumName" onClick={this.handleClick(prop)}key={prop}>{obj[prop].album_name}</h2>)
       }
     return albumNames
   }
 
   componentWillMount() {
     this.props.fetchTracks(this.props.params.albumId);
+    this.props.fetchArtist;
   }
-  
+
   render() {
-    // debugger
+    let parsedAlbums = this.albums();
+    console.log(parsedAlbums);
   return (
-  <div>
-    <h1> It's me, storeFront.</h1>
-    <h1> Here my albums:</h1>
-    {this.albums()}
+  <div className="Albums">
+    <h2> Here my albums:</h2>
+    {parsedAlbums}
     <br / >
     {this.props.children}
   </div>

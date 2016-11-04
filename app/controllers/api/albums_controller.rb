@@ -1,6 +1,6 @@
 class Api::AlbumsController < ApplicationController
   def index
-    @albums = Album.where(artist_id: params[:artist_id])
+    @albums = Album.where(artist_id: params[:artist_id]).order('release_date')
     if @albums.count != 0
       render :index
     else
