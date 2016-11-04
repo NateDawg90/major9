@@ -11,12 +11,30 @@ class Album extends React.Component{
 
   displayTracks() {
 
-    console.log(this.props);
     let obj = this.props.tracks.tracks
     let tracks = []
+
     for(var prop in obj){
-      tracks.push(<li className="trackListItem"
-       key={prop}>{obj[prop].track_number}. {obj[prop].track_name}</li>)
+      let trackLink = `/artist/${this.currentArtist('id')}/track/${prop}`
+
+      tracks.push(
+        <li className="TrackListItem-box">
+          <ul className="TrackListItem">
+            <li className="trackNumber" key={`Track_${prop}`}>
+              {obj[prop].track_number}.
+            </li>
+            <li className="trackListLink" key={prop}>
+              <Link to={trackLink}>{obj[prop].track_name}</Link>
+            </li>
+            <li className="trackLength" key={`Length_${prop}`}>
+              0:00
+            </li>
+          </ul>
+          <li className="trackHoverLink" key={`hover${prop}`}>
+            <Link to={trackLink}>info</Link>
+          </li>
+       </li>
+     )
     }
     //Add track lengths when we get to downloadable files
     return tracks
@@ -42,7 +60,8 @@ class Album extends React.Component{
 
   render() {
     // debugger
-    let artistLink = `artist/${this.currentArtist('id')}`
+    let featAlbumId = Object.keys(this.props.albums.albums)[0]
+    let artistLink = `/artist/${this.currentArtist('id')}/album/${featAlbumId}`
     return(
     <div className="Tracks">
       <h1>{this.currentAlbum('album_name')}</h1>

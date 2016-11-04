@@ -13,4 +13,37 @@
     font-size: 2em;
     padding-bottom: 20px;
   }
+
+  .TrackListItem{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction:row;
+    flex-wrap: wrap;
+    padding: 5px 0px;
+    width: 370px;
+    // float: left;
+
+  }
+
+
+  .TrackListItem-box{
+    display: flex;
+    justify-content:flex-start;
+
+    li{
+      padding-right: 5px;
+    }
+
+    .trackListLink{
+      padding-right: 10px;
+    }
+  }
+
+  .trackHoverLink{
+    display: none;
+  }
+
+  .TrackListItem:hover ~ .trackHoverLink{
+    display:flex;
+  }
 }

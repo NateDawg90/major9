@@ -5,6 +5,7 @@ import App from './app';
 import SessionFormContainer from './session/session_form_container';
 import StoreFrontContainer from './storefront/storefront_container';
 import AlbumContainer from './storefront/album/album_container';
+import TrackContainer from './storefront/track/track_container';
 import {fetchAlbums} from '../actions/album_actions';
 import {fetchTracks} from '../actions/track_actions';
 import {receiveErrors} from '../actions/session_actions';
@@ -19,7 +20,6 @@ const Root = ({store}) => {
   const requestAlbumsOnEnter = (nextState, replace) => {
     store.dispatch(fetchAlbums(nextState.params.artistId))
     let albumIds = Object.keys(store.getState().albums.albums)
-    store.dispatch(fetchTracks(albumIds[0]));
 
   }
 
@@ -52,6 +52,7 @@ const Root = ({store}) => {
 //Add a featured artists/albums page as indexroute/defaultroute
 // Maybe need to add featured_rank_num: to albums?
 
+//Remember that onEnters run from the children first (DFS)
 
   return (<Provider store = {store}>
     <Router history = {hashHistory}>
@@ -59,7 +60,7 @@ const Root = ({store}) => {
         <Route path="/artist/:artistId" component={StoreFrontContainer}
            onEnter={requestAlbumsOnEnter}>
           <Route path="album/:albumId" component={AlbumContainer}/>
-          <Route path="track/:trackId" />
+          <Route path="track/:trackId" component={TrackContainer}/>
         </Route>
       </Route>
     </Router>

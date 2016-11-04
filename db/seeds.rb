@@ -47,3 +47,6 @@ Track.create(album_id:1, release_date: Date.new, track_number:3, price: 1, track
 Track.create(album_id:2, release_date: Date.new, track_number:1, price: 1, track_name:"Run")
 Track.create(album_id:2, release_date: Date.new, track_number:2, price: 1, track_name:"Something Smells")
 Track.create(album_id:3, release_date: Date.new, track_number:1, price: 5, track_name:"Greatest Song")
+
+# Create seed for Nekomata, Jimmy Weckl, Izumi, (Maybe :Living Daylights), My Stuff
+# Hiromi, SOIL and PIMP, T-SQUARE,Kenji Suzuki 

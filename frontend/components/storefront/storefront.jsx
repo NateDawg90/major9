@@ -46,6 +46,9 @@ class storeFront extends React.Component{
     this.props.fetchArtist;
   }
 
+  //Probably flex on StoreFront and put the children components in order
+  // Only child should be album and track components
+  // Have Art and Sidebar components explicit
   render() {
     let parsedAlbums = this.albums();
     console.log(parsedAlbums);
