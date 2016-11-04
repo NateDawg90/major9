@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Navbar from './navbar';
-import { logout, login } from '../../actions/session_actions';
+import { logout, login, receiveFormType } from '../../actions/session_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -9,10 +9,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  let guest = {user:{username:"Guest", password:"123456"}};
   return {
-    guestLogin: () => dispatch(login(guest)),
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    receiveFormType: (formType) => dispatch(receiveFormType(formType))
   };
 };
 

@@ -14,17 +14,20 @@ class Navbar extends React.Component{
     this.onModalClose = this.onModalClose.bind(this)
   }
 
-  handleClick() {
+  handleClick(formType) {
+  return e => {
+    this.props.receiveFormType(formType);
     this.setState({modalOpen: true});
+    }
   }
 
   onModalClose() {
     this.setState({modalOpen: false});
   }
+
   handleLogout() {
     this.props.logout();
     this.onModalClose();
-    this.props.router.push('/')
   }
 
 
@@ -38,7 +41,7 @@ class Navbar extends React.Component{
     return (
       <nav id="loggedIn" className="navbar">
         <ul >
-          <Link to="/" className="navbar-link" onClick={this.handleLogout}><li>Logout</li></Link>
+          <Link className="navbar-link" onClick={this.handleLogout}><li>Logout</li></Link>
         </ul>
       </nav>
     );
@@ -46,9 +49,9 @@ class Navbar extends React.Component{
     return (<nav className="navbar">
       <ul>
 
-        <Link to="/signup" onClick={this.handleClick} className="navbar-link"><li>Sign Up</li></Link>
-        <Link to="/login" onClick={this.handleClick} className="navbar-link"><li>Log In</li></Link>
-        <Link to="/artist/1" onClick={this.props.guestLogin} className="navbar-link"><li>Guest Login</li></Link>
+        <Link onClick={this.handleClick("signup")} className="navbar-link"><li>Sign Up</li></Link>
+        <Link onClick={this.handleClick("login")} className="navbar-link"><li>Log In</li></Link>
+        <Link onClick={this.props.guestLogin} className="navbar-link"><li>Guest Login</li></Link>
 
       </ul>
         <Modal

@@ -3,7 +3,7 @@ export const LOGOUT = "LOGOUT";
 export const SIGNUP = "SIGNUP";
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-
+export const RECEIVE_FORMTYPE = "RECEIVE_FORMTYPE";
 
 export const login = (user) => ({
   type: LOGIN,
@@ -27,4 +27,9 @@ export const receiveCurrentUser = (user) => ({
 export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
+})
+
+export const receiveFormType = (formType) => ({
+  type: RECEIVE_FORMTYPE,
+  formType
 })

@@ -7,21 +7,21 @@ const mapStateToProps = (state, ownProps) => {
   return {
   loggedIn: (state.session.currentUser !== null ? true : false ),
   errors: state.session.errors,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  formType: state.session.formType
   }
 };
 
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  formType: location.hash,
-  clearErrors: () => dispatch(receiveErrors([])),
+  clearErrors: (blank) => {dispatch(receiveErrors(blank))},
   processForm: (formType, user) => {
-    // debugger;
+    debugger;
     let userObject = { user : user};
-    if (formType === '#/signup') {
+    if (formType === 'signup') {
       dispatch(signup(userObject));
-    } else if (formType === '#/login') {
+    } else if (formType === 'login') {
       dispatch(login(userObject));
     }
   }

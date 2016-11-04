@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
     this.state = {
       username: "",
       password: "",
-      formType: location.hash,
+      formType: this.props.formType
     };
     this.update = this.update.bind(this);
     this.header = this.header.bind(this);
@@ -19,20 +19,19 @@ class SessionForm extends React.Component {
     this.handleErrors = this.handleErrors.bind(this);
     this.userErrors = [];
     this.passErrors = [];
-
   }
 
-  
+
 
   header() {
-    if (this.state.formType === "#/signup") {
+    if (this.state.formType === "signup") {
       return (
         <div className="session-header">
         <h2> Sign Up for an Artist Account </h2>
         <h3> Already have an account? {this.oppositeLink()} </h3>
         </div>
       );
-    } else if (this.state.formType === "#/login") {
+    } else if (this.state.formType === "login") {
       return (
         <div className="session-header">
         <h2> Account Log In </h2>
@@ -45,9 +44,9 @@ class SessionForm extends React.Component {
   changeForm() {
     this.userErrors = [];
     this.passErrors = [];
-    this.props.clearErrors;
+    this.props.clearErrors([""]);
     this.handleErrors();
-    this.setState({formType: (this.state.formType === "#/login" ? "#/signup" : "#/login")})
+    this.setState({formType: (this.state.formType === "login" ? "signup" : "login")})
   }
 
   clearErrors() {
@@ -55,18 +54,19 @@ class SessionForm extends React.Component {
   }
 
   oppositeLink() {
-    if (this.state.formType === '#/signup') {
-      return (<Link key="login" to="/login" onClick={this.changeForm}
+    if (this.state.formType === 'signup') {
+      return (<Link key="login" onClick={this.changeForm}
       > Log In. </Link>);
-    } else if (this.state.formType === '#/login' ) {
-      return (<Link key="signup" to="/signup" onClick={this.changeForm}
+    } else if (this.state.formType === 'login' ) {
+      return (<Link key="signup" onClick={this.changeForm}
       > Sign up as an artist.</Link>);
     }
   }
 
   handleSubmit(e){
     // debugger
-    this.clearErrors();
+    this.props.clearErrors;
+
     console.log("I'm out here");
     e.preventDefault();
     this.props.processForm(this.state.formType, this.state)
@@ -87,16 +87,16 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-
+    console.log(newProps);
     if (newProps.currentUser) {
     this.props.router.push(`/artist/${newProps.currentUser.id}`)
     }
   }
 
   buttonText() {
-    if (this.state.formType === '#/signup') {
+    if (this.state.formType === 'signup') {
       return ("Sign Up");
-    } else if (this.state.formType === '#/login') {
+    } else if (this.state.formType === 'login') {
       return ("Log In");
     }
   }
