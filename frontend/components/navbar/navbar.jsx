@@ -39,8 +39,11 @@ class Navbar extends React.Component{
     if (this.props.currentUser !== null) {
     return (
       <nav id="loggedIn" className="navbar">
+
         <ul >
-          <li><h3>Welcome, {this.props.currentUser.username}!</h3></li>
+        <Link className="navbar-link" to="/"><li className="logo"><img src="/assets/Major9_Logo.png"/></li></Link>
+
+          <li><h3>{this.props.currentUser.username}!</h3></li>
           <Link className="navbar-link" onClick={this.handleLogout}><li>Logout</li></Link>
         </ul>
       </nav>
@@ -49,6 +52,8 @@ class Navbar extends React.Component{
     return (<nav className="navbar">
       <ul>
 
+        <Link className="navbar-link" to="/"><li className="logo"><img src="/assets/Major9_Logo.png"/></li></Link>
+        <li></li>
         <Link onClick={this.handleClick("signup")} className="navbar-link"><li>Sign Up</li></Link>
         <Link onClick={this.handleClick("login")} className="navbar-link"><li>Log In</li></Link>
         <Link onClick={this.props.guestLogin} className="navbar-link"><li>Guest Login</li></Link>

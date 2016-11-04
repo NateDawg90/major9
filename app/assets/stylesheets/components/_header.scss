@@ -7,6 +7,7 @@
 }
 
 .navbar {
+  min-width:300px;
   display: block;
   height: 43px;
   background-color: lightgray;
@@ -16,10 +17,17 @@
   border-bottom: 1px dotted gray;
 
 
-    ul {
+  ul {
+      position: relative;
       display: flex;
       justify-content:flex-end;
 
+    img {
+        padding-top: 12px;
+        line-height: 50px;
+        width: 35px;
+        align-self: left;
+      }
     li {
       padding: 0px 10px;
       height: 43px;
