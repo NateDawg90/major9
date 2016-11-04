@@ -35,12 +35,12 @@ class Navbar extends React.Component{
 // Navbar in the else condition goes in session form, only what a logged out user would seed
 // Once logged in, completely replace the sessionform, and show the logged in navbar
 // Restrict loggedin navbar with an onEnter
-// <li><h3>Welcome, {this.props.currentUser.username}!</h3></li>
   render () {
     if (this.props.currentUser !== null) {
     return (
       <nav id="loggedIn" className="navbar">
         <ul >
+          <li><h3>Welcome, {this.props.currentUser.username}!</h3></li>
           <Link className="navbar-link" onClick={this.handleLogout}><li>Logout</li></Link>
         </ul>
       </nav>

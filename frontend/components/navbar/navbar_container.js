@@ -9,9 +9,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
+  let guest = {user:{username:"Guest", password:"123456"}}
   return {
     logout: () => dispatch(logout()),
-    receiveFormType: (formType) => dispatch(receiveFormType(formType))
+    receiveFormType: (formType) => dispatch(receiveFormType(formType)),
+    guestLogin: () => dispatch(login(guest))
   };
 };
 
