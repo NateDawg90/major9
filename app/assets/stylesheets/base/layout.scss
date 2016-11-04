@@ -14,10 +14,12 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 12px;
+  cursor: pointer;
 }
 
 a:hover{
   text-decoration: underline;
+  cursor: pointer;
 }
 
 #root {

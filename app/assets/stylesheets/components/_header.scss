@@ -1,5 +1,6 @@
 .navbar-link{
   color:#408294;
+  cursor:pointer;
 }
 .navbar-link:hover{
   background: rgba(0,0,0,0.08);
@@ -32,6 +33,8 @@
         height: 43px;
         line-height: 43px;
         text-align: center;
+        cursor:pointer;
+
       }
     }
 }
