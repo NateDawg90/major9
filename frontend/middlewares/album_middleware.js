@@ -12,12 +12,20 @@ import { receiveAlbum,
 
 import { fetchAlbums, fetchAlbum, createAlbum,
          updateAlbum, deleteAlbum, fetchArtist} from '../util/api_util';
-
+import {hashHistory} from 'react-router';
 import merge from 'lodash/merge'
 
 const albumMiddleware = ({getState, dispatch}) => next => action => {
+  let redirectToFeaturedAlbum = () => {
+    let firstAlbumId = Object.keys(getState().albums.albums)[0]
+    let firstAlbum = getState().albums.albums[firstAlbumId]
+    hashHistory.replace(`/artist/${firstAlbum.artist.id}/album/${firstAlbumId}`)
+  }
   let handleAlbum = (album) => dispatch(receiveAlbum(album));
-  let handleAlbums = (albums) => dispatch(receiveAlbums(albums));
+  let handleAlbums = (albums) => {
+    dispatch(receiveAlbums(albums))
+    redirectToFeaturedAlbum();
+  };
   let handleAlbumErrors = (errors) => dispatch(receiveAlbumErrors(errors.responseText));
   let handleArtist = (artist) => dispatch(receiveArtist(artist))
 
