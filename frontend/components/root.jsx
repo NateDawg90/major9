@@ -7,7 +7,7 @@ import StoreFrontContainer from './storefront/storefront_container';
 import AlbumContainer from './storefront/album/album_container';
 import TrackContainer from './storefront/track/track_container';
 import {fetchAlbums} from '../actions/album_actions';
-import {fetchTracks} from '../actions/track_actions';
+import {fetchTracks, fetchTrack} from '../actions/track_actions';
 import {receiveErrors} from '../actions/session_actions';
 // const _redirectIfLoggedIn = (store) => {
 //   if (store.getState().session.currentUser) {
@@ -43,6 +43,10 @@ const Root = ({store}) => {
     store.dispatch(fetchTracks(nextState.params.albumId))
     replace(`/artist/${nextState.params.artistId}/album/${albumIds[0]}`)
     }
+  }
+
+  const redirectToRequestedTrack = (nextState, replace) => {
+    store.dispatch(fetchTrack(nextState.params.trackId))
   }
   const requestTracksOnEnter = (nextState) => {
     store.dispatch(fetchTracks(nextState.params.albumId))

@@ -16,7 +16,7 @@ class Album extends React.Component{
     let tracks = []
 
     for(var prop in obj){
-      let trackLink = `/artist/${this.currentArtist('id')}/album/${this.currentAlbum('id')}/track/${prop}`
+      let trackLink = `/artist/${this.props.params.artistId}/album/${this.props.params.albumId}/track/${prop}`
 
       tracks.push(
         <li className="TrackListItem-box">
