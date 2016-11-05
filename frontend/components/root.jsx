@@ -65,8 +65,7 @@ const Root = ({store}) => {
       <Route path="/" component={App} onEnter={redirectIfLoggedOut} >
         <Route path="/artist/:artistId" component={StoreFrontContainer}
            onEnter={requestAlbumsOnEnter}>
-          <Route path="album/:albumId" component={AlbumContainer}
-            onEnter={requestAlbumOnEnter}>
+          <Route path="album/:albumId" component={AlbumContainer}>
             <Route path="track/:trackId" component={TrackContainer}
               onEnter={requestAlbumOnEnter}/>
           </Route>
