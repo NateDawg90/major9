@@ -19,7 +19,7 @@ class Album extends React.Component{
       let trackLink = `/artist/${this.props.params.artistId}/album/${this.props.params.albumId}/track/${prop}`
 
       tracks.push(
-        <li className="TrackListItem-box">
+        <div className="TrackListItem-box">
           <ul className="TrackListItem">
             <li className="trackNumber" key={`Track_${prop}`}>
               {obj[prop].track_number}.
@@ -34,7 +34,7 @@ class Album extends React.Component{
           <li className="trackHoverLink" key={`hover${prop}`}>
             <Link to={trackLink}>info</Link>
           </li>
-       </li>
+       </div>
      )
     }
     //Add track lengths when we get to downloadable files
@@ -65,8 +65,8 @@ class Album extends React.Component{
     console.log(this.props);
     if (this.props.children) {
       return(
-      <div className ="track">
-        <TrackContainer trackId={this.props.params.trackId}/>
+      <div className ="track" key='track'>
+        <TrackContainer key='trackContainer'trackId={this.props.params.trackId}/>
       </div>
       );
     } else {
@@ -85,9 +85,7 @@ class Album extends React.Component{
       <br/>
       <h2> Purchasing Component </h2>
       <h2>Buy Now {this.currentAlbum('price')}</h2>
-      <ol>
         {this.displayTracks()}
-      </ol>
       <br />
       <h4>released {this.currentAlbum('release_date')} </h4>
       <br />

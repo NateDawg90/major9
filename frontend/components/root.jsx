@@ -6,6 +6,7 @@ import SessionFormContainer from './session/session_form_container';
 import StoreFrontContainer from './storefront/storefront_container';
 import AlbumContainer from './storefront/album/album_container';
 import TrackContainer from './storefront/track/track_container';
+import SplashContainer from './splash/splash_container';
 import {fetchAlbums} from '../actions/album_actions';
 import {fetchTracks, fetchTrack} from '../actions/track_actions';
 import {receiveErrors} from '../actions/session_actions';
@@ -60,6 +61,7 @@ const Root = ({store}) => {
   return (<Provider store = {store}>
     <Router history = {hashHistory}>
       <Route path="/" component={App} onEnter={redirectIfLoggedOut} >
+        <IndexRoute component={SplashContainer} />
         <Route path="/artist/:artistId" component={StoreFrontContainer}
            onEnter={requestAlbumsOnEnter}>
           <Route path="album/:albumId" component={AlbumContainer}>
