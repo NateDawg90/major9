@@ -8,6 +8,7 @@ class Album extends React.Component{
     this.displayTracks = this.displayTracks.bind(this)
     this.currentAlbum = this.currentAlbum.bind(this)
     this.currentArtist = this.currentArtist.bind(this)
+    this.handleNameClick = this.handleNameClick.bind(this)
   }
 
   displayTracks() {
@@ -60,6 +61,10 @@ class Album extends React.Component{
 
   // {this.props.children}
 
+  handleNameClick(albumId) {
+    this.props.fetchTracks(albumId)
+  }
+
   render() {
     // debugger
     console.log(this.props);
@@ -71,11 +76,12 @@ class Album extends React.Component{
       );
     } else {
     let featAlbumId = Object.keys(this.props.albums.albums)[0]
-    let artistLink = `/artist/${this.currentArtist('id')}/album/${featAlbumId}`
+    let artistLink =`/artist/${this.currentArtist('id')}/album/${featAlbumId}`
+
     return(
     <div className="Tracks">
       <h1>{this.currentAlbum('album_name')}</h1>
-      <h3>by <Link to={artistLink}>
+      <h3>by <Link to={artistLink} onClick={this.handleNameClick}>
         {this.currentArtist('username')}
       </Link></h3>
       <h2> Song Player goes here</h2>
