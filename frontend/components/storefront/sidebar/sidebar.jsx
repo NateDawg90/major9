@@ -9,7 +9,6 @@ class Sidebar extends React.Component {
 
   parseAlbums() {
     const albumNames = []
-    console.log(this.props);
     let obj = this.props.albums.albums
     // console.log(this.props.albums.albums);
     // console.log(this.props.children);
@@ -38,7 +37,9 @@ class Sidebar extends React.Component {
   render() {
     let parsedAlbums = this.albums();
     return(
+
       <div className="sidebar">
+
       <h3> Here my albums:</h3>
       {parsedAlbums}
       </div>

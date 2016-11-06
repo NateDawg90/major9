@@ -7,7 +7,7 @@ import {fetchTracks} from '../../../actions/track_actions';
 const mapStateToProps = (state, ownProps) => ({
   tracks: state.tracks,
   albums: state.albums,
-  errors: state.errors
+  errors: state.errors,
 })
 
 const mapDispatchToProps = (dispatch) => ({

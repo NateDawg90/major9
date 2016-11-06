@@ -12,15 +12,18 @@ class Album extends React.Component{
   }
 
   displayTracks() {
+    let obj;
+    let tracks = [];
 
-    let obj = this.props.tracks.tracks
-    let tracks = []
+    if (Object.keys(this.props.albums.albums).length !== 0) {
+    obj = this.props.albums.albums[this.props.params.albumId].tracks
+    console.log(this.props.albums.albums[this.props.params.albumId]);
+    }
 
     for(var prop in obj){
-      let trackLink = `/artist/${this.props.params.artistId}/album/${this.props.params.albumId}/track/${prop}`
-
+      let trackLink = `/artist/${this.props.params.artistId}/album/${this.props.params.albumId}/track/${obj[prop].id}`
       tracks.push(
-        <div className="TrackListItem-box">
+        <div className="TrackListItem-box" key={`Box${prop}`}>
           <ul className="TrackListItem">
             <li className="trackNumber" key={`Track_${prop}`}>
               {obj[prop].track_number}.
@@ -39,6 +42,7 @@ class Album extends React.Component{
      )
     }
     //Add track lengths when we get to downloadable files
+    console.log(tracks);
     return tracks
   }
 
@@ -67,7 +71,6 @@ class Album extends React.Component{
 
   render() {
     // debugger
-    console.log(this.props);
     if (this.props.children) {
       return(
       <div className ="track" key='track'>
