@@ -19,7 +19,7 @@ import {receiveErrors} from '../actions/session_actions';
 
 const Root = ({store}) => {
   const requestAlbumsOnEnter = (nextState, replace) => {
-    store.dispatch(fetchAlbumsFeatured(nextState.params.artistId))
+    store.dispatch(fetchAlbums(nextState.params.artistId))
     let albumIds = Object.keys(store.getState().albums.albums)
   }
 
