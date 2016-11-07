@@ -85,7 +85,7 @@ class Album extends React.Component{
       <div className="Tracks">
         <h1>{this.currentAlbum('album_name')}</h1>
         <h3>by <Link to={artistLink} onClick={this.handleNameClick}>
-          {this.currentArtist('username')}
+          {this.currentArtist('artist_name')}
         </Link></h3>
         <h2> Song Player goes here</h2>
         <h3>Digital Album</h3>

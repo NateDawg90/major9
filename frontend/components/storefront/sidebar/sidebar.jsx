@@ -1,10 +1,12 @@
 import React from 'react'
+import ArtContainer from "../art/art_container";
 
 class Sidebar extends React.Component {
   constructor(props){
     super(props)
     this.albums = this.albums.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.currentArtist = this.currentArtist.bind(this)
   }
 
   parseAlbums() {
@@ -34,13 +36,20 @@ class Sidebar extends React.Component {
     return this.parseAlbums()
   }
 
+  currentArtist(prop) {
+    if (Object.keys(this.props.albums.albums).length !== 0 &&
+        Object.keys(this.props.albums.albums).includes(this.props.params.albumId)){
+      return this.props.albums.albums[this.props.params.albumId].artist[prop]
+    }
+  }
+
   render() {
     let parsedAlbums = this.albums();
     return(
 
       <div className="sidebar">
+      <h3>{this.currentArtist('artist_name')}</h3>
 
-      <h3> Here my albums:</h3>
       {parsedAlbums}
       </div>
     )

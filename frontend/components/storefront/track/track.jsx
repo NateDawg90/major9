@@ -8,6 +8,7 @@ class Track extends React.Component{
     this.currentAlbum = this.currentAlbum.bind(this)
     this.currentArtist = this.currentArtist.bind(this)
     this.currentTrack = this.currentTrack.bind(this)
+    this.trackArt = this.trackArt.bind(this)
   }
 
 
@@ -49,6 +50,14 @@ class Track extends React.Component{
   // <h4> {this.currentAlbum('credits')}</h4>
   // <br />
 
+  trackArt() {
+    if (this.props.image_url){
+      return this.props.image_url
+    } else {
+      return this.currentAlbum("image_url")
+    }
+  }
+
   render() {
     // debugger
     // If not purchaseale, "Buy the Full Digital Album"
@@ -77,7 +86,7 @@ class Track extends React.Component{
             <h4> {this.currentTrack('credits')}</h4>
             <br />
         </div>
-        <ArtContainer image_url={this.props.image_url} />
+        <ArtContainer image_url={this.trackArt()} />
     </div>
     )
   }
