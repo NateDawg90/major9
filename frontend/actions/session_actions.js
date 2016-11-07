@@ -15,9 +15,10 @@ export const logout = () => ({
   type: LOGOUT,
 })
 
-export const signup = (user) => ({
+export const signup = (user, redirect) => ({
   type: SIGNUP,
-  user
+  user,
+  redirect
 })
 
 export const fetchArtist = (artistId) => ({

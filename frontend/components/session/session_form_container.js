@@ -17,7 +17,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   clearErrors: (blank) => {dispatch(receiveErrors(blank))},
   processForm: (formType, user) => {
-    debugger;
     let userObject = { user : user};
     if (formType === 'signup') {
       dispatch(signup(userObject));

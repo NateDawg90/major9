@@ -6,8 +6,9 @@ import storeFront from './storefront';
 const mapStateToProps = (state, ownProps) => ({
   tracks: state.tracks,
   albums: state.albums,
-  errors: state.errors,
-  artist: state.albums.albums.artist
+  errors: state.albums.errors,
+  artist: state.albums.albums.artist,
+  currentUser: state.session.currentUser
 })
 
 const mapDispatchToProps = (dispatch,ownProps) => ({

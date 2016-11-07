@@ -4,6 +4,7 @@ import { receiveCurrentUser,
          LOGOUT,
          SIGNUP
        } from '../actions/session_actions';
+import {hashHistory} from 'react-router'
 
 import { login, signup, logout } from '../util/api_util';
 import merge from 'lodash/merge'
@@ -11,7 +12,8 @@ import merge from 'lodash/merge'
 const sessionMiddleware = ({getState, dispatch}) => next => action => {
   const handleSuccess = (data) => dispatch(receiveCurrentUser(data));
   const handleSignUp = (data) => {
-    dispatch(receiveCurrentUser(data))
+    debugger
+    dispatch(receiveCurrentUser(data, true))
     hashHistory.replace(`/artist/${data.id}`)
   }
   const handleError = (data) => dispatch(receiveErrors(data.responseJSON));
@@ -24,7 +26,7 @@ const sessionMiddleware = ({getState, dispatch}) => next => action => {
     logout(handleLogout, handleError)
     break;
   case SIGNUP:
-    signup(action.user, handleSuccess, handleError)
+    signup(action.user, handleSignUp, handleError)
     break;
   }
 
