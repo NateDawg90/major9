@@ -24,11 +24,7 @@ class Album extends React.Component{
     for(var prop in obj){
       let trackLink = `/artist/${this.props.params.artistId}/album/${this.props.params.albumId}/track/${obj[prop].id}`
       tracks.push(
-<<<<<<< HEAD
-        <div className="TrackListItem-box" key={prop}>
-=======
         <div className="TrackListItem-box" key={`Box${prop}`}>
->>>>>>> UpdatedCSS
           <ul className="TrackListItem">
             <li className="trackNumber" key={`Track_${prop}`}>
               {obj[prop].track_number}.
