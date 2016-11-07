@@ -34,8 +34,8 @@ class storeFront extends React.Component{
   // Have Art and Sidebar components explicit
   render() {
   return (
-    <div>
-    <h1>Banner Goes Here</h1>
+    <div className = "StoreFrontBox">
+    <h5>Banner Goes Here</h5>
   <div className = "StoreFront">
     <div className="Albums">
       {this.props.children}

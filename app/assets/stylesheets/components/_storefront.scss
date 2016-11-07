@@ -15,10 +15,17 @@ h2 {
   font-size: 2em;
   padding-bottom: 20px;
 }
+
+h5{
+  text-align: center;
+}
 .StoreFront{
   display: flex;
   justify-content: space-between;
+  width:975px;
+  margin: 0 auto;
 }
+
 
 .Show {
   display:flex;
