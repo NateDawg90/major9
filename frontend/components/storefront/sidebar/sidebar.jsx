@@ -16,7 +16,22 @@ class Sidebar extends React.Component {
     // console.log(this.props.children);
       for (var prop in obj ) {
         // debugger
-        albumNames.push(<h2 className="albumName" onClick={this.handleClick(prop)}key={prop}>{obj[prop].album_name}</h2>)
+        if(obj[prop].image_url) {
+        albumNames.push(
+          <div className="sidebarItemBox" key={`${prop}`}>
+          <img className="sidebarItem" src={obj[prop].image_url} onClick={this.handleClick(prop)}key={prop}/>
+          <h3 className="sidebarSmallName" onClick={this.handleClick(prop)}key={`name${prop}`}> {obj[prop].album_name} </h3>
+          <h4 key={`date${prop}`}> {obj[prop].release_date} </h4>
+          </div>)
+        } else {
+        albumNames.push(
+          <div className="sidebarItemBox" key={`${prop}`}>
+          <h2 className="sidebarItem" onClick={this.handleClick(prop)}key={prop}>{obj[prop].album_name}</h2>
+          <h3 className="sidebarSmallName" onClick={this.handleClick(prop)}key={`name${prop}`}> {obj[prop].album_name} </h3>
+          <h4 key={`date${prop}`}> {obj[prop].release_date} </h4>
+          </div>
+          )
+        }
       }
     return albumNames
   }
@@ -48,8 +63,9 @@ class Sidebar extends React.Component {
     return(
 
       <div className="sidebar">
-      <h3>{this.currentArtist('artist_name')}</h3>
-
+      <h2>{this.currentArtist('artist_name')}</h2>
+      <br/>
+      <h3>Discography:</h3>
       {parsedAlbums}
       </div>
     )

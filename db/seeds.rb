@@ -21,7 +21,7 @@ Album.create(
   price: 5,
   release_date:Date.new,
   description: "This is a jazz album.",
-  image_url: "http://www.ibanez.com/products/images/sig/models/PM200_NT_00_01.png",
+  image_url: "http://magazine.dv247.com/wp-content/uploads/2010/12/gretsch-g6136t-white-falcon.jpg",
   about: "This album isn't real yet.",
   credits: "Target for having the best deals.",
   )
@@ -40,7 +40,7 @@ album_name: "Mangekyou",
 about: "20 Years in the Making. Jimmy Weckl finally releases a solo album to the masses!",
 price: 40,
 release_date:"11/5/16",
-image_url: "Mangekyou Picture")
+image_url: "/assets/Mangekyou.png")
 Album.create(artist_id:4,
 about: "Nekomata Master drops yet another album filled with amazing soundscapes and intense chord progressions.",
 album_name: "Crevice",
@@ -58,7 +58,7 @@ Track.create(album_id:1,
   price: 1,
   track_name:"Blue Bossa",
   description: "If I could play this song well, it would be here",
-  image_url: "http://www.rareelectricguitar.com/images/upload/Image/xieduesenberg-star-player-tv-pearl-emerald-blue-full-front.jpg",
+  image_url: "http://magazine.dv247.com/wp-content/uploads/2010/12/gretsch-g6136t-white-falcon.jpg",
   lyrics: "La la la this is the blue bossa song lyrics",
   credits: "Target again for best deals.",
   bonus: true

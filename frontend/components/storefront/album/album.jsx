@@ -100,7 +100,7 @@ class Album extends React.Component{
         <br />
         <h4>{this.currentAlbum('description')}</h4>
         <br />
-        <h4>Created by {this.currentArtist('username')}</h4>
+        <h4>Created by {this.currentArtist('artist_name')}</h4>
         <br />
         <h4> {this.currentAlbum('credits')}</h4>
         <br />
