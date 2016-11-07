@@ -74,9 +74,11 @@ class Album extends React.Component{
   }
 
   contentMatching(artistId){
-    if (Object.keys(this.props.albums.albums).length !== 0){
+    if (Object.keys(this.props.albums.albums).length !== 0 &&
+      this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist.id == artistId){
       return this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist.id == artistId
     }
+    return false
   }
 
   render() {

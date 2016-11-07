@@ -8,6 +8,7 @@ class Sidebar extends React.Component {
     this.handleClick = this.handleClick.bind(this)
     this.currentArtist = this.currentArtist.bind(this)
     this.contentMatching = this.contentMatching.bind(this)
+    this.editButton = this.editButton.bind(this)
   }
 
   contentMatching(artistId){
@@ -65,9 +66,18 @@ class Sidebar extends React.Component {
     }
   }
 
+  editButton() {
+    if(this.props.currentUser) {
+      if (this.props.currentUser.id == this.props.params.artistId){
+        return(<div><button>Edit Page</button> <br/></div>)
+      }
+    }
+    return(<div></div>)
+  }
+
   render() {
     let parsedAlbums = this.albums();
-
+    let editButton = this.editButton();
     if(this.contentMatching(this.props.params.artistId) == false) {
       return (
         <div>
@@ -75,12 +85,13 @@ class Sidebar extends React.Component {
       )
     } else {
     return(
-
       <div className="sidebar">
       <h2>{this.currentArtist('artist_name')}</h2>
+      {editButton}
       <br/>
       <h3>Discography:</h3>
       {parsedAlbums}
+
       </div>
     )
     }

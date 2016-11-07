@@ -9,18 +9,19 @@ class Track extends React.Component{
     this.currentArtist = this.currentArtist.bind(this)
     this.currentTrack = this.currentTrack.bind(this)
     this.trackArt = this.trackArt.bind(this)
+    this.currentTrackGrabbed = this.currentTrackGrabbed.bind(this)
   }
 
 
   currentTrack(prop) {
-    console.log(this.props.tracks.track);
-    console.log(this.props);
-    console.log('break');
-    console.log(this.props.params.trackId);
+    // console.log(this.props.tracks.track);
+    // console.log(this.props);
+    // console.log('break');
+    // console.log(this.props.params.trackId);
+    // console.log(Object.keys(this.props.tracks.tracks));
 
-    console.log(Object.keys(this.props.tracks.tracks));
       if (Object.keys(this.props.tracks.tracks).length !== 0){
-      return this.props.tracks.tracks[this.props.params.trackId][prop]
+        return this.props.tracks.tracks[this.props.params.trackId][prop]
     }
   }
 
@@ -37,6 +38,10 @@ class Track extends React.Component{
     }
   }
 
+  componentWillMount(){
+    // this.props.fetchAlbum(this.props.params.albumId)
+    // this.props.fetchTracks(this.props.params.albumId)
+  }
   // <ol>
   //   {this.displayTracks()}
   // </ol>
@@ -57,38 +62,50 @@ class Track extends React.Component{
       return this.currentAlbum("image_url")
     }
   }
+  currentTrackGrabbed() {
+    debugger
+    if (Object.keys(this.props.albums.albums).length !== 0) {
+      // console.log(this.props.params.trackId);
+      if (Object.keys(this.props.albums.albums[this.props.params.albumId].tracks).includes(this.props.params.trackId)){
+        return true
+      }
+    }
+      return false
+  }
 
   render() {
     // debugger
     // If not purchaseale, "Buy the Full Digital Album"
     // If purchaseable, "Purchasing Component"
-    let featAlbumId = Object.keys(this.props.albums.albums)[0]
-    let artistLink = `artist/${this.currentArtist('id')}/album/${featAlbumId}`
-    let albumLink = `artist/${this.currentArtist('id')}/album/${this.currentAlbum("id")}`
-    return(
-    <div className="Show">
-      <div className="Tracks">
-        <h1>{this.currentTrack('track_name')}</h1>
-          <h3>from <Link to={albumLink}>{this.currentAlbum("album_name")}</Link> by <Link to={artistLink}> {this.currentArtist('username')}
-          </Link></h3>
-          <h2> Song Player goes here</h2>
-          <h3>Buy the Full Digital Album</h3>
-          <br/>
-          <h2> Purchasing Component </h2>
-          <h2>Buy Now {this.currentTrack('price')}</h2>
-            <br />
-            <h4>released {this.currentTrack('release_date')} </h4>
-            <br />
-            <h4>{this.currentTrack('description')}</h4>
-            <br />
-            <h4>Created by {this.currentArtist('username')}</h4>
-            <br />
-            <h4> {this.currentTrack('credits')}</h4>
-            <br />
-        </div>
-        <ArtContainer image_url={this.trackArt()} />
-    </div>
-    )
+    // if (this.currentTrackGrabbed()===true) {
+      let featAlbumId = Object.keys(this.props.albums.albums)[0]
+      let artistLink = `artist/${this.currentArtist('id')}/album/${featAlbumId}`
+      let albumLink = `artist/${this.currentArtist('id')}/album/${this.currentAlbum("id")}`
+      return(
+      <div className="Show">
+        <div className="Tracks">
+          <h1>{this.currentTrack('track_name')}</h1>
+            <h3>from <Link to={albumLink}>{this.currentAlbum("album_name")}</Link> by <Link to={artistLink}> {this.currentArtist('username')}
+            </Link></h3>
+            <h2> Song Player goes here</h2>
+            <h3>Buy the Full Digital Album</h3>
+            <br/>
+            <h2> Purchasing Component </h2>
+            <h2>Buy Now {this.currentTrack('price')}</h2>
+              <br />
+              <h4>released {this.currentTrack('release_date')} </h4>
+              <br />
+              <h4>{this.currentTrack('description')}</h4>
+              <br />
+              <h4>Created by {this.currentArtist('username')}</h4>
+              <br />
+              <h4> {this.currentTrack('credits')}</h4>
+              <br />
+          </div>
+          <ArtContainer image_url={this.trackArt()} />
+      </div>)
+
+
   }
 }
 
