@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router";
+import ArtContainer from "../art/art_container";
 
 class Track extends React.Component{
   constructor(props){
@@ -56,26 +57,27 @@ class Track extends React.Component{
     let artistLink = `artist/${this.currentArtist('id')}/album/${featAlbumId}`
     let albumLink = `artist/${this.currentArtist('id')}/album/${this.currentAlbum("id")}`
     return(
-    <div className="Tracks">
-      <h1>{this.currentTrack('track_name')}</h1>
-        <h3>from <Link to={albumLink}>{this.currentAlbum("album_name")}</Link> by <Link to={artistLink}> {this.currentArtist('username')}
-        </Link></h3>
-        <h2> Song Player goes here</h2>
-        <h3>Buy the Full Digital Album</h3>
-        <br/>
-        <h2> Purchasing Component </h2>
-        <h2>Buy Now {this.currentTrack('price')}</h2>
-          <br />
-          <h4>released {this.currentTrack('release_date')} </h4>
-          <br />
-          <h4>{this.currentTrack('description')}</h4>
-          <br />
-          <h4>Created by {this.currentArtist('username')}</h4>
-          <br />
-          <h4> {this.currentTrack('credits')}</h4>
-          <br />
-
-
+    <div className="Show">
+      <div className="Tracks">
+        <h1>{this.currentTrack('track_name')}</h1>
+          <h3>from <Link to={albumLink}>{this.currentAlbum("album_name")}</Link> by <Link to={artistLink}> {this.currentArtist('username')}
+          </Link></h3>
+          <h2> Song Player goes here</h2>
+          <h3>Buy the Full Digital Album</h3>
+          <br/>
+          <h2> Purchasing Component </h2>
+          <h2>Buy Now {this.currentTrack('price')}</h2>
+            <br />
+            <h4>released {this.currentTrack('release_date')} </h4>
+            <br />
+            <h4>{this.currentTrack('description')}</h4>
+            <br />
+            <h4>Created by {this.currentArtist('username')}</h4>
+            <br />
+            <h4> {this.currentTrack('credits')}</h4>
+            <br />
+        </div>
+        <ArtContainer image_url={this.props.image_url} />
     </div>
     )
   }

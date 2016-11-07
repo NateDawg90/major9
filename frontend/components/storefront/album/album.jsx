@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router";
 import TrackContainer from "../track/track_container";
+import ArtContainer from "../art/art_container";
 
 class Album extends React.Component{
   constructor(props){
@@ -73,37 +74,38 @@ class Album extends React.Component{
     // debugger
     if (this.props.children) {
       return(
-      <div className ="track" key='track'>
         <TrackContainer key='trackContainer'trackId={this.props.params.trackId}/>
-      </div>
       );
     } else {
     let featAlbumId = Object.keys(this.props.albums.albums)[0]
     let artistLink =`/artist/${this.currentArtist('id')}/album/${featAlbumId}`
 
     return(
-    <div className="Tracks">
-      <h1>{this.currentAlbum('album_name')}</h1>
-      <h3>by <Link to={artistLink} onClick={this.handleNameClick}>
-        {this.currentArtist('username')}
-      </Link></h3>
-      <h2> Song Player goes here</h2>
-      <h3>Digital Album</h3>
-      <h4>Includes unlimited streaming via the free Major9 app, plus
-      high-quality download in MP3.</h4>
-      <br/>
-      <h2> Purchasing Component </h2>
-      <h2>Buy Now {this.currentAlbum('price')}</h2>
-        {this.displayTracks()}
-      <br />
-      <h4>released {this.currentAlbum('release_date')} </h4>
-      <br />
-      <h4>{this.currentAlbum('description')}</h4>
-      <br />
-      <h4>Created by {this.currentArtist('username')}</h4>
-      <br />
-      <h4> {this.currentAlbum('credits')}</h4>
-      <br />
+    <div className="Show">
+      <div className="Tracks">
+        <h1>{this.currentAlbum('album_name')}</h1>
+        <h3>by <Link to={artistLink} onClick={this.handleNameClick}>
+          {this.currentArtist('username')}
+        </Link></h3>
+        <h2> Song Player goes here</h2>
+        <h3>Digital Album</h3>
+        <h4>Includes unlimited streaming via the free Major9 app, plus
+        high-quality download in MP3.</h4>
+        <br/>
+        <h2> Purchasing Component </h2>
+        <h2>Buy Now {this.currentAlbum('price')}</h2>
+          {this.displayTracks()}
+        <br />
+        <h4>released {this.currentAlbum('release_date')} </h4>
+        <br />
+        <h4>{this.currentAlbum('description')}</h4>
+        <br />
+        <h4>Created by {this.currentArtist('username')}</h4>
+        <br />
+        <h4> {this.currentAlbum('credits')}</h4>
+        <br />
+      </div>
+      <ArtContainer image_url={this.currentAlbum('image_url')}/>
     </div>
   )
   }
