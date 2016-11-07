@@ -16,6 +16,7 @@ import {receiveErrors} from '../actions/session_actions';
 //   }
 // };
 
+//If no artist, don't render anything
 
 const Root = ({store}) => {
   const requestAlbumsOnEnter = (nextState, replace) => {

@@ -7,6 +7,13 @@ class Sidebar extends React.Component {
     this.albums = this.albums.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.currentArtist = this.currentArtist.bind(this)
+    this.contentMatching = this.contentMatching.bind(this)
+  }
+
+  contentMatching(artistId){
+    if (Object.keys(this.props.albums.albums).length !== 0){
+      return this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist_id == artistId
+    }
   }
 
   parseAlbums() {
@@ -60,6 +67,13 @@ class Sidebar extends React.Component {
 
   render() {
     let parsedAlbums = this.albums();
+
+    if(this.contentMatching(this.props.params.artistId) == false) {
+      return (
+        <div>
+        </div>
+      )
+    } else {
     return(
 
       <div className="sidebar">
@@ -69,6 +83,7 @@ class Sidebar extends React.Component {
       {parsedAlbums}
       </div>
     )
+    }
   }
 }
 

@@ -10,6 +10,10 @@ import merge from 'lodash/merge'
 
 const sessionMiddleware = ({getState, dispatch}) => next => action => {
   const handleSuccess = (data) => dispatch(receiveCurrentUser(data));
+  const handleSignUp = (data) => {
+    dispatch(receiveCurrentUser(data))
+    hashHistory.replace(`/artist/${data.id}`)
+  }
   const handleError = (data) => dispatch(receiveErrors(data.responseJSON));
   const handleLogout = () => next(action);
   switch(action.type){

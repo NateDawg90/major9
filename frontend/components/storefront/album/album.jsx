@@ -10,6 +10,8 @@ class Album extends React.Component{
     this.currentAlbum = this.currentAlbum.bind(this)
     this.currentArtist = this.currentArtist.bind(this)
     this.handleNameClick = this.handleNameClick.bind(this)
+    this.contentMatching = this.contentMatching.bind(this)
+
   }
 
   displayTracks() {
@@ -62,6 +64,7 @@ class Album extends React.Component{
     if (Object.keys(this.props.albums.albums).length !== 0){
     return this.props.albums.albums[this.props.params.albumId].artist[prop]
     }
+    return undefined;
   }
 
   // {this.props.children}
@@ -70,13 +73,23 @@ class Album extends React.Component{
     this.props.fetchTracks(albumId)
   }
 
+  contentMatching(artistId){
+    if (Object.keys(this.props.albums.albums).length !== 0){
+      return this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist.id == artistId
+    }
+  }
+
   render() {
     // debugger
     if (this.props.children) {
       return(
         <TrackContainer key='trackContainer'trackId={this.props.params.trackId}/>
       );
-    } else {
+    } else if(this.contentMatching(this.props.params.artistId)==false){
+      return <div className="loader">Loading...</div>
+    } else if(this.currentAlbum('album_name') == undefined) {
+      return <div className="loader">Loading...</div>
+    }else {
     let featAlbumId = Object.keys(this.props.albums.albums)[0]
     let artistLink =`/artist/${this.currentArtist('id')}/album/${featAlbumId}`
 
