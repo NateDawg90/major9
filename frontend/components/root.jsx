@@ -6,9 +6,9 @@ import SessionFormContainer from './session/session_form_container';
 import StoreFrontContainer from './storefront/storefront_container';
 import AlbumContainer from './storefront/album/album_container';
 import TrackContainer from './storefront/track/track_container';
-import {fetchAlbums,fetchAlbumsFeatured,
-        fetchAlbum} from '../actions/album_actions';
-import {fetchTracks} from '../actions/track_actions';
+import SplashContainer from './splash/splash_container';
+import {fetchAlbums} from '../actions/album_actions';
+import {fetchTracks, fetchTrack} from '../actions/track_actions';
 import {receiveErrors} from '../actions/session_actions';
 // const _redirectIfLoggedIn = (store) => {
 //   if (store.getState().session.currentUser) {
@@ -51,6 +51,10 @@ const Root = ({store}) => {
     replace(`/artist/${nextState.params.artistId}/album/${albumIds[0]}`)
     }
   }
+
+  const redirectToRequestedTrack = (nextState, replace) => {
+    store.dispatch(fetchTrack(nextState.params.trackId))
+  }
   const requestTracksOnEnter = (nextState) => {
     store.dispatch(fetchTracks(nextState.params.albumId))
   }
@@ -63,6 +67,7 @@ const Root = ({store}) => {
   return (<Provider store = {store}>
     <Router history = {hashHistory}>
       <Route path="/" component={App} onEnter={redirectIfLoggedOut} >
+        <IndexRoute component={SplashContainer} />
         <Route path="/artist/:artistId" component={StoreFrontContainer}
            onEnter={requestAlbumsOnEnter}>
           <Route path="album/:albumId" component={AlbumContainer}>

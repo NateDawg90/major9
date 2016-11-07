@@ -5,3 +5,45 @@
 .trackName {
   list-style:decimal;
 }
+
+h1{
+  font-weight: 700px;
+  font-size: 3em;
+  padding-bottom: 5px;
+}
+h2 {
+  font-weight: 200px;
+  font-size: 2em;
+  padding-bottom: 20px;
+}
+
+h5{
+  text-align: center;
+}
+.StoreFront{
+  display: flex;
+  justify-content: space-between;
+  width:975px;
+  margin: 0 auto;
+}
+
+
+.Show {
+  display:flex;
+  justify-content: space-between;
+}
+
+.ShowArt {
+  width:350px;
+  height:350px;
+
+}
+
+.Image{
+  width: 350px;
+  padding-left: 25px;
+  margin: 0 auto;
+  h3 {
+    font-size: 5px;
+  }
+}

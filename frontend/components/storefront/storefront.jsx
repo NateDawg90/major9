@@ -1,19 +1,13 @@
 import React from "react";
+import SidebarContainer from './sidebar/sidebar_container';
 
 class storeFront extends React.Component{
 
   constructor (props) {
     super(props)
-    this.albums = this.albums.bind(this);
-    this.handleClick = this.handleClick.bind(this)
   }
 
-  albums() {
-    //This should eventually be passed to the sidebar container
-    // Currently using this to test different tracks
-    this.props.fetchAlbums
-    return this.parseAlbums()
-  }
+
 
   //
   // handleAlbumClick = (albumId) => {
@@ -29,17 +23,6 @@ class storeFront extends React.Component{
     }
   }
 
-  parseAlbums() {
-    const albumNames = []
-    let obj = this.props.albums.albums
-    // console.log(this.props.albums.albums);
-    // console.log(this.props.children);
-      for (var prop in obj ) {
-        // debugger
-        albumNames.push(<h2 className="albumName" onClick={this.handleClick(prop)}key={prop}>{obj[prop].album_name}</h2>)
-      }
-    return albumNames
-  }
 
   componentWillMount() {
     this.props.fetchTracks(this.props.params.albumId);
@@ -52,14 +35,16 @@ class storeFront extends React.Component{
   // <h2> Here my albums:</h2>
   // {parsedAlbums}
   render() {
-    let parsedAlbums = this.albums();
+
   return (
+    <div className = "StoreFrontBox">
+    <h5>Banner Goes Here</h5>
   <div className = "StoreFront">
-    <h1>Banner Goes Here</h1>
     <div className="Albums">
-      <br / >
       {this.props.children}
     </div>
+    <SidebarContainer />
+  </div>
   </div>
     )
   };

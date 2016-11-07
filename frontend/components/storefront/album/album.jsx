@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router";
 import TrackContainer from "../track/track_container";
+import ArtContainer from "../art/art_container";
 
 class Album extends React.Component{
   constructor(props){
@@ -8,18 +9,26 @@ class Album extends React.Component{
     this.displayTracks = this.displayTracks.bind(this)
     this.currentAlbum = this.currentAlbum.bind(this)
     this.currentArtist = this.currentArtist.bind(this)
+    this.handleNameClick = this.handleNameClick.bind(this)
   }
 
   displayTracks() {
+    let obj;
+    let tracks = [];
 
-    let obj = this.props.tracks.tracks
-    let tracks = []
+    if (Object.keys(this.props.albums.albums).length !== 0) {
+    obj = this.props.albums.albums[this.props.params.albumId].tracks
+    console.log(this.props.albums.albums[this.props.params.albumId]);
+    }
 
     for(var prop in obj){
-      let trackLink = `/artist/${this.currentArtist('id')}/album/${this.currentAlbum('id')}/track/${prop}`
-
+      let trackLink = `/artist/${this.props.params.artistId}/album/${this.props.params.albumId}/track/${obj[prop].id}`
       tracks.push(
+<<<<<<< HEAD
         <div className="TrackListItem-box" key={prop}>
+=======
+        <div className="TrackListItem-box" key={`Box${prop}`}>
+>>>>>>> UpdatedCSS
           <ul className="TrackListItem">
             <li className="trackNumber" key={`Track_${prop}`}>
               {obj[prop].track_number}.
@@ -38,6 +47,7 @@ class Album extends React.Component{
      )
     }
     //Add track lengths when we get to downloadable files
+    console.log(tracks);
     return tracks
   }
 
@@ -72,44 +82,47 @@ class Album extends React.Component{
 
   // {this.props.children}
 
+  handleNameClick(albumId) {
+    this.props.fetchTracks(albumId)
+  }
+
   render() {
     // debugger
     if (this.props.children) {
       // debugger
       return(
-      <div className ="track">
-        <TrackContainer trackId={this.props.params.trackId}
-          album={this.props.albums.albums[this.props.params.albumId]}/>
-      </div>
+        <TrackContainer key='trackContainer'trackId={this.props.params.trackId}/>
       );
     } else {
     let featAlbumId = Object.keys(this.props.albums.albums)[0]
-    let artistLink = `/artist/${this.currentArtist('id')}/album/${featAlbumId}`
+    let artistLink =`/artist/${this.currentArtist('id')}/album/${featAlbumId}`
+
     return(
-    <div className="Tracks">
-      <h1>{this.currentAlbum('album_name')}</h1>
-      <h3>by <Link to={artistLink}>
-        {this.currentArtist('username')}
-      </Link></h3>
-      <h2> Song Player goes here</h2>
-      <h3>Digital Album</h3>
-      <h4>Includes unlimited streaming via the free Major9 app, plus
-      high-quality download in MP3.</h4>
-      <br/>
-      <h2> Purchasing Component </h2>
-      <h2>Buy Now {this.currentAlbum('price')}</h2>
-      <div>
-        {this.displayTracks()}
+    <div className="Show">
+      <div className="Tracks">
+        <h1>{this.currentAlbum('album_name')}</h1>
+        <h3>by <Link to={artistLink} onClick={this.handleNameClick}>
+          {this.currentArtist('artist_name')}
+        </Link></h3>
+        <h2> Song Player goes here</h2>
+        <h3>Digital Album</h3>
+        <h4>Includes unlimited streaming via the free Major9 app, plus
+        high-quality download in MP3.</h4>
+        <br/>
+        <h2> Purchasing Component </h2>
+        <h2>Buy Now {this.currentAlbum('price')}</h2>
+          {this.displayTracks()}
+        <br />
+        <h4>released {this.currentAlbum('release_date')} </h4>
+        <br />
+        <h4>{this.currentAlbum('description')}</h4>
+        <br />
+        <h4>Created by {this.currentArtist('artist_name')}</h4>
+        <br />
+        <h4> {this.currentAlbum('credits')}</h4>
+        <br />
       </div>
-      <br />
-      <h4>released {this.currentAlbum('release_date')} </h4>
-      <br />
-      <h4>{this.currentAlbum('description')}</h4>
-      <br />
-      <h4>Created by {this.currentArtist('username')}</h4>
-      <br />
-      <h4> {this.currentAlbum('credits')}</h4>
-      <br />
+      <ArtContainer image_url={this.currentAlbum('image_url')}/>
     </div>
   )
   }

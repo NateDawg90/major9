@@ -14,7 +14,15 @@ import { fetchTracks, fetchTrack, createTrack,
 import merge from 'lodash/merge'
 
 const trackMiddleware = ({getState, dispatch}) => next => action => {
-  let handleTrack = (Track) => dispatch(receiveTrack(Track));
+  let redirectToRequestedTrack = () => {
+    let requestedTrackId = Object.keys(getState().tracks.tracks)[0]
+    let requestedTrack = getState().tracks.tracks[requestedTrackId]
+    hashHistory.replace(`/artist/${requestedTrack.artist_id}/album/${requestedTrack.album_id}/track/${requestedTrack.id}`)
+  }
+  let handleTrack = (Track) => {
+    dispatch(receiveTrack(Track));
+    redirectToRequestedTrack();
+  }
   let handleTracks = (tracks) => dispatch(receiveTracks(tracks));
   let handleTrackErrors = (errors) => dispatch(receiveTrackErrors(errors.responseText));
   switch(action.type){
