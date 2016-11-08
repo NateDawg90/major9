@@ -27,10 +27,10 @@ class NewAlbum extends React.Component {
     let errors = this.props.errors.forEach((error, index) => {
       if (error[0] === 'A') {
       this.nameError.push(<h3 key={`${index}A`} className="error">{error}</h3>)
-    } else if (error[0] === 'P'){
-      this.dateError.push(<h3 key={`${index}P`} className="error">{error}</h3>)
+    } else if (error[0] === 'R'){
+      this.dateError.push(<h3 key={`${index}R`} className="error">{error}</h3>)
     } else {
-      this.priceError.push(<h3 key={`${index}R`} className="error">{error}</h3>)
+      this.priceError.push(<h3 key={`${index}P`} className="error">{error}</h3>)
     }
     });
   }
@@ -44,6 +44,10 @@ class NewAlbum extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    this.props.clearErrors([""]);
+    this.nameError = [];
+    this.dateError = [];
+    this.priceError = [];
     this.props.createAlbum(this.state)
   }
 
@@ -57,17 +61,17 @@ class NewAlbum extends React.Component {
           <input type="input" onChange={this.update('album_name') }
               placeholder="Album Name"/>
           <br />
-          {this.nameError}
+          {this.nameError[0]}
           <br />
           <input type="input" onChange={this.update('price')}
             placeholder="Price"/>
           <br />
-          {this.priceError}
+          {this.priceError[0]}
           <br />
           <input type="input" onChange={this.update('release_date')}
             placeholder="Release Date"/>
           <br />
-          {this.dateError}
+          {this.dateError[0]}
           <br />
           <textArea placeholder="Description" onChange={this.update('description')}/>
           <br />

@@ -2,10 +2,12 @@ import React from "react";
 import {Link} from "react-router";
 import TrackContainer from "../track/track_container";
 import ArtContainer from "../art/art_container";
+import EditAlbum from "./editAlbum";
 
 class Album extends React.Component{
   constructor(props){
     super(props)
+
     this.displayTracks = this.displayTracks.bind(this)
     this.currentAlbum = this.currentAlbum.bind(this)
     this.currentArtist = this.currentArtist.bind(this)
@@ -80,15 +82,26 @@ class Album extends React.Component{
   }
 
   contentMatching(artistId){
-    if (Object.keys(this.props.albums.albums).length !== 0 &&
-      this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist.id == artistId){
+    // debugger
+    if (Object.keys(this.props.albums.albums).length > 1){
       return this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist.id == artistId
+    } else if (Object.keys(this.props.albums.albums).length == 1) {
+      return this.props.albums.albums.artist.id == artistId
+    }
+    return false
+  }
+
+  isArtist() {
+    if(this.props.currentUser) {
+      if(this.props.currentUser.id == this.props.params.artistId)
+        return true
     }
     return false
   }
 
   render() {
     // debugger
+    console.log(this.props.editMode);
     if (this.props.children) {
       return(
         <TrackContainer key='trackContainer'trackId={this.props.params.trackId}/>
@@ -97,7 +110,13 @@ class Album extends React.Component{
       return <div className="loader">Loading...</div>
     } else if(this.currentAlbumObject() == undefined) {
       return <div className="loader">Loading...</div>
-    }else {
+    }else if(this.props.editMode === true && this.isArtist.bind(this)() === true){
+      return(<div className="Show">
+      <EditAlbum />
+      <ArtContainer image_url={this.currentAlbum('image_url')} editMode={true}/>
+      </div>)
+
+    }{
     let featAlbumId = Object.keys(this.props.albums.albums)[0]
     let artistLink =`/artist/${this.currentArtist('id')}/album/${featAlbumId}`
 

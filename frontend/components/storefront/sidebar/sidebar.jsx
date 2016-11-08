@@ -2,18 +2,22 @@ import React from 'react';
 import ArtContainer from "../art/art_container";
 import Modal from 'react-modal';
 import NewAlbumContainer from '../forms/new_album_container';
+import { Link } from 'react-router';
 
 class Sidebar extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      modalOpen: false
+      modalOpen: false,
+      editMode: false
     }
     this.albums = this.albums.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.currentArtist = this.currentArtist.bind(this)
     this.contentMatching = this.contentMatching.bind(this)
     this.editButton = this.editButton.bind(this)
+    this.toggleEdit = this.toggleEdit.bind(this)
+    this.deleteAlbum = this.deleteAlbum.bind(this)
   }
 
   contentMatching(artistId){
@@ -30,12 +34,14 @@ class Sidebar extends React.Component {
     // console.log(this.props.children);
       for (var prop in obj ) {
         // debugger
+      if (albumNames.length < 3) {
         if(obj[prop].image_url) {
         albumNames.push(
           <div className="sidebarItemBox" key={`${prop}`}>
           <img className="sidebarItem" src={obj[prop].image_url} onClick={this.handleClick(prop)}key={prop}/>
           <h3 className="sidebarSmallName" onClick={this.handleClick(prop)}key={`name${prop}`}> {obj[prop].album_name} </h3>
           <h4 key={`date${prop}`}> {obj[prop].release_date} </h4>
+          {this.deleteAlbum(prop)}
           </div>)
         } else {
         albumNames.push(
@@ -43,13 +49,29 @@ class Sidebar extends React.Component {
           <h2 className="sidebarItem" onClick={this.handleClick(prop)}key={prop}>{obj[prop].album_name}</h2>
           <h3 className="sidebarSmallName" onClick={this.handleClick(prop)}key={`name${prop}`}> {obj[prop].album_name} </h3>
           <h4 key={`date${prop}`}> {obj[prop].release_date} </h4>
-          </div>
+          {this.deleteAlbum(prop)}
+        </div>
           )
         }
+      }else if (albumNames.length === 3 && this.state.editMode ===  false){
+        albumNames.push(
+          <div>
+            <Link to="#"><h3>more releases...</h3></Link>
+          </div>
+        )
+      } else {
+        break;
       }
+
+    }
     return albumNames
   }
 
+  deleteAlbum(prop){
+    if (this.state.editMode === true) {
+      return(<button key={`delete${prop}`}>Delete Album</button>)
+    }
+  }
 
   handleClick(albumId) {
     return e => {
@@ -72,9 +94,22 @@ class Sidebar extends React.Component {
     }
   }
 
+  toggleEdit() {
+    if (this.state.editMode === true) {
+      this.setState({editMode: false})
+      this.props.editAlbumMode(false)
+      $(".editToggle").css("background-color: #3498db")
+
+    } else {
+      this.setState({editMode:true})
+      this.props.editAlbumMode(true)
+      $(".editToggle").css("background-color: orange")
+    }
+  }
+
   editButton() {
     if(this.isArtist()){
-        return(<div><button>Edit Page</button> <br/></div>)
+        return(<div><button className="editToggle" onClick={this.toggleEdit}>Edit Page</button> <br/></div>)
     }
     return(<div></div>)
   }
@@ -87,16 +122,13 @@ class Sidebar extends React.Component {
     return false
   }
 
-  editMode() {
-
-  }
 
   openForm() {
     this.setState({modalOpen: true});
   }
 
   newAlbum() {
-    if(this.isArtist()){
+    if(this.isArtist() && this.state.editMode === true){
     return (<div className="sidebarItemBox" key='editPage'>
     <h2 className="sidebarItem" key='addAlbum'
       onClick={this.openForm.bind(this)}> Add Album </h2>
@@ -122,8 +154,8 @@ class Sidebar extends React.Component {
       {editButton}
       <br/>
       <h3>Discography:</h3>
-      {parsedAlbums}
       {newAlbum}
+      {parsedAlbums}
       <Modal
          isOpen={this.state.modalOpen}
          onRequestClose={this.onModalClose.bind(this)}
