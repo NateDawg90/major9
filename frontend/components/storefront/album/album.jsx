@@ -22,7 +22,8 @@ class Album extends React.Component{
     let tracks = [];
 
     if (Object.keys(this.props.albums.albums).length !== 0) {
-    obj = this.props.albums.albums[this.props.params.albumId].tracks
+      obj = this.props.albums.albums[this.props.params.albumId].tracks
+
     }
 
     for(var prop in obj){
@@ -86,7 +87,12 @@ class Album extends React.Component{
     if (Object.keys(this.props.albums.albums).length > 1){
       return this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist.id == artistId
     } else if (Object.keys(this.props.albums.albums).length == 1) {
-      return this.props.albums.albums.artist.id == artistId
+      debugger
+      if (Object.keys(this.props.albums.albums).includes('artist_id')) {
+      return this.props.albums.albums.artist_id == artistId
+      } else {
+      return this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist.id == artistId
+      }
     }
     return false
   }
@@ -101,7 +107,6 @@ class Album extends React.Component{
 
   render() {
     // debugger
-    console.log(this.props.editMode);
     if (this.props.children) {
       return(
         <TrackContainer key='trackContainer'trackId={this.props.params.trackId}/>

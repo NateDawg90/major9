@@ -9,7 +9,8 @@ class Sidebar extends React.Component {
     super(props)
     this.state = {
       modalOpen: false,
-      editMode: false
+      editMode: false,
+      showAll: false
     }
     this.albums = this.albums.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -18,6 +19,7 @@ class Sidebar extends React.Component {
     this.editButton = this.editButton.bind(this)
     this.toggleEdit = this.toggleEdit.bind(this)
     this.deleteAlbum = this.deleteAlbum.bind(this)
+    this.albumNames = []
   }
 
   contentMatching(artistId){
@@ -28,15 +30,14 @@ class Sidebar extends React.Component {
 
 
   parseAlbums() {
-    const albumNames = []
-    let obj = this.props.albums.albums
+    let obj= this.props.albums.albums
     // console.log(this.props.albums.albums);
     // console.log(this.props.children);
-      for (var prop in obj ) {
-        // debugger
-      if (albumNames.length < 3) {
+    this.albumNames = [];
+    Object.keys(obj).reverse().forEach( (prop) => {
+      if (this.albumNames.length < 3 || this.state.showAll === true) {
         if(obj[prop].image_url) {
-        albumNames.push(
+        this.albumNames.push(
           <div className="sidebarItemBox" key={`${prop}`}>
           <img className="sidebarItem" src={obj[prop].image_url} onClick={this.handleClick(prop)}key={prop}/>
           <h3 className="sidebarSmallName" onClick={this.handleClick(prop)}key={`name${prop}`}> {obj[prop].album_name} </h3>
@@ -44,7 +45,7 @@ class Sidebar extends React.Component {
           {this.deleteAlbum(prop)}
           </div>)
         } else {
-        albumNames.push(
+        this.albumNames.push(
           <div className="sidebarItemBox" key={`${prop}`}>
           <h2 className="sidebarItem" onClick={this.handleClick(prop)}key={prop}>{obj[prop].album_name}</h2>
           <h3 className="sidebarSmallName" onClick={this.handleClick(prop)}key={`name${prop}`}> {obj[prop].album_name} </h3>
@@ -53,20 +54,22 @@ class Sidebar extends React.Component {
         </div>
           )
         }
-      }else if (albumNames.length === 3 && this.state.editMode ===  false){
-        albumNames.push(
+      }else if (this.albumNames.length === 3 && this.state.editMode ===  false && this.state.showAll === false){
+        this.albumNames.push(
           <div>
-            <Link to="#"><h3>more releases...</h3></Link>
+            <Link onClick={this.showAllAlbums.bind(this)}><h3>more releases...</h3></Link>
           </div>
         )
-      } else {
-        break;
       }
-
     }
-    return albumNames
+  )
+    return this.albumNames
   }
 
+  showAllAlbums() {
+    this.albumNames = [];
+    this.setState({showAll: true})
+  }
   deleteAlbum(prop){
     if (this.state.editMode === true) {
       return(<button key={`delete${prop}`}>Delete Album</button>)
@@ -96,12 +99,12 @@ class Sidebar extends React.Component {
 
   toggleEdit() {
     if (this.state.editMode === true) {
-      this.setState({editMode: false})
+      this.setState({editMode: false, showAll: false})
       this.props.editAlbumMode(false)
       $(".editToggle").css("background-color: #3498db")
 
     } else {
-      this.setState({editMode:true})
+      this.setState({editMode:true, showAll: true})
       this.props.editAlbumMode(true)
       $(".editToggle").css("background-color: orange")
     }

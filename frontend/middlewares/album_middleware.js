@@ -21,7 +21,12 @@ const albumMiddleware = ({getState, dispatch}) => next => action => {
     let firstAlbum = getState().albums.albums[firstAlbumId]
     hashHistory.replace(`/artist/${firstAlbum.artist.id}/album/${firstAlbumId}`)
   }
-  let handleAlbum = (album) => dispatch(receiveAlbum(album));
+
+  let handleAlbum = (album) => {
+    dispatch(receiveAlbum(album))
+    hashHistory.replace(`/artist/${album.artist_id}/album/${album.id}`)
+  };
+
   let handleAlbums = (albums) => {
     dispatch(receiveAlbums(albums))
     redirectToFeaturedAlbum();
