@@ -87,6 +87,11 @@ class Sidebar extends React.Component {
     this.setState({showAll: true})
   }
 
+  componentWillUpdate() {
+    if (this.state.modalOpen === true) {
+    this.setState({modalOpen: false})
+    }
+  }
 
   hideAllAlbums() {
     this.albumNames = [];
