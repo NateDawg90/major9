@@ -2,11 +2,12 @@ import {connect} from 'react-redux';
 import Album from './album';
 import {fetchTracks} from '../../../actions/track_actions';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   albums: state.albums,
   tracks: state.tracks,
   editMode: state.albums.editMode,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  currentAlbum: state.albums.albums[ownProps.params.albumId]
 
 })
 

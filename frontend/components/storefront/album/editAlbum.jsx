@@ -3,6 +3,9 @@ import React from 'react'
 class EditAlbum extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      album:{}
+    }
     this.displayTracks = this.displayTracks.bind(this)
   }
   displayTracks() {
@@ -48,7 +51,7 @@ class EditAlbum extends React.Component {
         <form className="AlbumForm">
         <input className="AlbumTitle" type="text"
           placeholder = "Album Name"
-          defaultValue={this.props.currentAlbum.album_name} />
+          value={this.props.currentAlbum.album_name} />
         <h2> Song Player goes here</h2>
         <h3>Digital Album</h3>
         <h4>Includes unlimited streaming via the free Major9 app, plus
@@ -58,12 +61,12 @@ class EditAlbum extends React.Component {
         <h2>Buy Now {this.props.currentAlbum.price}</h2>
           {this.displayTracks()}
         <br />
-        <input type="text" placeholder="Release Date" defaultValue={this.props.currentAlbum.release_date} />
+        <input type="text" placeholder="Release Date" value={this.props.currentAlbum.release_date} />
         <br />
         <br />
           <textArea
             className="EditDescription"
-            defaultValue={this.props.currentAlbum.description}
+            value={this.props.currentAlbum.description}
             placeholder="Description" />
         <br />
           <br/ >

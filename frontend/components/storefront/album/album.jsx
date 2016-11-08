@@ -103,7 +103,10 @@ class Album extends React.Component{
     }
     return false
   }
-
+  //
+  // <EditAlbum currentAlbum={this.currentAlbumObject()} currentUser={this.props.currentUser}
+  //   tracks={this.props.albums.albums[this.props.params.albumId].tracks
+  //   } params={this.props.params}/>
   render() {
     // debugger
     if (this.props.children) {
@@ -116,7 +119,7 @@ class Album extends React.Component{
       return <div className="loader">Loading...</div>
     }else if(this.props.editMode === true && this.isArtist.bind(this)() === true){
       return(<div className="Show">
-      <EditAlbum currentAlbum={this.currentAlbumObject()} currentUser={this.props.currentUser}
+      <EditAlbum currentAlbum={this.props.currentAlbum} currentUser={this.props.currentUser}
         tracks={this.props.albums.albums[this.props.params.albumId].tracks
         } params={this.props.params}/>
       <ArtContainer image_url={this.currentAlbum('image_url')} editMode={true}/>
