@@ -59,12 +59,12 @@ class storeFront extends React.Component{
           return (<div className="StoreFront-message">
             No tracks here! Log in to add some tracks.
           </div>)
-        
+
 
     } else {
+      // <h5>Banner Goes Here</h5>
     return (
       <div className = "StoreFrontBox">
-      <h5>Banner Goes Here</h5>
     <div className = "StoreFront">
       <div className="Albums">
         {this.props.children}

@@ -9,24 +9,28 @@ class EditAlbum extends React.Component {
     let obj;
     let tracks = [];
     obj = this.props.tracks
-
+    console.log(this.props.tracks);
+    // debugger
     for(var prop in obj){
-      let trackLink = `/artist/${this.props.params.artistId}/album/${this.props.params.albumId}/track/${obj[prop].id}`
+      console.log(obj[prop]);
+      let trackLink = `/artist/${this.props.params.artistId}/album/${this.props.params.albumId}/track/${prop}`
       tracks.push(
         <div className="TrackListItem-box" key={`Box${prop}`}>
           <ul className="TrackListItem">
-            <li className="trackNumber" key={`Track_${prop}`}>
+            <li className="trackNumber trackNumEdit" key={`Track_${prop}`}>
               {obj[prop].track_number}.
             </li>
             <li className="trackListLink" key={prop}>
-              <Link to={trackLink}>{obj[prop].track_name}</Link>
+              <input type="text" className="trackEdit"
+                defaultValue={obj[prop].track_name}
+                placeHolder={`Track Name for Track ${obj[prop].track_number}`}/>
             </li>
             <li className="trackLength" key={`Length_${prop}`}>
               0:00
             </li>
           </ul>
           <li className="trackHoverLink" key={`hover${prop}`}>
-            <Link to={trackLink}>info</Link>
+            <button> Delete</button>
           </li>
        </div>
      )
@@ -42,8 +46,10 @@ class EditAlbum extends React.Component {
     return(
       <div className="Tracks">
         <form>
-        <input className="AlbumTitle" type="text" value={this.props.currentAlbum.album_name}></input>
-        <h3>by {artist_name} </h3>
+          <label>Album Name:</label>
+        <input className="AlbumTitle" type="text"
+          placeHolder = "Album Name"
+          defaultValue={this.props.currentAlbum.album_name} />
         <h2> Song Player goes here</h2>
         <h3>Digital Album</h3>
         <h4>Includes unlimited streaming via the free Major9 app, plus
@@ -53,13 +59,19 @@ class EditAlbum extends React.Component {
         <h2>Buy Now {this.props.currentAlbum.price}</h2>
           {this.displayTracks()}
         <br />
-        <h4>released {this.props.currentAlbum.release_date} </h4>
+        <label>Release Date:</label>
+        <input type="text" defaultValue={this.props.currentAlbum.release_date} />
         <br />
-        <h4>{this.props.currentAlbum.description}</h4>
+          <label>Description:</label>
+          <textArea
+            defaultValue={this.props.currentAlbum.description}
+            placeHolder="Description" />
         <br />
-        <h4>Created by {this.props.currentAlbum.artist_name}</h4>
-        <br />
-        <h4> {this.props.currentAlbum.credits}</h4>
+          <label>Credits:</label>
+          <br/ >
+          <input type="text"
+            defaultValue={this.props.currentAlbum.credits}
+            placeHolder="Credits"/>
         <br />
         </form>
       </div>

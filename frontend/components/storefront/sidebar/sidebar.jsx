@@ -38,16 +38,16 @@ class Sidebar extends React.Component {
       if (this.albumNames.length < 3 || this.state.showAll === true) {
         if(obj[prop].image_url) {
         this.albumNames.push(
-          <div className="sidebarItemBox" key={`${prop}`}>
-          <img className="sidebarItem" src={obj[prop].image_url} onClick={this.handleClick(prop)}key={prop}/>
+          <div className="sidebarItemBox" key={`Box${prop}`}>
+          <img className="sidebarItem" src={obj[prop].image_url} onClick={this.handleClick(prop)} key={`Item${prop}`}/>
           <h3 className="sidebarSmallName" onClick={this.handleClick(prop)}key={`name${prop}`}> {obj[prop].album_name} </h3>
           <h4 key={`date${prop}`}> {obj[prop].release_date} </h4>
           {this.deleteAlbum(prop)}
           </div>)
         } else {
         this.albumNames.push(
-          <div className="sidebarItemBox" key={`${prop}`}>
-          <h2 className="sidebarItem" onClick={this.handleClick(prop)}key={prop}>{obj[prop].album_name}</h2>
+          <div className="sidebarItemBox" key={`Box${prop}`}>
+          <h2 className="sidebarItem" onClick={this.handleClick(prop)} key={`Item${prop}`}>{obj[prop].album_name}</h2>
           <h3 className="sidebarSmallName" onClick={this.handleClick(prop)}key={`name${prop}`}> {obj[prop].album_name} </h3>
           <h4 key={`date${prop}`}> {obj[prop].release_date} </h4>
           {this.deleteAlbum(prop)}
@@ -70,9 +70,18 @@ class Sidebar extends React.Component {
     this.albumNames = [];
     this.setState({showAll: true})
   }
+
   deleteAlbum(prop){
     if (this.state.editMode === true) {
-      return(<button key={`delete${prop}`}>Delete Album</button>)
+      return(<button key={`${prop}`} value={prop}
+        onClick={this.handleDelete()}>Delete Album</button>)
+    }
+  }
+
+  handleDelete(e) {
+    return e => {
+      console.log(e.target);
+      this.props.deleteAlbum(e.target.value)
     }
   }
 

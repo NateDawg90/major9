@@ -2,12 +2,14 @@ import { receiveAlbum,
          receiveAlbums,
          receiveAlbumErrors,
          receiveArtist,
+         deleteAlbumFromStore,
          FETCH_ARTIST,
          FETCH_ALBUM,
          FETCH_ALBUMS,
          CREATE_ALBUM,
          UPDATE_ALBUM,
-         DELETE_ALBUM
+         DELETE_ALBUM,
+         DELETE_ALBUM_FROM_STORE
        } from '../actions/album_actions';
 
 import { fetchAlbums, fetchAlbum, createAlbum,
@@ -31,6 +33,11 @@ const albumMiddleware = ({getState, dispatch}) => next => action => {
     dispatch(receiveAlbums(albums))
     redirectToFeaturedAlbum();
   };
+
+  let handleDelete = (album) => {
+    dispatch(deleteAlbumFromStore(album))
+    redirectToFeaturedAlbum();
+  }
   let handleAlbumErrors = (errors) => dispatch(receiveAlbumErrors(errors.responseJSON));
   let handleArtist = (artist) => dispatch(receiveArtist(artist))
 
@@ -48,7 +55,7 @@ const albumMiddleware = ({getState, dispatch}) => next => action => {
       updateAlbum(action.album, handleAlbum, handleAlbumErrors)
       return next(action);
     case DELETE_ALBUM:
-      deleteAlbum(action.albumId, handleAlbum, handleAlbumErrors)
+      deleteAlbum(action.albumId, handleDelete, handleAlbumErrors)
       return next(action);
     case FETCH_ARTIST:
       fetchArtist(action.artistId, handleArtist, handleAlbumErrors)

@@ -118,7 +118,8 @@ class Album extends React.Component{
     }else if(this.props.editMode === true && this.isArtist.bind(this)() === true){
       return(<div className="Show">
       <EditAlbum currentAlbum={this.currentAlbumObject()} currentUser={this.props.currentUser}
-        Tracks={this.props.albums.albums[this.props.params.albumId].tracks}/>
+        tracks={this.props.albums.albums[this.props.params.albumId].tracks
+        } params={this.props.params}/>
       <ArtContainer image_url={this.currentAlbum('image_url')} editMode={true}/>
       </div>)
 

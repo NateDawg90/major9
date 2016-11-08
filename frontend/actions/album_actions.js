@@ -9,7 +9,7 @@ export const RECEIVE_ALBUM_ERRORS = "RECEIVE_ALBUM_ERRORS";
 export const FETCH_ARTIST = "FETCH_ARTIST";
 export const RECEIVE_ARTIST = "RECEIVE_ARTIST";
 export const EDIT_ALBUM_MODE = "EDIT_ALBUM_MODE";
-
+export const DELETE_ALBUM_FROM_STORE = "DELETE_ALBUM_FROM_STORE"
 export const fetchAlbums = (userId) => ({
   type: FETCH_ALBUMS,
   userId
@@ -64,4 +64,9 @@ export const receiveArtist = (artist) => ({
 export const editAlbumMode = (toggle) => ({
   type: EDIT_ALBUM_MODE,
   toggle
+})
+
+export const deleteAlbumFromStore = (album) => ({
+  type: DELETE_ALBUM,
+  album
 })
