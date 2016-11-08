@@ -26,7 +26,7 @@ const albumMiddleware = ({getState, dispatch}) => next => action => {
     dispatch(receiveAlbums(albums))
     redirectToFeaturedAlbum();
   };
-  let handleAlbumErrors = (errors) => dispatch(receiveAlbumErrors(errors.responseText));
+  let handleAlbumErrors = (errors) => dispatch(receiveAlbumErrors(errors.responseJSON));
   let handleArtist = (artist) => dispatch(receiveArtist(artist))
 
   switch(action.type){

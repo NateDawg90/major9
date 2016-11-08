@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Navbar from './navbar';
-import { logout, login, receiveFormType } from '../../actions/session_actions';
+import { logout, login, receiveFormType, receiveErrors } from '../../actions/session_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -13,7 +13,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
     receiveFormType: (formType) => dispatch(receiveFormType(formType)),
-    guestLogin: () => dispatch(login(guest))
+    guestLogin: () => dispatch(login(guest)),
+    clearErrors: (blank) => {dispatch(receiveErrors(blank))}
   };
 };
 

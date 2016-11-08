@@ -22,6 +22,7 @@ class Navbar extends React.Component{
   }
 
   onModalClose() {
+    this.props.clearErrors([""]);
     this.setState({modalOpen: false});
   }
 
