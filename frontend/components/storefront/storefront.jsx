@@ -45,7 +45,6 @@ class storeFront extends React.Component{
   // Only child should be album and track components
   // Have Art and Sidebar components explicit
   render() {
-    console.log(this.props.errors);
     if (this.contentLoaded() == false) {
       return <div className="loader">Loading...</div>
     }

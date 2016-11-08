@@ -87,7 +87,6 @@ class Album extends React.Component{
     if (Object.keys(this.props.albums.albums).length > 1){
       return this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist.id == artistId
     } else if (Object.keys(this.props.albums.albums).length == 1) {
-      debugger
       if (Object.keys(this.props.albums.albums).includes('artist_id')) {
       return this.props.albums.albums.artist_id == artistId
       } else {

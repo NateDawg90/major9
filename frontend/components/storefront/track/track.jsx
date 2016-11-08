@@ -20,20 +20,23 @@ class Track extends React.Component{
     // console.log(this.props.params.trackId);
     // console.log(Object.keys(this.props.tracks.tracks));
 
-      if (Object.keys(this.props.tracks.tracks).length !== 0){
+      if (Object.keys(this.props.tracks.tracks).length !== 0 &&
+      Object.keys(this.props.tracks.tracks).includes(this.props.params.trackId)){
         return this.props.tracks.tracks[this.props.params.trackId][prop]
     }
   }
 
   currentAlbum(prop) {
     // debugger
-    if (Object.keys(this.props.albums.albums).length !== 0){
+    if (Object.keys(this.props.albums.albums).length !== 0 &&
+    Object.keys(this.props.albums.albums).includes(this.currentTrack('album_id'))){
     return this.props.albums.albums[this.currentTrack('album_id')][prop]
     }
   }
 
   currentArtist(prop) {
-    if (Object.keys(this.props.albums.albums).length !== 0){
+    if (Object.keys(this.props.albums.albums).length !== 0 &&
+    this.currentAlbum('artist')){
     return this.currentAlbum('artist')[prop]
     }
   }
@@ -59,7 +62,7 @@ class Track extends React.Component{
     if (this.props.image_url){
       return this.props.image_url
     } else {
-      return this.currentAlbum("image_url")
+      return this.props.albums.albums[this.props.params.albumId].image_url
     }
   }
   currentTrackGrabbed() {

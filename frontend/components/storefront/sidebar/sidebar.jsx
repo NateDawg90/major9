@@ -22,6 +22,7 @@ class Sidebar extends React.Component {
     this.albumNames = []
   }
 
+
   contentMatching(artistId){
     if (Object.keys(this.props.albums.albums).length !== 0){
       return this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist_id == artistId
@@ -57,8 +58,8 @@ class Sidebar extends React.Component {
       }else if ( this.state.editMode ===  false ){
         if (this.albumNames.length === 3 && this.state.showAll === false) {
         this.albumNames.push(
-          <div>
-            <Link onClick={this.showAllAlbums.bind(this)}><h3>more releases...</h3></Link>
+          <div key='morediv'>
+            <Link onClick={this.showAllAlbums.bind(this)} key='more'><h3>more releases...</h3></Link>
           </div>
         )
       }
@@ -67,8 +68,8 @@ class Sidebar extends React.Component {
   )
   if (this.state.showAll === true && this.state.editMode === false) {
     this.albumNames.push(
-      <div>
-        <Link onClick={this.hideAllAlbums.bind(this)}><h3>less releases...</h3></Link>
+      <div key='lessdiv'>
+        <Link onClick={this.hideAllAlbums.bind(this)} key='less'><h3>less releases...</h3></Link>
       <br/>
       <br/>
       <br/>
@@ -76,7 +77,9 @@ class Sidebar extends React.Component {
       </div>
     )
   }
+
       return this.albumNames
+
     }
 
   showAllAlbums() {
@@ -99,7 +102,7 @@ class Sidebar extends React.Component {
 
   handleDelete(e) {
     return e => {
-      console.log(e.target);
+      console.log(e.target.value);
       this.props.deleteAlbum(e.target.value)
     }
   }
@@ -129,12 +132,12 @@ class Sidebar extends React.Component {
     if (this.state.editMode === true) {
       this.setState({editMode: false, showAll: false})
       this.props.editAlbumMode(false)
-      $(".editToggle").css("background-color: #3498db")
+      $(".editToggle").css("background-color", "#3498db")
 
     } else {
       this.setState({editMode:true, showAll: true})
       this.props.editAlbumMode(true)
-      $(".editToggle").css("background-color: orange")
+      $(".editToggle").css("background-color", "orange")
     }
   }
 

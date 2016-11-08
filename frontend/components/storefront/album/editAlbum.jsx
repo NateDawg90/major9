@@ -23,7 +23,7 @@ class EditAlbum extends React.Component {
             <li className="trackListLink" key={prop}>
               <input type="text" className="trackEdit"
                 defaultValue={obj[prop].track_name}
-                placeHolder={`Track Name for Track ${obj[prop].track_number}`}/>
+                placeholder={`Track Name for Track ${obj[prop].track_number}`}/>
             </li>
             <li className="trackLength" key={`Length_${prop}`}>
               0:00
@@ -47,9 +47,8 @@ class EditAlbum extends React.Component {
       <div className="Tracks">
         <form className="AlbumForm">
         <input className="AlbumTitle" type="text"
-          placeHolder = "Album Name"
+          placeholder = "Album Name"
           defaultValue={this.props.currentAlbum.album_name} />
-        <label>Album Name:</label>
         <h2> Song Player goes here</h2>
         <h3>Digital Album</h3>
         <h4>Includes unlimited streaming via the free Major9 app, plus
@@ -59,19 +58,18 @@ class EditAlbum extends React.Component {
         <h2>Buy Now {this.props.currentAlbum.price}</h2>
           {this.displayTracks()}
         <br />
-        <label>Release Date:</label>
-        <input type="text" defaultValue={this.props.currentAlbum.release_date} />
+        <input type="text" placeholder="Release Date" defaultValue={this.props.currentAlbum.release_date} />
         <br />
-          <label>Description:</label>
+        <br />
           <textArea
+            className="EditDescription"
             defaultValue={this.props.currentAlbum.description}
-            placeHolder="Description" />
+            placeholder="Description" />
         <br />
-          <label>Credits:</label>
           <br/ >
           <input type="text"
             defaultValue={this.props.currentAlbum.credits}
-            placeHolder="Credits"/>
+            placeholder="Credits"/>
         <br />
         </form>
       </div>

@@ -10,9 +10,13 @@ export const FETCH_ARTIST = "FETCH_ARTIST";
 export const RECEIVE_ARTIST = "RECEIVE_ARTIST";
 export const EDIT_ALBUM_MODE = "EDIT_ALBUM_MODE";
 export const DELETE_ALBUM_FROM_STORE = "DELETE_ALBUM_FROM_STORE"
-export const fetchAlbums = (userId) => ({
+export const FETCH_ARTISTS = "FETCH_ARTISTS";
+export const RECEIVE_ARTISTS = "RECEIVE_ARTISTS";
+
+export const fetchAlbums = (userId, redirect) => ({
   type: FETCH_ALBUMS,
-  userId
+  userId,
+  redirect
 })
 
 export const fetchAlbum = (albumId) => ({
@@ -56,9 +60,18 @@ export const fetchArtist = (artistId) => ({
   artist_id
 })
 
+export const fetchArtists = () => ({
+  type: FETCH_ARTISTS
+})
+
 export const receiveArtist = (artist) => ({
   type: RECEIVE_ARTIST,
   artist
+})
+
+export const receiveArtists = (artists) => ({
+  type: RECEIVE_ARTISTS,
+  artists
 })
 
 export const editAlbumMode = (toggle) => ({

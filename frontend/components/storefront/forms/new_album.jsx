@@ -28,7 +28,7 @@ class NewAlbum extends React.Component {
       if (error[0] === 'A') {
       this.nameError.push(<h3 key={`${index}A`} className="error">{error}</h3>)
     } else if (error[0] === 'R'){
-      this.dateError.push(<h3 key={`${index}R`} className="error">{error}</h3>)
+      this.dateError.push(<h3 key={`${index}R`} className="error">Release Date is invalid.</h3>)
     } else if (error[0] === 'P'){
       this.priceError.push(<h3 key={`${index}P`} className="error">{error}</h3>)
     }

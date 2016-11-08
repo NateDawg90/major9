@@ -135,3 +135,12 @@ export const fetchArtist = (artistId, success, error) => {
     error
   })
 }
+
+export const fetchArtists = (success, error) => {
+  $.ajax({
+    url: `/api/users`,
+    method: "GET",
+    success,
+    error
+  })
+}

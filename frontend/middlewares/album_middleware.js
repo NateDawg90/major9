@@ -2,8 +2,10 @@ import { receiveAlbum,
          receiveAlbums,
          receiveAlbumErrors,
          receiveArtist,
+         receiveArtists,
          deleteAlbumFromStore,
          FETCH_ARTIST,
+         FETCH_ARTISTS,
          FETCH_ALBUM,
          FETCH_ALBUMS,
          CREATE_ALBUM,
@@ -13,13 +15,13 @@ import { receiveAlbum,
        } from '../actions/album_actions';
 
 import { fetchAlbums, fetchAlbum, createAlbum,
-         updateAlbum, deleteAlbum, fetchArtist} from '../util/api_util';
+         updateAlbum, deleteAlbum, fetchArtist, fetchArtists} from '../util/api_util';
 import {hashHistory} from 'react-router';
 import merge from 'lodash/merge'
 
 const albumMiddleware = ({getState, dispatch}) => next => action => {
   let redirectToFeaturedAlbum = () => {
-    let firstAlbumId = Object.keys(getState().albums.albums)[0]
+    let firstAlbumId = Object.keys(getState().albums.albums).reverse()[0]
     let firstAlbum = getState().albums.albums[firstAlbumId]
     hashHistory.replace(`/artist/${firstAlbum.artist.id}/album/${firstAlbumId}`)
   }
@@ -34,16 +36,28 @@ const albumMiddleware = ({getState, dispatch}) => next => action => {
     redirectToFeaturedAlbum();
   };
 
+  let handleAlbumsNoRedirect = (albums) => {
+    dispatch(receiveAlbums(albums))
+  };
+
   let handleDelete = (album) => {
     dispatch(deleteAlbumFromStore(album))
     redirectToFeaturedAlbum();
   }
   let handleAlbumErrors = (errors) => dispatch(receiveAlbumErrors(errors.responseJSON));
   let handleArtist = (artist) => dispatch(receiveArtist(artist))
+  let handleArtists = (artists) => {
+    dispatch(receiveArtists(artists))
+    hashHistory.replace(`/`)
+  }
 
   switch(action.type){
     case FETCH_ALBUMS:
+      if (action.redirect === true) {
       fetchAlbums(action.userId, handleAlbums, handleAlbumErrors)
+    } else {
+      fetchAlbums(action.userId, handleAlbumsNoRedirect, handleAlbumErrors)
+    }
       return next(action);
     case FETCH_ALBUM:
       fetchAlbum(action.albumId, handleAlbum, handleAlbumErrors)
@@ -59,6 +73,9 @@ const albumMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     case FETCH_ARTIST:
       fetchArtist(action.artistId, handleArtist, handleAlbumErrors)
+      return next(action);
+    case FETCH_ARTISTS:
+      fetchArtists(handleArtists, handleAlbumErrors)
       return next(action);
     default:
     return next(action);

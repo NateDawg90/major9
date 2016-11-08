@@ -1,9 +1,9 @@
 import merge from 'lodash/merge'
 import { RECEIVE_ALBUM, RECEIVE_ALBUMS,
     RECEIVE_ALBUM_ERRORS, RECEIVE_ARTIST, EDIT_ALBUM_MODE,
-     DELETE_ALBUM_FROM_STORE } from '../actions/album_actions'
+     DELETE_ALBUM_FROM_STORE, RECEIVE_ARTISTS } from '../actions/album_actions'
 const _defaultState = {
-  artist: {},
+  artists: {},
   albums: {},
   errors: [],
   editMode: false
@@ -11,16 +11,17 @@ const _defaultState = {
 
 const albumReducer = (state= _defaultState, action) => {
   Object.freeze(state);
-
   switch(action.type){
     case RECEIVE_ALBUMS:
       return {albums: action.albums, errors: [], editMode: false}
     case RECEIVE_ALBUM:
-      return {albums: action.album, errors: [], editMode: false}
+      return merge({}, state, {albums:{[action.album.id]: action.album}})
     case RECEIVE_ALBUM_ERRORS:
       return merge({}, state, {errors: action.albumErrors})
     case RECEIVE_ARTIST:
-      return merge({}, state, {artist: action.artist})
+      return merge({}, state, {artists: action.artist})
+    case RECEIVE_ARTISTS:
+      return merge({}, state, {artists: action.artists})
     case DELETE_ALBUM_FROM_STORE:
       let newState = merge({}, state)
       delete newState[albums][action.album.id]
