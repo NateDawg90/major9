@@ -49,15 +49,17 @@ class storeFront extends React.Component{
       return <div className="loader">Loading...</div>
     }
     if (this.props.errors==='["No Albums found"]') {
+      if(this.props.currentUser) {
         if (this.props.currentUser.id == this.props.params.artistId) {
           return (<div className="StoreFront-message">
             Welcome back to Major9! Please add an album or add a track.
           </div>)
-        }else {
+        }}
+
           return (<div className="StoreFront-message">
             No tracks here! Log in to add some tracks.
           </div>)
-        }
+        
 
     } else {
     return (

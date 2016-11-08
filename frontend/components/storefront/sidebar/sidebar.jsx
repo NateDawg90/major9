@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
 import ArtContainer from "../art/art_container";
+import Modal from 'react-modal';
+import NewAlbumContainer from '../forms/new_album_container';
 
 class Sidebar extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      modalOpen: false
+    }
     this.albums = this.albums.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.currentArtist = this.currentArtist.bind(this)
@@ -16,6 +21,7 @@ class Sidebar extends React.Component {
       return this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist_id == artistId
     }
   }
+
 
   parseAlbums() {
     const albumNames = []
@@ -67,17 +73,43 @@ class Sidebar extends React.Component {
   }
 
   editButton() {
-    if(this.props.currentUser) {
-      if (this.props.currentUser.id == this.props.params.artistId){
+    if(this.isArtist()){
         return(<div><button>Edit Page</button> <br/></div>)
-      }
     }
     return(<div></div>)
   }
 
+  isArtist() {
+    if(this.props.currentUser) {
+      if(this.props.currentUser.id == this.props.params.artistId)
+        return true
+    }
+    return false
+  }
+
+  editMode() {
+
+  }
+
+  openForm() {
+    this.setState({modalOpen: true});
+  }
+
+  newAlbum() {
+    if(this.isArtist()){
+    return (<div className="sidebarItemBox" key='editPage'>
+    <h2 className="sidebarItem" key='addAlbum'
+      onClick={this.openForm.bind(this)}> Add Album </h2>
+    <h3 className="sidebarSmallName" key='addAlbumSmall'> Click to Add Album </h3>
+    </div>)
+    }
+  }
+  //Make default artist_name username, allow it to be changed on edit
+
   render() {
     let parsedAlbums = this.albums();
     let editButton = this.editButton();
+    let newAlbum = this.newAlbum();
     if(this.contentMatching(this.props.params.artistId) == false) {
       return (
         <div>
@@ -86,16 +118,40 @@ class Sidebar extends React.Component {
     } else {
     return(
       <div className="sidebar">
-      <h2>{this.currentArtist('artist_name')}</h2>
+      <h1>{this.currentArtist('artist_name')}</h1>
       {editButton}
       <br/>
       <h3>Discography:</h3>
       {parsedAlbums}
-
+      {newAlbum}
+      <Modal
+         isOpen={this.state.modalOpen}
+         onRequestClose={this.onModalClose.bind(this)}
+         style = {{content :{
+            top                   : '50%',
+            left                  : '50%',
+            right                 : 'auto',
+            bottom                : 'auto',
+            marginRight           : '-50%',
+            transform             : 'translate(-50%, -50%)'
+            }
+          }
+        }
+        >
+        <div className="session-box">
+          <NewAlbumContainer />
+          <br />
+          <button onClick={this.onModalClose.bind(this)}>Close</button>
+        </div>
+      </Modal>
       </div>
     )
     }
   }
+  onModalClose() {
+    this.setState({modalOpen: false})
+  }
 }
+
 
 export default Sidebar

@@ -11,6 +11,7 @@ class Album extends React.Component{
     this.currentArtist = this.currentArtist.bind(this)
     this.handleNameClick = this.handleNameClick.bind(this)
     this.contentMatching = this.contentMatching.bind(this)
+    this.currentAlbumObject = this.currentAlbumObject.bind(this)
 
   }
 
@@ -20,7 +21,6 @@ class Album extends React.Component{
 
     if (Object.keys(this.props.albums.albums).length !== 0) {
     obj = this.props.albums.albums[this.props.params.albumId].tracks
-    console.log(this.props.albums.albums[this.props.params.albumId]);
     }
 
     for(var prop in obj){
@@ -45,7 +45,6 @@ class Album extends React.Component{
      )
     }
     //Add track lengths when we get to downloadable files
-    console.log(tracks);
     return tracks
   }
 
@@ -55,8 +54,15 @@ class Album extends React.Component{
 
   currentAlbum(prop) {
     // debugger
+
     if (Object.keys(this.props.albums.albums).length !== 0){
     return this.props.albums.albums[this.props.params.albumId][prop]
+    }
+  }
+
+  currentAlbumObject() {
+    if (Object.keys(this.props.albums.albums).length !== 0){
+    return this.props.albums.albums[this.props.params.albumId]
     }
   }
 
@@ -89,7 +95,7 @@ class Album extends React.Component{
       );
     } else if(this.contentMatching(this.props.params.artistId)==false){
       return <div className="loader">Loading...</div>
-    } else if(this.currentAlbum('album_name') == undefined) {
+    } else if(this.currentAlbumObject() == undefined) {
       return <div className="loader">Loading...</div>
     }else {
     let featAlbumId = Object.keys(this.props.albums.albums)[0]
