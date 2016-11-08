@@ -31,7 +31,8 @@ class storeFront extends React.Component{
   }
 
   contentLoaded() {
-    if (Object.keys(this.props.albums.albums).length !== 0) {
+    if (Object.keys(this.props.albums.albums).length !== 0 &&
+    this.props.albums.albums[Object.keys(this.props.albums.albums)[0]].artist_id == this.props.params.artistId) {
       return true
     } else if (this.props.errors.length !== 0) {
       return true
@@ -48,11 +49,16 @@ class storeFront extends React.Component{
     if (this.contentLoaded() == false) {
       return <div className="loader">Loading...</div>
     }
-    if (this.props.errors==='["No Albums found"]') {
+    if (this.props.errors==='["No Albums found"]' || this.props.errors[0]=== "No Albums found") {
       if(this.props.currentUser) {
         if (this.props.currentUser.id == this.props.params.artistId) {
-          return (<div className="StoreFront-message">
-            Welcome back to Major9! Please add an album or add a track.
+          return (<div className="StoreFront-message StoreFront">
+            <div className="StoreFront-message">
+              <h1>Welcome back to Major9! </h1>
+              <h3> Please add an album or add a track. </h3>
+              <h3> Click on Edit Page to get started. </h3>
+            </div>
+            <SidebarContainer />
           </div>)
         }}
 

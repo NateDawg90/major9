@@ -12,7 +12,6 @@ import merge from 'lodash/merge'
 const sessionMiddleware = ({getState, dispatch}) => next => action => {
   const handleSuccess = (data) => dispatch(receiveCurrentUser(data));
   const handleSignUp = (data) => {
-    debugger
     dispatch(receiveCurrentUser(data, true))
     hashHistory.replace(`/artist/${data.id}`)
   }

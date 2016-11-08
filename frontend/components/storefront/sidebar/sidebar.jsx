@@ -54,7 +54,8 @@ class Sidebar extends React.Component {
         </div>
           )
         }
-      }else if (this.albumNames.length === 3 && this.state.editMode ===  false && this.state.showAll === false){
+      }else if ( this.state.editMode ===  false ){
+        if (this.albumNames.length === 3 && this.state.showAll === false) {
         this.albumNames.push(
           <div>
             <Link onClick={this.showAllAlbums.bind(this)}><h3>more releases...</h3></Link>
@@ -62,13 +63,31 @@ class Sidebar extends React.Component {
         )
       }
     }
-  )
-    return this.albumNames
   }
+  )
+  if (this.state.showAll === true) {
+    this.albumNames.push(
+      <div>
+        <Link onClick={this.hideAllAlbums.bind(this)}><h3>less releases...</h3></Link>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      </div>
+    )
+  }
+      return this.albumNames
+    }
 
   showAllAlbums() {
     this.albumNames = [];
     this.setState({showAll: true})
+  }
+
+
+  hideAllAlbums() {
+    this.albumNames = [];
+    this.setState({showAll: false})
   }
 
   deleteAlbum(prop){

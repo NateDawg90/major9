@@ -45,11 +45,11 @@ class EditAlbum extends React.Component {
     let artist_name = this.props.currentUser['artist_name']
     return(
       <div className="Tracks">
-        <form>
-          <label>Album Name:</label>
+        <form className="AlbumForm">
         <input className="AlbumTitle" type="text"
           placeHolder = "Album Name"
           defaultValue={this.props.currentAlbum.album_name} />
+        <label>Album Name:</label>
         <h2> Song Player goes here</h2>
         <h3>Digital Album</h3>
         <h4>Includes unlimited streaming via the free Major9 app, plus

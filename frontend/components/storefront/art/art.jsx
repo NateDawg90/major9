@@ -5,7 +5,7 @@ class Art extends React.Component {
   render() {
     if (this.props.editMode === true) {
       return(
-        <div className = "EditImage">
+        <div className = "Image EditImage">
           <img className="ShowArt" src={this.props.image_url} />
         </div>
       )
