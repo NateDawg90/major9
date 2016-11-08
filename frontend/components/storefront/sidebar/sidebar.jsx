@@ -65,7 +65,7 @@ class Sidebar extends React.Component {
     }
   }
   )
-  if (this.state.showAll === true) {
+  if (this.state.showAll === true && this.state.editMode === false) {
     this.albumNames.push(
       <div>
         <Link onClick={this.hideAllAlbums.bind(this)}><h3>less releases...</h3></Link>
