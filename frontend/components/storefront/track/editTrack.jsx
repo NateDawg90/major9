@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router'
 
 class EditTrack extends React.Component {
   constructor(props) {
@@ -10,13 +11,14 @@ class EditTrack extends React.Component {
     // let defaultState = this.stateMaker()
     console.log(this.props);
     this.state = {
-      album_name: this.props.currentTrack.track_name,
+      track_name: this.props.currentTrack.track_name,
       price: this.props.currentTrack.price,
       release_date: this.props.currentTrack.release_date,
       description: this.props.currentTrack.description,
       image_url: this.props.currentTrack.image_url,
+      track_number: this.props.currentTrack.track_number,
       credits: this.props.currentTrack.credits,
-      id: this.props.params.albumId
+      id: this.props.params.trackId
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -40,11 +42,12 @@ class EditTrack extends React.Component {
   }
 
   handleSubmit() {
-    this.props.updateTrack(this.state)
+    this.props.updateTrack(this.props.params.albumId, this.state)
+    this.setState({editMode:false})
   }
 
   render() {
-
+    console.log(this.props);
     let artist_name = this.props.currentUser['artist_name']
     return(
       <div className="Tracks">
@@ -52,7 +55,7 @@ class EditTrack extends React.Component {
         <input className="TrackTitle" type="text"
           placeholder = "Album Name"
           onChange={this.update('album_name')}
-          value={this.state.album_name} />
+          value={this.state.track_name} />
         <h2> Song Player goes here</h2>
         <h3>Digital Album</h3>
         <h4>Includes unlimited streaming via the free Major9 app, plus
@@ -79,7 +82,7 @@ class EditTrack extends React.Component {
             placeholder="Credits"/>
         <br />
         <br />
-        <button>Save</button>
+        <button onClick={this.handleSubmit.bind(this)}>Save</button>
         </form>
       </div>
     )

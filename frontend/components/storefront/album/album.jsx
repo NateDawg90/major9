@@ -78,8 +78,8 @@ class Album extends React.Component{
 
   // {this.props.children}
 
-  handleNameClick(albumId) {
-    this.props.fetchTracks(albumId)
+  handleNameClick() {
+    this.props.fetchTracks(this.props.params.albumId)
   }
 
   contentMatching(artistId){
@@ -118,10 +118,12 @@ class Album extends React.Component{
     } else if(this.currentAlbumObject() == undefined) {
       return <div className="loader">Loading...</div>
     }else if(this.props.editMode === true && this.isArtist.bind(this)() === true){
+      console.log(this.props);
       return(<div className="Show">
       <EditAlbum currentAlbum={this.props.currentAlbum} currentUser={this.props.currentUser}
         tracks={this.props.albums.albums[this.props.params.albumId].tracks
-        } params={this.props.params} updateAlbum={this.props.updateAlbum}/>
+        } params={this.props.params} updateAlbum={this.props.updateAlbum}
+        router={this.props.router} editAlbumMode={this.props.editAlbumMode}/>
       <ArtContainer image_url={this.currentAlbum('image_url')} editMode={true}/>
       </div>)
 

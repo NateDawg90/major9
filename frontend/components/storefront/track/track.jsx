@@ -120,13 +120,14 @@ class Track extends React.Component{
     }else if(this.props.editMode === true && this.isArtist.bind(this)() === true){
       return(<div className="Show">
       <EditTrack currentAlbum={this.props.currentAlbum} currentUser={this.props.currentUser}
-        currentTrack={this.props.currentTrack} params={this.props.params} updateAlbum={this.props.updateAlbum}/>
+        currentTrack={this.props.currentTrack} params={this.props.params} updateAlbum={this.props.updateAlbum}
+        editAlbumMode={this.props.editAlbumMode} updateTrack={this.props.updateTrack}/>
       <ArtContainer image_url={this.currentAlbum('image_url')} editMode={true}/>
       </div>)
     }
       let featAlbumId = Object.keys(this.props.albums.albums)[0]
       let artistLink = `artist/${this.currentArtist('id')}/album/${featAlbumId}`
-      let albumLink = `artist/${this.currentArtist('id')}/album/${this.currentAlbum("id")}`
+      let albumLink = `artist/${this.props.currentAlbum.artist.id}/album/${this.props.currentAlbum.id}`
       return(
       <div className="Show">
         <div className="Tracks">

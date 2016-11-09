@@ -81,5 +81,7 @@ Track.create(album_id:5, release_date: "11/5/16", price: 2, track_number: 8,trac
 Track.create(album_id:5, release_date: "11/5/16", price: 2, track_number: 9,track_name:"Jungle")
 Track.create(album_id:5, release_date: "11/5/16", price: 2, track_number: 10,track_name:"Across The Nightmare")
 
+File.create(user_id:3, track_id:7, url:"https://s3-us-west-1.amazonaws.com/major9/5-21+%E4%B8%87%E8%8F%AF%E9%8F%A1.mp3")
+File.create(user_id:3, track_id:8, url:"https://s3-us-west-1.amazonaws.com/major9/4-31+Keiko+my+love.mp3")
 # Create seed for Nekomata, Jimmy Weckl, Izumi, (Maybe :Living Daylights), My Stuff
 # Hiromi, SOIL and PIMP, T-SQUARE,Kenji Suzuki

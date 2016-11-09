@@ -110,7 +110,7 @@ export const createTrack = (albumId, track, success, error) => {
 
 export const updateTrack = (albumId, track, success, error) => {
   $.ajax({
-    url: `/api/albums/${albumId}/tracks/${track.track_number}`,
+    url: `/api/albums/${albumId}/tracks/${track.id}`,
     method: 'PATCH',
     data: {track},
     success,
