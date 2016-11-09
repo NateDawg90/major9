@@ -109,7 +109,7 @@ class Track extends React.Component{
     return false
   }
   render() {
-    // debugger
+    debugger
     // If not purchaseale, "Buy the Full Digital Album"
     // If purchaseable, "Purchasing Component"
     // if (this.currentTrackGrabbed()===true) {

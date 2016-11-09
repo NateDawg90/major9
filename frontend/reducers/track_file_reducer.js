@@ -3,23 +3,17 @@ import { RECEIVE_UPLOAD,
     RECEIVE_UPLOAD_ERRORS } from '../actions/upload_actions'
 
 const _defaultState = {
-  tracks: {},
-  errors: []
+  url: {},
+
 }
 
-const trackReducer = (state= _defaultState, action) => {
+const trackFileReducer = (state= _defaultState, action) => {
   Object.freeze(state);
 
   switch(action.type){
-    case RECEIVE_TRACKS:
-      return {tracks: action.tracks, errors: []}
-    case RECEIVE_TRACK:
-      return {tracks: action.track, errors: []}
-    case RECEIVE_TRACK_ERRORS:
-      return merge({}, state, {errors: action.trackErrors})
     default:
       return state
   }
 }
 
-export default trackReducer;
+export default trackFileReducer;
