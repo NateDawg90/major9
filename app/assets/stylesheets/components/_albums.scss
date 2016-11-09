@@ -43,6 +43,12 @@
     display:flex;
   }
 
+  .edit-button{
+    padding-top: 5px;
+    padding-left: -10px;
+    list-style: none;
+  }
+
   .TrackListItem:hover ~ .trackHoverLink{
     display:flex;
   }

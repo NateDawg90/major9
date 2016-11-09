@@ -121,7 +121,7 @@ class Album extends React.Component{
       return(<div className="Show">
       <EditAlbum currentAlbum={this.props.currentAlbum} currentUser={this.props.currentUser}
         tracks={this.props.albums.albums[this.props.params.albumId].tracks
-        } params={this.props.params}/>
+        } params={this.props.params} updateAlbum={this.props.updateAlbum}/>
       <ArtContainer image_url={this.currentAlbum('image_url')} editMode={true}/>
       </div>)
 

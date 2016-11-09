@@ -1,4 +1,5 @@
 import React from 'react'
+import  TracksForm  from '../forms/_tracks'
 
 class EditAlbum extends React.Component {
   constructor(props) {
@@ -8,8 +9,16 @@ class EditAlbum extends React.Component {
     //set state to new object
     ;
     // let defaultState = this.stateMaker()
-    this.state = {}
-    this.displayTracks = this.displayTracks.bind(this)
+    this.state = {
+      album_name: this.props.currentAlbum.album_name,
+      price: this.props.currentAlbum.price,
+      release_date: this.props.currentAlbum.release_date,
+      description: this.props.currentAlbum.description,
+      image_url: this.props.currentAlbum.image_url,
+      credits: this.props.currentAlbum.credits,
+      id: this.props.params.albumId
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   // stateMaker() {
@@ -22,73 +31,60 @@ class EditAlbum extends React.Component {
   //   return state
   // }
 
-  displayTracks() {
-    let obj;
-    let tracks = [];
-    obj = this.props.tracks
-    console.log(this.props.tracks);
-    // debugger
-    for(var prop in obj){
-      console.log(obj[prop]);
-      let trackLink = `/artist/${this.props.params.artistId}/album/${this.props.params.albumId}/track/${prop}`
-      tracks.push(
-        <div className="TrackListItem-box" key={`Box${prop}`}>
-          <ul className="TrackListItem">
-            <li className="trackNumber trackNumEdit" key={`Track_${prop}`}>
-              {obj[prop].track_number}.
-            </li>
-            <li className="trackListLink" key={prop}>
-              <input type="text" className="trackEdit"
-                defaultValue={obj[prop].track_name}
-                placeholder={`Track Name for Track ${obj[prop].track_number}`}/>
-            </li>
-            <li className="trackLength" key={`Length_${prop}`}>
-              0:00
-            </li>
-          </ul>
-          <li className="trackHoverLink" key={`hover${prop}`}>
-            <button> Delete</button>
-          </li>
-       </div>
-     )
-      }
+  update(property) {
+    return e => {
+      console.log(e.target.value);
+      this.setState({[property]: e.target.value})
+    }
+  }
 
-    //Add track lengths when we get to downloadable files
-    return tracks
+  handleSubmit() {
+    this.props.updateAlbum(this.state)
   }
 
   render() {
     console.log(this.props);
     console.log(this.state);
+    console.log(this.props.params.albumId);
     let artist_name = this.props.currentUser['artist_name']
     return(
       <div className="Tracks">
-        <form className="AlbumForm">
+        <form className="AlbumForm" onSubmit={this.handleSubmit}>
         <input className="AlbumTitle" type="text"
           placeholder = "Album Name"
-          value={this.props.currentAlbum.album_name} />
+          onChange={this.update('album_name')}
+          value={this.state.album_name} />
         <h2> Song Player goes here</h2>
         <h3>Digital Album</h3>
         <h4>Includes unlimited streaming via the free Major9 app, plus
         high-quality download in MP3.</h4>
         <br/>
         <h2> Purchasing Component </h2>
-        <h2>Buy Now {this.props.currentAlbum.price}</h2>
-          {this.displayTracks()}
+        <h2>Buy Now {this.state.price}</h2>
+          <TracksForm tracks={this.props.tracks}
+             currentAlbum={this.state}
+             onChange={this.update('price')}
+             params={this.props.params} />
         <br />
-        <input type="text" placeholder="Release Date" value={this.props.currentAlbum.release_date} />
+        <input type="text" placeholder="Release Date"
+          onChange={this.update('release_date')}
+           value={this.state.release_date} />
         <br />
         <br />
           <textArea
             className="EditDescription"
-            value={this.props.currentAlbum.description}
+            value={this.state.description}
+            onChange={this.update('description')}
             placeholder="Description" />
         <br />
           <br/ >
           <input type="text"
-            defaultValue={this.props.currentAlbum.credits}
+            defaultValue={this.state.credits}
+            onChange={this.update('credits')}
             placeholder="Credits"/>
         <br />
+        <br />
+        <button>Save</button>
         </form>
       </div>
     )

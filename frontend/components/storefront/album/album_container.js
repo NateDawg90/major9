@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import Album from './album';
 import {fetchTracks} from '../../../actions/track_actions';
-
+import {updateAlbum} from '../../../actions/album_actions';
 const mapStateToProps = (state, ownProps) => ({
   albums: state.albums,
   tracks: state.tracks,
@@ -12,7 +12,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchTracks: (albumId) => dispatch(fetchTracks(albumId))
+  fetchTracks: (albumId) => dispatch(fetchTracks(albumId)),
+  updateAlbum: (album) => dispatch(updateAlbum(album))
 })
 
 export default connect(
