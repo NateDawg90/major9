@@ -144,3 +144,13 @@ export const fetchArtists = (success, error) => {
     error
   })
 }
+
+export const uploadTrack = (track, success, error) => {
+  $.ajax({
+    url: `/api/track_files`,
+    method: "POST",
+    data: {track_file: track},
+    success,
+    error
+  })
+}

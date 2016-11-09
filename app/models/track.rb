@@ -7,4 +7,9 @@ class Track < ActiveRecord::Base
   through: :album,
   source: :artist
 
+  has_many :track_files,
+  foreign_key: :track_id,
+  primary_key: :id,
+  class_name: :TrackFile
+
 end

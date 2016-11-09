@@ -6,7 +6,8 @@ import trackReducer from './track_reducer';
 const rootReducer = combineReducers({
   session: sessionReducer,
   albums: albumReducer,
-  tracks: trackReducer
+  tracks: trackReducer,
+  track_file: trackFileReducer
 });
 
 export default rootReducer;

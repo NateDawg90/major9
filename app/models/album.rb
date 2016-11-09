@@ -7,4 +7,8 @@ class Album < ActiveRecord::Base
   class_name: :User
 
   has_many :tracks
+
+  has_many :track_files,
+  through: :tracks,
+  source: :track_files
 end
