@@ -6,7 +6,11 @@ import {withRouter} from 'react-router'
 
 const mapStateToProps = (state, ownProps) => ({
   albums: state.albums,
-  tracks: state.tracks
+  tracks: state.tracks,
+  editMode: state.albums.editMode,
+  currentUser: state.session.currentUser,
+  currentAlbum: state.albums.albums[ownProps.params.albumId],
+  currentTrack: state.albums.albums[ownProps.params.albumId].tracks[ownProps.params.trackId]
 })
 
 const mapDispatchToProps = (dispatch) => ({

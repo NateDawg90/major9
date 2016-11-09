@@ -87,11 +87,12 @@ class Sidebar extends React.Component {
     this.setState({showAll: true})
   }
 
-  componentWillUpdate() {
-    if (this.state.modalOpen === true) {
-    this.setState({modalOpen: false})
-    }
-  }
+  // componentWillUpdate(newProps) {
+  //   console.log(newProps);
+  //   if (this.state.modalOpen === true) {
+  //   this.setState({modalOpen: false})
+  //   }
+  // }
 
   hideAllAlbums() {
     this.albumNames = [];
@@ -221,6 +222,7 @@ class Sidebar extends React.Component {
     }
   }
   onModalClose() {
+    this.props.clearErrors([""]);
     this.setState({modalOpen: false})
   }
 }
