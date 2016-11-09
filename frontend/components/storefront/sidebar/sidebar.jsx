@@ -170,8 +170,8 @@ class Sidebar extends React.Component {
   newAlbum() {
     if(this.isArtist() && this.state.editMode === true){
     return (<div className="sidebarItemBox" key='editPage'>
-    <h2 className="sidebarItem" key='addAlbum'
-      onClick={this.openForm.bind(this)}> Add Album </h2>
+    <img className="sidebarItem" key='addAlbum'
+      onClick={this.openForm.bind(this)} src="http://www.clipartbest.com/cliparts/dir/p9x/dirp9xAi9.png"/ >
     <h3 className="sidebarSmallName" key='addAlbumSmall'> Click to Add Album </h3>
     </div>)
     }
