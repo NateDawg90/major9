@@ -80,6 +80,6 @@ export const editAlbumMode = (toggle) => ({
 })
 
 export const deleteAlbumFromStore = (album) => ({
-  type: DELETE_ALBUM,
+  type: DELETE_ALBUM_FROM_STORE,
   album
 })

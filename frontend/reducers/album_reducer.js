@@ -24,7 +24,7 @@ const albumReducer = (state= _defaultState, action) => {
       return merge({}, state, {artists: action.artists})
     case DELETE_ALBUM_FROM_STORE:
       let newState = merge({}, state)
-      delete newState[albums][action.album.id]
+      delete newState['albums'][action.album.id]
       return merge({}, newState)
     case EDIT_ALBUM_MODE:
       return merge({}, state, {editMode: action.toggle})

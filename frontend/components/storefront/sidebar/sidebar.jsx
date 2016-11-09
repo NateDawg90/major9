@@ -109,6 +109,7 @@ class Sidebar extends React.Component {
     return e => {
       console.log(e.target.value);
       this.props.deleteAlbum(e.target.value)
+      this.setState({})
     }
   }
 

@@ -3,11 +3,25 @@ import React from 'react'
 class EditAlbum extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      album:{}
-    }
+    //loop through objects
+    //push into new object
+    //set state to new object
+    ;
+    // let defaultState = this.stateMaker()
+    this.state = {}
     this.displayTracks = this.displayTracks.bind(this)
   }
+
+  // stateMaker() {
+  //   let state = {}
+  //   let obj = this.props.tracks
+  //   for(var prop in obj){
+  //     state.prop = obj.prop
+  //   }
+  //   state.album = this.props.currentAlbum
+  //   return state
+  // }
+
   displayTracks() {
     let obj;
     let tracks = [];
@@ -45,6 +59,7 @@ class EditAlbum extends React.Component {
 
   render() {
     console.log(this.props);
+    console.log(this.state);
     let artist_name = this.props.currentUser['artist_name']
     return(
       <div className="Tracks">
