@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
+import ReactDOM from 'react-dom';
+import Coverflow from 'react-coverflow';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -14,15 +16,20 @@ class Splash extends React.Component {
     console.log(this.props.artists);
     return Object.keys(this.props.artists).map( (artistIdx) => {
       let featuredAlbum = this.props.artists[artistIdx].albums[this.props.artists[artistIdx].albums.length-1]
-      return(<li>
-        <div className="sidebarItemBox" key={`Box${featuredAlbum.album_name}`}>
-        <img className="sidebarItem" src={featuredAlbum.image_url} key={`Item${featuredAlbum.album_name}`}/>
-        <h3 className="sidebarSmallName" key={`name${featuredAlbum.album_name}`}> {featuredAlbum.album_name} </h3>
-        <Link to={`artist/${artistIdx}`} key={artistIdx}>{this.props.artists[artistIdx].artist_name}</Link>
-        </div>
-      </li>
+      return(
+          <img src={featuredAlbum.image_url} alt={this.props.artists[artistIdx].artist_name}/>
     )})
   }
+  // <div key={`Box${featuredAlbum.album_name}`}>
+// </div>
+  // <h3 key={`name${featuredAlbum.album_name}`}> {featuredAlbum.album_name} </h3>
+  // <Link to={`artist/${artistIdx}`} key={artistIdx}>{this.props.artists[artistIdx].artist_name}</Link>
+
+  artistsExist(){
+
+  }
+
+
 
   render() {
 
@@ -37,19 +44,38 @@ class Splash extends React.Component {
       }
     }
     console.log(artists);
+
+
+    // <div>
+    //   <div className="splash">
+    //     <h1> Welcome to Major9</h1>
+    //     <h2> The Homepage of Japanese Jazz</h2>
+    //     <h2> Here are our featured artists: </h2>
+    //     <br/>
+    //     <div>
+    //       <div className="content">
     return(
-      <div>
-      <div className="splash">
-      <h1> Welcome to Major9</h1>
-      <h2> The Homepage of Japanese Jazz</h2>
-      <h2> Here are our featured artists: </h2>
-      <ul>
-        {artists}
-      </ul>
-      </div>
-      </div>
+          <Coverflow
+            width={960}
+            height={480}
+            displayQuantityOfSide={1}
+            navigation={true}
+            enableHeading={true}
+            >
+            {artists}
+          </Coverflow>
     )
+//   </div>
+// </div>
+// <br/>
+// <br/>
+// </div>
+// </div>
+
   }
+
+
+
 }
 
 export default Splash

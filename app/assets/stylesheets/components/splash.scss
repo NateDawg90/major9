@@ -2,3 +2,12 @@
   margin: 0 auto;
   text-align: center;
 }
+
+
+
+ .scrolls {
+     overflow-x: scroll;
+     overflow-y: hidden;
+     height: 80px;
+     white-space:nowrap
+ }

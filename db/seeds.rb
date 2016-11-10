@@ -9,7 +9,7 @@
 User.create(username:"Guest", password:"123456", artist_name: "Greatest Recruiter",
 about:"This recruiter has the best music in the world!")
 
-  Album.create(artist_id:1, image_url: "https://s3-us-west-1.amazonaws.com/major9/""https://s3-us-west-1.amazonaws.com/major9/7d52009dcdc24917c64059eb16244e93.jpg",
+  Album.create(artist_id:1, image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/7d52009dcdc24917c64059eb16244e93_qxomuw.jpg",
   album_name:"Greatest Hits from the Greatest Recruiter", price: 30, release_date:Date.new)
 
     Track.create(album_id:3, release_date: Date.new, track_number:1, price: 5, track_name:"Greatest Song")
@@ -33,15 +33,15 @@ about:"Local Guitarist Looking for Musical Love", location:"San Jose")
     price: 1,
     track_name:"Blue Bossa",
     description: "If I could play this song well, it would be here",
-    image_url: "https://s3-us-west-1.amazonaws.com/major9/blue-moon-tree.jpg",
+    image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/blue-moon-tree_nzyd7w.jpg",
     lyrics: "La la la this is the blue bossa song lyrics",
     credits: "Target again for best deals.",
     bonus: true
     )
-    Track.create(album_id:1, image_url:"https://s3-us-west-1.amazonaws.com/major9/download.jpeg", release_date: Date.new, track_number:2, price: 1, track_name:"Jam in Key of Toast")
-    Track.create(album_id:1, image_url:"https://s3-us-west-1.amazonaws.com/major9/21076_4158.jpg", release_date: Date.new, track_number:3, price: 1, track_name:"Night in Tunisia")
+    Track.create(album_id:1, image_url:"http://res.cloudinary.com/dprtxlyhi/image/upload/download_ap2iwu.jpeg", release_date: Date.new, track_number:2, price: 1, track_name:"Jam in Key of Toast")
+    Track.create(album_id:1, image_url:"http://res.cloudinary.com/dprtxlyhi/image/upload/21076_4158_zphrmy.jpg", release_date: Date.new, track_number:3, price: 1, track_name:"Night in Tunisia")
 
-  Album.create(artist_id:2, image_url: "https://s3-us-west-1.amazonaws.com/major9/funk-graffiti-vector_23-2147497930.jpg",
+  Album.create(artist_id:2, image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/funk-graffiti-vector_23-2147497930_eyvd44.jpg",
   album_name:"The Funkiest", price: 10, release_date:Date.new)
 
   Album.create(artist_id:2,
@@ -49,7 +49,7 @@ about:"Local Guitarist Looking for Musical Love", location:"San Jose")
   album_name: "The Rockiest",
   credits: "Walmart has the okay deals.",
   description: "A rock album? Or an album for unstable roads? You decide.",
-  image_url: "https://s3-us-west-1.amazonaws.com/major9/key+holder.jpg",
+  image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/key+holder_uhfpir.jpg",
   price: 10,
   release_date: "11/2/2016")
     Track.create(album_id:2, release_date: Date.new, track_number:1, price: 1, track_name:"Run")
@@ -67,7 +67,7 @@ about:"Underrated Jazz Musician from Japan. Ex-Konami In-house Artist.", locatio
   about: "20 Years in the Making. Jimmy Weckl finally releases a solo album to the masses!",
   price: 40,
   release_date:"11/5/16",
-  image_url: "https://s3-us-west-1.amazonaws.com/major9/Mangekyou.png")
+  image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/Mangekyou.png")
     Track.create(album_id:5, release_date: "11/5/16", price: 2, track_number: 1,track_name:"Mangekyou")
     Track.create(album_id:5, release_date: "11/5/16", price: 2, track_number: 2,track_name:"Keiko My Love")
     Track.create(album_id:5, release_date: "11/5/16", price: 2, track_number: 3,track_name:"Mirage Residence")
@@ -93,7 +93,7 @@ about:"Best musician in Konami. Loves cats.", location: "Tokyo")
   album_name: "Crevice",
   credits: "Konami Digital Entertainment",
   description: "",
-  image_url: "https://s3-us-west-1.amazonaws.com/major9/GFCA-340.jpg",
+  image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/GFCA-340_v1fedo.jpg",
   price: 40,
   release_date: "11/2/2016")
 # 5
@@ -102,7 +102,7 @@ about:" Soil & \"Pimp\" Sessions is an energetic Japanese club jazz band that ha
 ", location: "Tokyo")
 
   Album.create(artist_id: 5, album_name: "Summer Goddess", price:"10", release_date:"2005.07.21",
-  image_url:"https://s3-us-west-1.amazonaws.com/major9/Summer Goddess EP.jpg")
+  image_url:"http://res.cloudinary.com/dprtxlyhi/image/upload/Summer_Goddess_EP_wqm8yl.jpg")
     Track.create(album_id: 7, release_date: "2005.07.21", price: 1, track_number:1, track_name: "follow")
     Track.create(album_id: 7, release_date: "2005.07.21", price: 1, track_number:2, track_name: "fragment")
     Track.create(album_id: 7, release_date: "2005.07.21", price: 1, track_number:3, track_name: "summer goddess")
@@ -117,7 +117,7 @@ about:" Soil & \"Pimp\" Sessions is an energetic Japanese club jazz band that ha
 
 
   Album.create(artist_id: 5, album_name: "Pimpoint", price: "20", release_date:"2007.03.07",
-  image_url:"https://s3-us-west-1.amazonaws.com/major9/Pimpoint.jpg")
+  image_url:"http://res.cloudinary.com/dprtxlyhi/image/upload/Pimpoint_mtk04r.jpg")
     Track.create(album_id:8, release_date:"2007.03.07", price: 1, track_number: 1, track_name: "Dawn")
     Track.create(album_id:8, release_date:"2007.03.07", price: 1, track_number: 2, track_name: "A.I.E")
     Track.create(album_id:8, release_date:"2007.03.07", price: 1, track_number: 3, track_name: "Makuroke")
@@ -168,7 +168,7 @@ about: "JABBERLOOP is a Japanese club jazz band composed of five members (Sax, T
 
 # Create seed for Nekomata, Jimmy Weckl, Izumi, (Maybe :Living Daylights), My Stuff
 # Hiromi, SOIL and PIMP, T-SQUARE,Kenji Suzuki
-# Album.create(artist_id: , album_name: "", about:"", price: , release_date:"", image_url: "https://s3-us-west-1.amazonaws.com/major9/")
+# Album.create(artist_id: , album_name: "", about:"", price: , release_date:"", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/")
 # Track.create(album_id: , release_date: "", price: 1, track_number: , track_name: "")
 # TrackFile.create(user_id: , track_id: , url:" ")
 #
@@ -193,7 +193,7 @@ about: "JABBERLOOP is a Japanese club jazz band composed of five members (Sax, T
 # ./(2007.03.07) Pimpoint/14 - Sahara.mp3
 # ./Pimpoint.jpg
 
-Album.create(artist_id:5 , album_name: "Circles", about:"", price: 15, release_date:"11.11.2015", image_url: "https://s3-us-west-1.amazonaws.com/major9/Circles.jpg
+Album.create(artist_id:5 , album_name: "Circles", about:"", price: 15, release_date:"11.11.2015", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/Circles_hfzcwr.jpg
 ")
 Track.create(album_id: 9, release_date:"11.11.2015", price:1, track_number:1, track_name:"ジャズィ・カンヴァセイション")
 Track.create(album_id: 9, release_date:"11.11.2015", price:1, track_number:2, track_name:"殺し屋危機一髪")
@@ -220,7 +220,7 @@ Track.create(album_id: 9, release_date:"11.11.2015", price:1, track_number:11, t
 # ./CIRCLES (Limited Edition)/10. Hey Tagger, I’m Here.mp3
 # ./CIRCLES (Limited Edition)/11. 殺し屋危機一髪 (DEATH JAZZ ver.).mp3
 # ./Circles.jpg
-Album.create(artist_id:6 , album_name: "Another Mind", about:"", price: 9, release_date:"11.11.2005", image_url: "https://s3-us-west-1.amazonaws.com/major9/Another Mind.jpg")
+Album.create(artist_id:6 , album_name: "Another Mind", about:"", price: 9, release_date:"11.11.2005", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/Another_Mind_Idemad.jpg")
 Track.create(album_id:10, release_date:"11.11.2005", price: 1, track_number:1, track_name: "XYZ")
 Track.create(album_id:10, release_date:"11.11.2005", price: 1, track_number:2, track_name: "Double Personality")
 Track.create(album_id:10, release_date:"11.11.2005", price: 1, track_number:3, track_name: "Summer Rain")
@@ -243,7 +243,7 @@ Track.create(album_id:10, release_date:"11.11.2005", price: 1, track_number:9, t
 # ./2003 - Another Mind/09. The Tom and Jerry Show [bonus track].mp3
 # ./Another Mind.jpg
 
-Album.create(artist_id:6 , album_name: "Alive", about:"", price: 12 , release_date:"11.11.2014", image_url: "https://s3-us-west-1.amazonaws.com/major9/Alive.jpg")
+Album.create(artist_id:6 , album_name: "Alive", about:"", price: 12 , release_date:"11.11.2014", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/Alive_jbbzev.jpg")
 Track.create(album_id: 11, release_date: "11.11.2004", price: 1, track_number:1, track_name: "Alive")
 Track.create(album_id: 11, release_date: "11.11.2004", price: 1, track_number:2, track_name: "Back")
 Track.create(album_id: 11, release_date: "11.11.2004", price: 1, track_number:3, track_name: "Dreamer")
@@ -256,7 +256,7 @@ Track.create(album_id: 11, release_date: "11.11.2004", price: 1, track_number:9,
 Track.create(album_id: 11, release_date: "11.11.2004", price: 1, track_number:10, track_name: "Warrior")
 # ./Alive.jpg
 
-Album.create(artist_id:6 , album_name: "Spark", about:"", price: 10 , release_date:"11.11.2016", image_url: "https://s3-us-west-1.amazonaws.com/major9/Spark.jpg")
+Album.create(artist_id:6 , album_name: "Spark", about:"", price: 10 , release_date:"11.11.2016", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/Spark_lgvzkh.jpg")
 Track.create(album_id:12, release_date: "11.11.2016", price:1, track_number:1, track_name: "Spark")
 Track.create(album_id:12, release_date: "11.11.2016", price:1, track_number:2, track_name: "In A Trance")
 Track.create(album_id:12, release_date: "11.11.2016", price:1, track_number:3, track_name: "Take Me Away")
@@ -269,7 +269,7 @@ Track.create(album_id:12, release_date: "11.11.2016", price:1, track_number:9, t
 # ./Hiromi Uehara (上原ひろみ) - Spark [V0]/Spark Cover.jpg
 # ./Spark.jpg
 
-Album.create(artist_id:7 , album_name: "Treasure Hunter", about:"", price: 15, release_date:"2016.04.27", image_url: "https://s3-us-west-1.amazonaws.com/major9/treasure hunter.jpg")
+Album.create(artist_id:7 , album_name: "Treasure Hunter", about:"", price: 15, release_date:"2016.04.27", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/treasure_hunter_x4qijh.jpg")
 Track.create(album_id:13, release_date:"2016.04.27", price:1.50, track_number:1, track_name:"Treasure Hunter")
 Track.create(album_id:13, release_date:"2016.04.27", price:1.50, track_number:2, track_name:"Chops!!")
 Track.create(album_id:13, release_date:"2016.04.27", price:1.50, track_number:3, track_name:"Metro 7")
@@ -280,7 +280,7 @@ Track.create(album_id:13, release_date:"2016.04.27", price:1.50, track_number:7,
 Track.create(album_id:13, release_date:"2016.04.27", price:1.50, track_number:8, track_name:"Scissors Paper Rock")
 Track.create(album_id:13, release_date:"2016.04.27", price:1.50, track_number:9, track_name:"Last Scene")
 
-Album.create(artist_id:7 , album_name: "Truth", about:"", price: 5, release_date:"11.11.11.11.1987", image_url: "https://s3-us-west-1.amazonaws.com/major9/truth.jpg")
+Album.create(artist_id:7 , album_name: "Truth", about:"", price: 5, release_date:"11.11.11.11.1987", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/truth_qvnmxxp.jpg")
 Track.create(album_id:14, release_date:"11.11.1987", price: 0.50, track_number:1, track_name:"Grand Prix")
 Track.create(album_id:14, release_date:"11.11.1987", price: 0.50, track_number:2, track_name:"Celebration")
 Track.create(album_id:14, release_date:"11.11.1987", price: 0.50, track_number:3, track_name:"Beat in Beat")
@@ -291,7 +291,7 @@ Track.create(album_id:14, release_date:"11.11.1987", price: 0.50, track_number:7
 Track.create(album_id:14, release_date:"11.11.1987", price: 0.50, track_number:8, track_name:"Because")
 Track.create(album_id:14, release_date:"11.11.1987", price: 0.50, track_number:9, track_name:"Twilight in Upper West")
 
-Album.create(artist_id:7 , album_name: "T-Square Plays The Square", about:"", price: 10 , release_date:"11.11.1995", image_url: "https://s3-us-west-1.amazonaws.com/major9/takara kyoku.jpg")
+Album.create(artist_id:7 , album_name: "T-Square Plays The Square", about:"", price: 10 , release_date:"11.11.1995", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/takara_kyoku_fvq2ef.jpg")
 Track.create(album_id:15, release_date:"11.11.1995", price: 1, track_number:1, track_name:"Omens Of Love")
 Track.create(album_id:15, release_date:"11.11.1995", price: 1, track_number:2, track_name:"宝島")
 Track.create(album_id:15, release_date:"11.11.1995", price: 1, track_number:3, track_name:"Hawaiiへ行きたい")
@@ -305,7 +305,7 @@ Track.create(album_id:15, release_date:"11.11.1995", price: 1, track_number:10, 
 Track.create(album_id:15, release_date:"11.11.1995", price: 1, track_number:11, track_name:"It's Magic")
 Track.create(album_id:15, release_date:"11.11.1995", price: 1, track_number:12, track_name:"Forgotten Saga")
 
-Album.create(artist_id:8 , album_name: "BLOOD", about:"", price: 10, release_date:"11.11.2005", image_url: "https://s3-us-west-1.amazonaws.com/major9/BLOOD.jpg")
+Album.create(artist_id:8 , album_name: "BLOOD", about:"", price: 10, release_date:"11.11.2005", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/BLOOD_pjnv2n.jpg")
 Track.create(album_id: 16, release_date:"11.11.2005", price: 2, track_number:1, track_name:"TASOGARE")
 Track.create(album_id: 16, release_date:"11.11.2005", price: 2, track_number:2, track_name:"Tears")
 Track.create(album_id: 16, release_date:"11.11.2005", price: 2, track_number:3, track_name:"Nostalgia")
@@ -315,7 +315,7 @@ Track.create(album_id: 16, release_date:"11.11.2005", price: 2, track_number:6, 
 Track.create(album_id: 16, release_date:"11.11.2005", price: 2, track_number:7, track_name:"Sicilia di mare aperto")
 
 
-Album.create(artist_id:8 , album_name: "EAT A CLASSIC 4", about:"", price: 8 , release_date:"11.11.2012", image_url: "https://s3-us-west-1.amazonaws.com/major9/EAT A CLASSIC 4.jpg")
+Album.create(artist_id:8 , album_name: "EAT A CLASSIC 4", about:"", price: 8 , release_date:"11.11.2012", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/EAT_A_CLASSIC_4_ecq6dp.jpg")
 Track.create(album_id:17, release_date:"11.11.2012", price: 2, track_number:1, track_name:"Night on Bald Mountain")
 Track.create(album_id:17, release_date:"11.11.2012", price: 2, track_number:2, track_name:"The Planets Jupiter, the Bringer of Jollity")
 Track.create(album_id:17, release_date:"11.11.2012", price: 2, track_number:3, track_name:"Hungarian Dance No.5")
@@ -324,7 +324,7 @@ Track.create(album_id:17, release_date:"11.11.2012", price: 2, track_number:5, t
 Track.create(album_id:17, release_date:"11.11.2012", price: 2, track_number:6, track_name:"Gymnopedies No.1")
 # ./EAT A CLASSIC 4.jpg
 
-Album.create(artist_id:8 , album_name: "Re-EARTH", about:"", price: 10, release_date:"11.11.2013", image_url: "https://s3-us-west-1.amazonaws.com/major9/Re-Earth.jpg")
+Album.create(artist_id:8 , album_name: "Re-EARTH", about:"", price: 10, release_date:"11.11.2013", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/Re-Earth_icpksr.jpg")
 Track.create(album_id:18, release_date: "11.11.2013", price: 2, track_number:1, track_name: "METROPOLIS")
 Track.create(album_id:18, release_date: "11.11.2013", price: 2, track_number:2, track_name: "Savanna")
 Track.create(album_id:18, release_date: "11.11.2013", price: 2, track_number:3, track_name: "Flor do Sol")
@@ -333,7 +333,7 @@ Track.create(album_id:18, release_date: "11.11.2013", price: 2, track_number:5, 
 Track.create(album_id:18, release_date: "11.11.2013", price: 2, track_number:6, track_name: "風雅")
 Track.create(album_id:18, release_date: "11.11.2013", price: 2, track_number:7, track_name: "Evergreen")
 
-Album.create(artist_id:9 , album_name: "大発見", about:"", price: 10 , release_date:"11.11.2014", image_url: "https://s3-us-west-1.amazonaws.com/major9/daihakken.jpg")
+Album.create(artist_id:9 , album_name: "大発見", about:"", price: 10 , release_date:"11.11.2014", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/daihakken_plyqo7.jpg")
 Track.create(album_id:19, release_date: "11.11.2014", price: 1, track_number:1, track_name: "天国へようこそ")
 Track.create(album_id:19, release_date: "11.11.2014", price: 1, track_number:2, track_name: "絶対値対相対値")
 Track.create(album_id:19, release_date: "11.11.2014", price: 1, track_number:3, track_name: "新しい文明開化")
@@ -349,7 +349,7 @@ Track.create(album_id:19, release_date: "11.11.2014", price: 1, track_number:12,
 Track.create(album_id:19, release_date: "11.11.2014", price: 1, track_number:13, track_name: "女の子は誰でも")
 Track.create(album_id:19, release_date: "11.11.2014", price: 1, track_number:14, track_name: "天国へようこそ")
 
-Album.create(artist_id:9 , album_name: "Kyouiku", about:"", price: 10, release_date:"11.11.2004", image_url: "https://s3-us-west-1.amazonaws.com/major9/kyouiku.jpg")
+Album.create(artist_id:9 , album_name: "Kyouiku", about:"", price: 10, release_date:"11.11.2004", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/kyouiku_rcujtp.jpg")
 Track.create(album_id:20, release_date: "11.11.2004", price: 1, track_number:1, track_name: "Ringo no Uta")
 Track.create(album_id:20, release_date: "11.11.2004", price: 1, track_number:2, track_name: "Gunjou Biyori")
 Track.create(album_id:20, release_date: "11.11.2004", price: 1, track_number:3, track_name: "Nyuusui Negai")
@@ -363,7 +363,7 @@ Track.create(album_id:20, release_date: "11.11.2004", price: 1, track_number:10,
 Track.create(album_id:20, release_date: "11.11.2004", price: 1, track_number:11, track_name: "Bokoku Joucho")
 Track.create(album_id:20, release_date: "11.11.2004", price: 1, track_number:12, track_name: "Yume no Ato")
 
-Album.create(artist_id:9 , album_name: "Adult", about:"", price: 15 , release_date:"11.11.2006", image_url: "https://s3-us-west-1.amazonaws.com/major9/adult.jpg")
+Album.create(artist_id:9 , album_name: "Adult", about:"", price: 15 , release_date:"11.11.2006", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/adult_fl4e07.jpg")
 Track.create(album_id:21, release_date: "11.11.2006", price: 2, track_number:1, track_name: "Himitsu")
 Track.create(album_id:21, release_date: "11.11.2006", price: 2, track_number:2, track_name: "Kenka Joutou")
 Track.create(album_id:21, release_date: "11.11.2006", price: 2, track_number:3, track_name: "Keshou Naoshi")
@@ -376,7 +376,7 @@ Track.create(album_id:21, release_date: "11.11.2006", price: 2, track_number:9, 
 Track.create(album_id:21, release_date: "11.11.2006", price: 2, track_number:10, track_name: "Toumei Ningen")
 Track.create(album_id:21, release_date: "11.11.2006", price: 2, track_number:11, track_name: "Tegami")
 
-Album.create(artist_id:10 , album_name: "WALL", about:"", price: 10 , release_date:"2014.07.09", image_url: "https://s3-us-west-1.amazonaws.com/major9/WALL.jpg")
+Album.create(artist_id:10 , album_name: "WALL", about:"", price: 10 , release_date:"2014.07.09", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/WALL_ktwm8t.jpg")
 Track.create(album_id:22, release_date:"2014.07.09", price: 1, track_number:1, track_name: "Into the Wall")
 Track.create(album_id:22, release_date:"2014.07.09", price: 1, track_number:2, track_name: "Shissou Suru Senkou")
 Track.create(album_id:22, release_date:"2014.07.09", price: 1, track_number:3, track_name: "Elementary Stream")
@@ -389,7 +389,7 @@ Track.create(album_id:22, release_date:"2014.07.09", price: 1, track_number:9, t
 Track.create(album_id:22, release_date:"2014.07.09", price: 1, track_number:10, track_name: "The Beginning of the Myth, Ep.II")
 
 
-Album.create(artist_id:10 , album_name: "butterfly", about:"", price: 12 , release_date:"2015.11.04", image_url: "https://s3-us-west-1.amazonaws.com/major9/Butterfly.jpg")
+Album.create(artist_id:10 , album_name: "butterfly", about:"", price: 12 , release_date:"2015.11.04", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/Butterfly_cj58of.jpg")
 Track.create(album_id:23, release_date:"2015.11.04", price: 2, track_number:1, track_name:"The Beginning Of")
 Track.create(album_id:23, release_date:"2015.11.04", price: 2, track_number:2, track_name:"The Last Story of the Myth")
 Track.create(album_id:23, release_date:"2015.11.04", price: 2, track_number:3, track_name:"Butterfly Effect")
@@ -402,7 +402,7 @@ Track.create(album_id:23, release_date:"2015.11.04", price: 2, track_number:9, t
 Track.create(album_id:23, release_date:"2015.11.04", price: 2, track_number:10, track_name:"Christmas Comes to Our Place")
 Track.create(album_id:23, release_date:"2015.11.04", price: 2, track_number:11, track_name:"Supersonic")
 
-Album.create(artist_id:10 , album_name: "Trinity", about:"", price: 10 , release_date:"11.11.2014", image_url: "https://s3-us-west-1.amazonaws.com/major9/trinity.jpg")
+Album.create(artist_id:10 , album_name: "Trinity", about:"", price: 10 , release_date:"11.11.2014", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/trinity_kwwfoq.jpg")
 Track.create(album_id:24, release_date:"11.11.2014", price: 1, track_number:1, track_name: "polynity")
 Track.create(album_id:24, release_date:"11.11.2014", price: 1, track_number:2, track_name: "shoudou no ryuushi")
 Track.create(album_id:24, release_date:"11.11.2014", price: 1, track_number:3, track_name: "reincarnation")
@@ -414,7 +414,7 @@ Track.create(album_id:24, release_date:"11.11.2014", price: 1, track_number:8, t
 Track.create(album_id:24, release_date:"11.11.2014", price: 1, track_number:9, track_name: "good night")
 Track.create(album_id:24, release_date:"11.11.2014", price: 1, track_number:10, track_name: "the begining of the myth")
 
-Album.create(artist_id:11 , album_name: "OOPARTS", about:"", price: 10, release_date:"2009.08.05", image_url: "https://s3-us-west-1.amazonaws.com/major9/OOParts.jpg")
+Album.create(artist_id:11 , album_name: "OOPARTS", about:"", price: 10, release_date:"2009.08.05", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/OOParts_pdvapq.jpg")
 
 Track.create(album_id:25, release_date:"2009.08.05", price: 2, track_number:1, track_name: "AREA51")
 Track.create(album_id:25, release_date:"2009.08.05", price: 2, track_number:2, track_name: "CRYSTAL SKULL")
@@ -426,7 +426,7 @@ Track.create(album_id:25, release_date:"2009.08.05", price: 2, track_number:7, t
 Track.create(album_id:25, release_date:"2009.08.05", price: 2, track_number:8, track_name: "Behind the wind(DJ HEAVYGRINDER Remix)")
 
 
-Album.create(artist_id:11 , album_name: "Seme Moeru", about:"", price: 20 , release_date:"2010.10.02", image_url: "https://s3-us-west-1.amazonaws.com/major9/Seme Moeru.jpg")
+Album.create(artist_id:11 , album_name: "Seme Moeru", about:"", price: 20 , release_date:"2010.10.02", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/Seme_Moeru_l8zvdy.jpg")
 Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:1, track_name: "Round Mirror Moon feat. Yoshika (from SOULHEAD)")
 Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:2, track_name: "Red")
 Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:3, track_name: "ソレソレ")
