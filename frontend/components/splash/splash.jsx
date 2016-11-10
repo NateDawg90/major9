@@ -12,9 +12,16 @@ class Splash extends React.Component {
 
   parseArtists() {
     console.log(this.props.artists);
-    return Object.keys(this.props.artists).map( (artist) => (
-      <li><Link to={`artist/${artist}`} key={artist}>{this.props.artists[artist].artist_name}</Link></li>
-    ))
+    return Object.keys(this.props.artists).map( (artistIdx) => {
+      let featuredAlbum = this.props.artists[artistIdx].albums[this.props.artists[artistIdx].albums.length-1]
+      return(<li>
+        <div className="sidebarItemBox" key={`Box${featuredAlbum.album_name}`}>
+        <img className="sidebarItem" src={featuredAlbum.image_url} key={`Item${featuredAlbum.album_name}`}/>
+        <h3 className="sidebarSmallName" key={`name${featuredAlbum.album_name}`}> {featuredAlbum.album_name} </h3>
+        <Link to={`artist/${artistIdx}`} key={artistIdx}>{this.props.artists[artistIdx].artist_name}</Link>
+        </div>
+      </li>
+    )})
   }
 
   render() {
@@ -32,12 +39,14 @@ class Splash extends React.Component {
     console.log(artists);
     return(
       <div>
+      <div className="splash">
       <h1> Welcome to Major9</h1>
       <h2> The Homepage of Japanese Jazz</h2>
       <h2> Here are our featured artists: </h2>
       <ul>
         {artists}
       </ul>
+      </div>
       </div>
     )
   }
