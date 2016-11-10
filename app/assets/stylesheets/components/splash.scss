@@ -1,13 +1,29 @@
 .splash{
   margin: 0 auto;
   text-align: center;
+  width:900px;
+  ul{
+    overflow: auto;
+    white-space: nowrap;
+    width: 899px;
+    height: 400px;
+    display:flex;
+    justify-content: space-between;
+  }
 }
 
 
+.frontpage-album {
 
- .scrolls {
-     overflow-x: scroll;
-     overflow-y: hidden;
-     height: 80px;
-     white-space:nowrap
- }
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+  padding : 10px;
+  img{
+    width: 200px;
+    max-width: 200px;
+    height: 200px;
+    max-height: 200px;
+  }
+
+}

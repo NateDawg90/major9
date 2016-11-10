@@ -1,7 +1,7 @@
 .session-parts button {
-    background-color: #3498db;
+    background-color: $button_color;
     border: none;
-    color: white;
+    color: $button_text_color;
     padding: 10px 27px;
     text-align: center;
     text-decoration: none;

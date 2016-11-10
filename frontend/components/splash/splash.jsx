@@ -2,25 +2,39 @@ import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import ReactDOM from 'react-dom';
 import Coverflow from 'react-coverflow';
+import AlbumContainer from '../storefront/album/album_container';
 
 class Splash extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      infoOpen: false
+    }
   }
 
   componentWillMount() {
     this.props.fetchArtists
   }
-
+// e => {hashHistory.replace(`artist/${artistIdx}`
   parseArtists() {
     console.log(this.props.artists);
     return Object.keys(this.props.artists).map( (artistIdx) => {
       let featuredAlbum = this.props.artists[artistIdx].albums[this.props.artists[artistIdx].albums.length-1]
-      let artistLink = e => {hashHistory.replace(`artist/${artistIdx}`)}
-      return(
-          <img src={featuredAlbum.image_url} alt={<Link to={`artist/${artistIdx}`} key={artistIdx}>{this.props.artists[artistIdx].artist_name}</Link>}/>
+      let artistLink = `#/artist/${artistIdx}`
+      return(<li className="frontpage-album">
+          {this.props.artists[artistIdx].artist_name}
+          <Link to={`artist/${artistIdx}`} key={artistIdx}><img className="frontpage-picture" src={featuredAlbum.image_url} alt={this.props.artists[artistIdx].artist_name}/>
+            </Link>
+      </li>
+
     )})
   }
+
+  // <img src={featuredAlbum.image_url}
+  //   alt={<Link to={`artist/${artistIdx}`} key={artistIdx}>{this.props.artists[artistIdx].artist_name}</Link>}
+  //   data-action={artistLink}/>
+
+
   // <div key={`Box${featuredAlbum.album_name}`}>
 // </div>
   // <h3 key={`name${featuredAlbum.album_name}`}> {featuredAlbum.album_name} </h3>
@@ -29,7 +43,6 @@ class Splash extends React.Component {
   artistsExist(){
 
   }
-
 
 
   render() {
@@ -45,7 +58,16 @@ class Splash extends React.Component {
       }
     }
     console.log(artists);
-
+    //
+    // <Coverflow
+    //   width={960}
+    //   height={480}
+    //   displayQuantityOfSide={3}
+    //   navigation={true}
+    //   enableHeading={true}
+    //   >
+    //   {artists}
+    // </Coverflow>
 
     return(
       <div>
@@ -56,16 +78,10 @@ class Splash extends React.Component {
           <br/>
           <div>
             <div className="content">
+              <ul className="splash">
+                {artists}
+              </ul>
 
-          <Coverflow
-            width={960}
-            height={480}
-            displayQuantityOfSide={1}
-            navigation={true}
-            enableHeading={true}
-            >
-            {artists}
-          </Coverflow>
             </div>
           </div>
           <br/>

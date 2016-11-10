@@ -1,5 +1,5 @@
 .navbar-link{
-  color:#408294;
+  color:$link_color;
   cursor:pointer;
 }
 .navbar-link:hover{
@@ -10,7 +10,7 @@
   min-width:300px;
   display: block;
   height: 43px;
-  background-color: #E1DCDB;
+  background-color: $navbar_color;
   margin: 0 auto;
   text-decoration: none;
   border-top: 5px solid gray;
