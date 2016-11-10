@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Album from './album';
-import {fetchTracks} from '../../../actions/track_actions';
+import {fetchTracks, deleteTrack} from '../../../actions/track_actions';
 import {updateAlbum, editAlbumMode} from '../../../actions/album_actions';
 import {withRouter} from 'react-router'
 import {playTracks, pauseTrack} from '../../../actions/player_actions';
@@ -19,7 +19,8 @@ const mapDispatchToProps = (dispatch) => ({
   updateAlbum: (album) => dispatch(updateAlbum(album)),
   editAlbumMode: (toggle) => dispatch(editAlbumMode(toggle)),
   playTracks: (track, trackFiles) => dispatch(playTracks(track, trackFiles)),
-  pauseTrack: () => dispatch(pauseTrack())
+  pauseTrack: () => dispatch(pauseTrack()),
+  deleteTrack: (albumId, trackId) => dispatch(deleteTrack(albumId, trackId))
 })
 
 export default withRouter(connect(

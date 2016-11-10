@@ -5,7 +5,8 @@ import Splash from './splash';
 
 
 const mapStateToProps = (state) => ({
-  artists: state.albums.artists
+  artists: state.albums.artists,
+  currentUser: state.session.currentUser
 })
 
 const mapDispatchToProps = (dispatch) => {

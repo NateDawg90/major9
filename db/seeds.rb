@@ -79,12 +79,17 @@ about:"Underrated Jazz Musician from Japan. Ex-Konami In-house Artist.", locatio
     Track.create(album_id:5, release_date: "11/5/16", price: 2, track_number: 9,track_name:"Jungle")
     Track.create(album_id:5, release_date: "11/5/16", price: 2, track_number: 10,track_name:"Across The Nightmare")
     # track_id 16
-      TrackFile.create(user_id:3, track_id:7, url:"https://s3-us-west-1.amazonaws.com/major9/5-21+%E4%B8%87%E8%8F%AF%E9%8F%A1.mp3")
-      TrackFile.create(user_id:3, track_id:8, url:"https://s3-us-west-1.amazonaws.com/major9/4-31+Keiko+my+love.mp3")
+      TrackFile.create(user_id:3, track_id:6, url:"https://s3-us-west-1.amazonaws.com/major9/5-21+%E4%B8%87%E8%8F%AF%E9%8F%A1.mp3")
+      TrackFile.create(user_id:3, track_id:7, url:"https://s3-us-west-1.amazonaws.com/major9/4-31+Keiko+my+love.mp3")
+      TrackFile.create(user_id:3, track_id:8, url:"https://s3-us-west-1.amazonaws.com/major9/9-29+%E3%83%9F%E3%83%A9%E3%83%BC%E3%82%B7%E3%82%99%E3%83%A5%E3%83%BB%E3%83%AC%E3%82%B7%E3%82%99%E3%83%86%E3%82%99%E3%83%B3%E3%82%B9.mp3")
+      TrackFile.create(user_id:3, track_id:9, url:"https://s3-us-west-1.amazonaws.com/major9/11-28 TENGU.mp3")
+      TrackFile.create(user_id:3, track_id:10, url:"https://s3-us-west-1.amazonaws.com/major9/1-26 Waza.mp3")
+      TrackFile.create(user_id:3, track_id:11, url:"https://s3-us-west-1.amazonaws.com/major9/2-15 CENTAUR.mp3")
+      TrackFile.create(user_id:3, track_id:12, url:"https://s3-us-west-1.amazonaws.com/major9/5-43 cockpit.mp3")
+      TrackFile.create(user_id:3, track_id:13, url:"https://s3-us-west-1.amazonaws.com/major9/6-18 Orbital Velocity.mp3")
+      TrackFile.create(user_id:3, track_id:14, url:"https://s3-us-west-1.amazonaws.com/major9/12-34 Jungle.mp3")
+      TrackFile.create(user_id:3, track_id:15, url:"https://s3-us-west-1.amazonaws.com/major9/1-20 Across the nightmare.mp3")
 
-
-
-# 4
 User.create(username:"neko", password:"573573", artist_name:"Nekomata Master",
 about:"Best musician in Konami. Loves cats.", location: "Tokyo")
 
@@ -464,17 +469,17 @@ TrackFile.create( user_id:5, track_id:31, url:"https://s3-us-west-1.amazonaws.co
 TrackFile.create( user_id:5, track_id:32, url:"https://s3-us-west-1.amazonaws.com/major9/(2007.03.07) Pimpoint/12 - The Slaughter Suite.mp3")
 TrackFile.create( user_id:5, track_id:33, url:"https://s3-us-west-1.amazonaws.com/major9/(2007.03.07) Pimpoint/13 - Scales.mp3")
 TrackFile.create( user_id:5, track_id:34, url:"https://s3-us-west-1.amazonaws.com/major9/(2007.03.07) Pimpoint/14 - Sahara.mp3")
-TrackFile.create( user_id:5, track_id:35, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES (Limited Edition)/01. ジャズィ・カンヴァセイション.mp3")
-TrackFile.create( user_id:5, track_id:36, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES (Limited Edition)/02. 殺し屋危機一髪.mp3")
+TrackFile.create( user_id:5, track_id:35, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES+(Limited+Edition)/01.+%E3%82%B7%E3%82%99%E3%83%A3%E3%82%B9%E3%82%99%E3%82%A3%E3%83%BB%E3%82%AB%E3%83%B3%E3%82%A6%E3%82%99%E3%82%A1%E3%82%BB%E3%82%A4%E3%82%B7%E3%83%A7%E3%83%B3.mp3")
+TrackFile.create( user_id:5, track_id:36, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES+(Limited+Edition)/02.+%E6%AE%BA%E3%81%97%E5%B1%8B%E5%8D%B1%E6%A9%9F%E4%B8%80%E9%AB%AA.mp3")
 TrackFile.create( user_id:5, track_id:37, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES (Limited Edition)/03. Summer Love.mp3")
 TrackFile.create( user_id:5, track_id:38, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES (Limited Edition)/04. Bon Bon Villa.mp3")
 TrackFile.create( user_id:5, track_id:39, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES (Limited Edition)/05. Light Blue Soldier.mp3")
 TrackFile.create( user_id:5, track_id:40, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES (Limited Edition)/06. Iceburn.mp3")
 TrackFile.create( user_id:5, track_id:41, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES (Limited Edition)/07. Ananta.mp3")
-TrackFile.create( user_id:5, track_id:42, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES (Limited Edition)/08. 記憶の旅.mp3")
+TrackFile.create( user_id:5, track_id:42, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES+(Limited+Edition)/08.+%E8%A8%98%E6%86%B6%E3%81%AE%E6%97%85.mp3")
 TrackFile.create( user_id:5, track_id:43, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES (Limited Edition)/09. Frog in the World!.mp3")
 TrackFile.create( user_id:5, track_id:44, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES (Limited Edition)/10. Hey Tagger, I?m Here.mp3")
-TrackFile.create( user_id:5, track_id:45, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES (Limited Edition)/11. 殺し屋危機一髪 (DEATH JAZZ ver.).mp3")
+TrackFile.create( user_id:5, track_id:45, url:"https://s3-us-west-1.amazonaws.com/major9/CIRCLES+(Limited+Edition)/11.+%E6%AE%BA%E3%81%97%E5%B1%8B%E5%8D%B1%E6%A9%9F%E4%B8%80%E9%AB%AA+(DEATH+JAZZ+ver.).mp3")
 
 TrackFile.create( user_id:6, track_id:65, url:"https://s3-us-west-1.amazonaws.com/major9/Hiromi Uehara (?????) - Spark [V0]/01 - Spark.mp3")
 TrackFile.create( user_id:6, track_id:66, url:"https://s3-us-west-1.amazonaws.com/major9/Hiromi Uehara (?????) - Spark [V0]/02 - In A Trance.mp3")

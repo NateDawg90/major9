@@ -2,15 +2,15 @@ import React from "react"
 import merge from "lodash/merge"
 import Modal from 'react-modal'
 import {Router, hashHistory} from 'react-router'
+import NewTrackContainer from './new_track_container';
 
 class TracksForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      infoOpen: {"-1":""},
       modalOpen: false
     }
-    this.infoOpen = this.infoOpen.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   displayTracks() {
@@ -41,7 +41,7 @@ class TracksForm extends React.Component {
             <button onClick={this.infoOpen(obj[prop].id)}> Edit </button>
           </li>
           <li className="edit-button" key={`hover${prop}`}>
-            <button> Delete</button>
+            <button onClick={this.handleDelete(obj[prop].id)} > Delete</button>
           </li>
           {infoBox}
        </div>
@@ -50,6 +50,16 @@ class TracksForm extends React.Component {
     return tracks
   }
 
+  handleDelete(trackId){
+    return e => {
+      e.preventDefault();
+      console.log(trackId);
+    this.props.deleteTrack(this.props.params.albumId, trackId)
+    this.setState({})
+
+   }
+
+  }
   onModalClose() {
     // this.props.clearErrors([""]);
     this.setState({modalOpen: false})
@@ -78,8 +88,11 @@ class TracksForm extends React.Component {
   }
 
   openModal() {
-    this.setState({openModal:true})
+    this.props.editAlbumMode(true)
+
+    this.setState({modalOpen:true})
   }
+
   newButton(){
     return(
       <div className="TrackListItem-box" key={`BoxNew`}>
@@ -89,27 +102,27 @@ class TracksForm extends React.Component {
           </li>
           <li className="trackListLink" key="new">
             <button onClick={this.openModal.bind(this)}>Add a new Track</button>
-            <Modal
-              isOpen={this.state.modalOpen}
-              onRequestClose={this.onModalClose.bind(this)}
-              style = {{content :{
-                top                   : '50%',
-                left                  : '50%',
-                right                 : 'auto',
-                bottom                : 'auto',
-                marginRight           : '-50%',
-                transform             : 'translate(-50%, -50%)'
-              }
-            }
-          }
-          >
-          <div className="session-box">
-            <h1>It's me, modal</h1>
-            <button onClick={this.onModalClose.bind(this)}>Close</button>
-          </div>
-        </Modal>
           </li>
         </ul>
+        <Modal
+          isOpen={this.state.modalOpen}
+          onRequestClose={this.onModalClose.bind(this)}
+          style = {{content :{
+            top                   : '50%',
+            left                  : '50%',
+            right                 : 'auto',
+            bottom                : 'auto',
+            marginRight           : '-50%',
+            transform             : 'translate(-50%, -50%)'
+          }
+        }
+      }
+      >
+      <div className="session-box">
+        <NewTrackContainer params={this.props.params} />
+        <button onClick={this.onModalClose.bind(this)}>Close</button>
+      </div>
+    </Modal>
       </div>
     )
   }

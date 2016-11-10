@@ -20,10 +20,16 @@
   flex-direction:column;
   padding : 10px;
   img{
+    border: 1px solid $border_color;
+    opacity: 0.5;
     width: 200px;
     max-width: 200px;
     height: 200px;
     max-height: 200px;
   }
+  img:hover{
+    opacity: 1;
+  }
+
 
 }

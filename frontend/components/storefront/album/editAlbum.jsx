@@ -66,7 +66,9 @@ class EditAlbum extends React.Component {
              onChange={this.update('price')}
              params={this.props.params}
              router={this.props.router}
-             props={this.props}/>
+             editAlbumMode={this.props.editAlbumMode}
+             props={this.props}
+             deleteTrack={this.props.deleteTrack}/>
         <br />
         <input type="text" placeholder="Release Date"
           onChange={this.update('release_date')}

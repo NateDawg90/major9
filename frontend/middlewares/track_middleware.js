@@ -10,7 +10,9 @@ import { receiveTrack,
 
 import { fetchTracks, fetchTrack, createTrack,
          updateTrack, deleteTrack} from '../util/api_util';
+import { editAlbumMode} from '../actions/album_actions';
 
+import {hashHistory} from 'react-router';
 import merge from 'lodash/merge'
 
 const trackMiddleware = ({getState, dispatch}) => next => action => {
@@ -22,6 +24,11 @@ const trackMiddleware = ({getState, dispatch}) => next => action => {
   let handleTrack = (Track) => {
     dispatch(receiveTrack(Track));
     redirectToRequestedTrack();
+  }
+
+  let handleTrackNoRedirect = (Track) => {
+    dispatch(receiveTrack(Track));
+    dispatch(editAlbumMode(true));
   }
   let handleTracks = (tracks) => dispatch(receiveTracks(tracks));
   let handleTrackErrors = (errors) => dispatch(receiveTrackErrors(errors.responseText));
@@ -35,15 +42,15 @@ const trackMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     case CREATE_TRACK:
       createTrack(action.albumId, action.track,
-        handleTrack, handleTrackErrors)
+        handleTracks, handleTrackErrors)
       return next(action);
     case UPDATE_TRACK:
       updateTrack(action.albumId, action.track,
         handleTrack, handleTrackErrors)
       return next(action);
     case DELETE_TRACK:
-      deleteTrack(action.albumId, action.trackId,
-        handleTrack, handleTrackErrors)
+      deleteTrack(action.albumId, action.trackNum,
+        handleTracks, handleTrackErrors)
       return next(action);
     default:
       return next(action);

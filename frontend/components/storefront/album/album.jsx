@@ -48,8 +48,10 @@ class Album extends React.Component{
       obj = this.props.albums.albums[this.props.params.albumId].tracks
 
     }
-
-
+    //
+    // <li className="trackLength" key={`Length_${prop}`}>
+    //   0:00
+    // </li>
     for(var prop in obj){
       let trackLink = `/artist/${this.props.params.artistId}/album/${this.props.params.albumId}/track/${obj[prop].id}`
       tracks.push(
@@ -63,9 +65,7 @@ class Album extends React.Component{
             <li className="trackListLink" key={prop}>
               <Link to={trackLink}>{obj[prop].track_name}</Link>
             </li>
-            <li className="trackLength" key={`Length_${prop}`}>
-              0:00
-            </li>
+
           </ul>
           <li className="trackHoverLink" key={`hover${prop}`}>
             <Link to={trackLink}>info</Link>
@@ -151,10 +151,14 @@ class Album extends React.Component{
     }else if(this.props.editMode === true && this.isArtist.bind(this)() === true){
       console.log(this.props);
       return(<div className="Show">
-      <EditAlbum currentAlbum={this.props.currentAlbum} currentUser={this.props.currentUser}
-        tracks={this.props.albums.albums[this.props.params.albumId].tracks
-        } params={this.props.params} updateAlbum={this.props.updateAlbum}
-        router={this.props.router} editAlbumMode={this.props.editAlbumMode}/>
+      <EditAlbum currentAlbum={this.props.currentAlbum}
+         currentUser={this.props.currentUser}
+        tracks={this.props.albums.albums[this.props.params.albumId].tracks}
+         params={this.props.params}
+         updateAlbum={this.props.updateAlbum}
+        router={this.props.router}
+        editAlbumMode={this.props.editAlbumMode}
+        deleteTrack={this.props.deleteTrack}/>
       <ArtContainer image_url={this.currentAlbum('image_url')} editMode={true}/>
       </div>)
 

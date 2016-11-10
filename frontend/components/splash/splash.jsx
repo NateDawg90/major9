@@ -44,6 +44,41 @@ class Splash extends React.Component {
 
   }
 
+  parseUser(){
+    let content = [];
+     let  artistIdx = this.props.currentUser.id
+     console.log(this.props.artists);
+     if(this.props.artists){
+    if(Object.keys(this.props.artists).length !== 0){
+      let albumObject = this.props.artists[artistIdx].albums
+      Object.keys(this.props.artists[artistIdx].albums).forEach( (albumId) => {
+        let artistLink = `#/artist/${artistIdx}`
+        content.push(<li className="frontpage-album">
+            {albumObject[albumId].album_name}
+            <Link to={`artist/${artistIdx}/album/${albumObject[albumId].id}`} key={albumObject[albumId].id}>
+              <img className="frontpage-picture" src={albumObject[albumId].image_url} alt={albumObject[albumId].album_name}/>
+            </Link>
+        </li>
+      )})
+  } else {
+    content.push(
+      <li>
+      <h1> You have no albums! </h1>
+      <button>Add Album</button>
+      </li>
+    )
+  }
+}
+  return(
+    <div>
+      <h2>Your Albums</h2>
+      <ul>
+        {content}
+      </ul>
+    </div>
+  )
+
+  }
 
   render() {
 
@@ -57,7 +92,16 @@ class Splash extends React.Component {
        artists = this.parseArtists.bind(this)()
       }
     }
-    console.log(artists);
+
+    let currentUserAlbums;
+    console.log(this.props.currentUser);
+      if(this.props.currentUser) {
+        if(Object.keys(this.props.currentUser).length !== 0) {
+          currentUserAlbums = this.parseUser.bind(this)()
+        }
+      }
+
+
     //
     // <Coverflow
     //   width={960}
@@ -70,7 +114,6 @@ class Splash extends React.Component {
     // </Coverflow>
 
     return(
-      <div>
         <div className="splash">
           <h1> Welcome to Major9</h1>
           <h2> The Homepage of Japanese Jazz</h2>
@@ -83,11 +126,15 @@ class Splash extends React.Component {
               </ul>
 
             </div>
+            <br />
+            <div className="content">
+            {currentUserAlbums}
+            </div>
           </div>
           <br/>
           <br/>
-          </div>
-          </div>
+          <br/><br/><br/><br/>
+        </div>
     )
 
   }
