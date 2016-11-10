@@ -127,8 +127,8 @@ class Track extends React.Component{
       </div>)
     }
       let featAlbumId = Object.keys(this.props.albums.albums)[0]
-      let artistLink = `artist/${this.currentArtist('id')}/album/${featAlbumId}`
-      let albumLink = `artist/${this.props.currentAlbum.artist.id}/album/${this.props.currentAlbum.id}`
+      let artistLink = `artist/${this.props.params.artistId}/album/${featAlbumId}`
+      let albumLink = `artist/${this.props.params.artistId}/album/${this.props.currentAlbum.id}`
       return(
       <div className="Show">
         <div className="Tracks">

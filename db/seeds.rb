@@ -266,6 +266,15 @@ Track.create(album_id:12, release_date: "11.11.2016", price:1, track_number:6, t
 Track.create(album_id:12, release_date: "11.11.2016", price:1, track_number:7, track_name: "What Will Be, Will Be")
 Track.create(album_id:12, release_date: "11.11.2016", price:1, track_number:8, track_name: "Wake Up And Dream")
 Track.create(album_id:12, release_date: "11.11.2016", price:1, track_number:9, track_name: "Alls Well")
+TrackFile.create(user_id:6 , track_id:65 , url:"https://s3-us-west-1.amazonaws.com/major9/Hiromi+Uehara+(%E4%B8%8A%E5%8E%9F%E3%81%B2%E3%82%8D%E3%81%BF)+-+Spark+%5BV0%5D/01+-+Spark.mp3")
+TrackFile.create(user_id:6 , track_id:66 , url:"https://s3-us-west-1.amazonaws.com/major9/Hiromi+Uehara+(%E4%B8%8A%E5%8E%9F%E3%81%B2%E3%82%8D%E3%81%BF)+-+Spark+%5BV0%5D/02+-+In+A+Trance.mp3 ")
+TrackFile.create(user_id:6 , track_id:67 , url:"https://s3-us-west-1.amazonaws.com/major9/Hiromi+Uehara+(%E4%B8%8A%E5%8E%9F%E3%81%B2%E3%82%8D%E3%81%BF)+-+Spark+%5BV0%5D/03+-+Take+Me+Away.mp3 ")
+TrackFile.create(user_id:6 , track_id:68 , url:"https://s3-us-west-1.amazonaws.com/major9/Hiromi+Uehara+(%E4%B8%8A%E5%8E%9F%E3%81%B2%E3%82%8D%E3%81%BF)+-+Spark+%5BV0%5D/04+-+Wonder+Land.mp3 ")
+TrackFile.create(user_id:6 , track_id:69 , url:"https://s3-us-west-1.amazonaws.com/major9/Hiromi+Uehara+(%E4%B8%8A%E5%8E%9F%E3%81%B2%E3%82%8D%E3%81%BF)+-+Spark+%5BV0%5D/05+-+Indulgence.mp3 ")
+TrackFile.create(user_id:6 , track_id:70 , url:"https://s3-us-west-1.amazonaws.com/major9/Hiromi+Uehara+(%E4%B8%8A%E5%8E%9F%E3%81%B2%E3%82%8D%E3%81%BF)+-+Spark+%5BV0%5D/06+-+Dilemma.mp3 ")
+TrackFile.create(user_id:6 , track_id:71 , url:"https://s3-us-west-1.amazonaws.com/major9/Hiromi+Uehara+(%E4%B8%8A%E5%8E%9F%E3%81%B2%E3%82%8D%E3%81%BF)+-+Spark+%5BV0%5D/07+-+What+Will+Be%2C+Will+Be.mp3")
+TrackFile.create(user_id:6 , track_id:72 , url:"https://s3-us-west-1.amazonaws.com/major9/Hiromi+Uehara+(%E4%B8%8A%E5%8E%9F%E3%81%B2%E3%82%8D%E3%81%BF)+-+Spark+%5BV0%5D/08+-+Wake+Up+And+Dream.mp3 ")
+TrackFile.create(user_id:6 , track_id:73 , url:"https://s3-us-west-1.amazonaws.com/major9/Hiromi+Uehara+(%E4%B8%8A%E5%8E%9F%E3%81%B2%E3%82%8D%E3%81%BF)+-+Spark+%5BV0%5D/09+-+All%27s+Well.mp3")
 # ./Hiromi Uehara (上原ひろみ) - Spark [V0]/Spark Cover.jpg
 # ./Spark.jpg
 
@@ -349,7 +358,7 @@ Track.create(album_id:19, release_date: "11.11.2014", price: 1, track_number:12,
 Track.create(album_id:19, release_date: "11.11.2014", price: 1, track_number:13, track_name: "女の子は誰でも")
 Track.create(album_id:19, release_date: "11.11.2014", price: 1, track_number:14, track_name: "天国へようこそ")
 
-Album.create(artist_id:9 , album_name: "Kyouiku", about:"", price: 10, release_date:"11.11.2004", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/kyouiku_rcujtp.jpg")
+Album.create(artist_id:9 , album_name: "Kyouiku", about:"", price: 10, release_date:"11.11.2004", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/kyoiku_rcujtp.jpg")
 Track.create(album_id:20, release_date: "11.11.2004", price: 1, track_number:1, track_name: "Ringo no Uta")
 Track.create(album_id:20, release_date: "11.11.2004", price: 1, track_number:2, track_name: "Gunjou Biyori")
 Track.create(album_id:20, release_date: "11.11.2004", price: 1, track_number:3, track_name: "Nyuusui Negai")

@@ -19,8 +19,27 @@ class Album extends React.Component{
 
   togglePlay(e) {
     console.log(e.target.value);
+    // $('.play-small').removeClass('active')
     $('.play-small').eq(e.target.value).toggleClass('active');
+    let trackArray = [];
+    let trackFiles = [];
+    // debugger
+    if ($('.play-small').eq(e.target.value).attr('class') === 'play-small active') {
+    if (e.target.value == "big") {
+      trackArray = this.props.currentAlbum.tracks
+      trackFiles = this.props.currentAlbum.track_files
+    } else {
+      trackArray = this.props.currentAlbum.tracks.slice(e.target.value)
+      trackFiles = this.props.currentAlbum.track_files.slice(e.target.value)
+    }
+    // debugger
+    this.props.playTracks(trackArray, trackFiles)
+  }
      return false;
+  }
+
+  syncAudioPlayer() {
+
   }
 
   displayTracks() {
@@ -38,7 +57,7 @@ class Album extends React.Component{
       tracks.push(
         <div className="TrackListItem-box" key={`Box${prop}`}>
           <ul className="TrackListItem">
-            <li className="play-small" key={`play${prop}`}
+            <li className="play-small" onClick={this.syncAudioPlayer.bind(this)}key={`play${prop}`}
               onClick={this.togglePlay.bind(this)} value={prop} />
             <li className="trackNumber" key={`Track_${prop}`}>
               {obj[prop].track_number}.
@@ -118,6 +137,11 @@ class Album extends React.Component{
   //   } params={this.props.params}/>
   render() {
     // debugger
+    console.log(this.props);
+
+
+
+
     if (this.props.children) {
       return(
         <TrackContainer key='trackContainer'trackId={this.props.params.trackId}/>

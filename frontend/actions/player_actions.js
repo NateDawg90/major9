@@ -1,12 +1,13 @@
-export const PLAY_SONG = "PLAY_SONG"
-export const PLAY_SONGS = "PLAY_SONGS"
+export const PLAY_TRACK = "PLAY_TRACK"
+export const PLAY_TRACKS = "PLAY_TRACKS"
 
-export const playSong = (song) => ({
-  type:PLAY_SONG,
+export const playTrack = (song) => ({
+  type:PLAY_TRACK,
   song
 })
 
-export const playSongs = (songs) => ({
-  type: PLAY_SONGS,
-  songs
+export const playTracks = (tracks, trackFiles) => ({
+  type: PLAY_TRACKS,
+  tracks,
+  trackFiles
 })
