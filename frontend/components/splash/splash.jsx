@@ -16,8 +16,9 @@ class Splash extends React.Component {
     console.log(this.props.artists);
     return Object.keys(this.props.artists).map( (artistIdx) => {
       let featuredAlbum = this.props.artists[artistIdx].albums[this.props.artists[artistIdx].albums.length-1]
+      let artistLink = e => {hashHistory.replace(`artist/${artistIdx}`)}
       return(
-          <img src={featuredAlbum.image_url} alt={this.props.artists[artistIdx].artist_name}/>
+          <img src={featuredAlbum.image_url} alt={<Link to={`artist/${artistIdx}`} key={artistIdx}>{this.props.artists[artistIdx].artist_name}</Link>}/>
     )})
   }
   // <div key={`Box${featuredAlbum.album_name}`}>
