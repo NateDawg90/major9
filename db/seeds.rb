@@ -49,7 +49,7 @@ about:"Local Guitarist Looking for Musical Love", location:"San Jose")
   album_name: "The Rockiest",
   credits: "Walmart has the okay deals.",
   description: "A rock album? Or an album for unstable roads? You decide.",
-  image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/key+holder_uhfpir.jpg",
+  image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/key_holder_uhfpir.jpg",
   price: 10,
   release_date: "11/2/2016")
     Track.create(album_id:2, release_date: Date.new, track_number:1, price: 1, track_name:"Run")
@@ -67,7 +67,7 @@ about:"Underrated Jazz Musician from Japan. Ex-Konami In-house Artist.", locatio
   about: "20 Years in the Making. Jimmy Weckl finally releases a solo album to the masses!",
   price: 40,
   release_date:"11/5/16",
-  image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/Mangekyou.png")
+  image_url: "https://s3-us-west-1.amazonaws.com/major9/Mangekyou.png")
     Track.create(album_id:5, release_date: "11/5/16", price: 2, track_number: 1,track_name:"Mangekyou")
     Track.create(album_id:5, release_date: "11/5/16", price: 2, track_number: 2,track_name:"Keiko My Love")
     Track.create(album_id:5, release_date: "11/5/16", price: 2, track_number: 3,track_name:"Mirage Residence")

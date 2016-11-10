@@ -46,15 +46,16 @@ class Splash extends React.Component {
     console.log(artists);
 
 
-    // <div>
-    //   <div className="splash">
-    //     <h1> Welcome to Major9</h1>
-    //     <h2> The Homepage of Japanese Jazz</h2>
-    //     <h2> Here are our featured artists: </h2>
-    //     <br/>
-    //     <div>
-    //       <div className="content">
     return(
+      <div>
+        <div className="splash">
+          <h1> Welcome to Major9</h1>
+          <h2> The Homepage of Japanese Jazz</h2>
+          <h2> Here are our featured artists: </h2>
+          <br/>
+          <div>
+            <div className="content">
+
           <Coverflow
             width={960}
             height={480}
@@ -64,13 +65,13 @@ class Splash extends React.Component {
             >
             {artists}
           </Coverflow>
+            </div>
+          </div>
+          <br/>
+          <br/>
+          </div>
+          </div>
     )
-//   </div>
-// </div>
-// <br/>
-// <br/>
-// </div>
-// </div>
 
   }
 
