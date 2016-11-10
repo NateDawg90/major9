@@ -25,21 +25,19 @@ class Album extends React.Component{
     let trackFiles = [];
     // debugger
     if ($('.play-small').eq(e.target.value).attr('class') === 'play-small active') {
-    if (e.target.value == "big") {
-      trackArray = this.props.currentAlbum.tracks
-      trackFiles = this.props.currentAlbum.track_files
-    } else {
-      trackArray = this.props.currentAlbum.tracks.slice(e.target.value)
-      trackFiles = this.props.currentAlbum.track_files.slice(e.target.value)
-    }
+      if (e.target.value == "big") {
+        trackArray = this.props.currentAlbum.tracks
+        trackFiles = this.props.currentAlbum.track_files
+      } else {
+        trackArray = this.props.currentAlbum.tracks.slice(e.target.value)
+        trackFiles = this.props.currentAlbum.track_files.slice(e.target.value)
+      }
     // debugger
     this.props.playTracks(trackArray, trackFiles)
+  } else if ($('.play-small').eq(e.target.value).attr('class') === 'play-small'){
+    this.props.pauseTrack
   }
      return false;
-  }
-
-  syncAudioPlayer() {
-
   }
 
   displayTracks() {
@@ -57,7 +55,7 @@ class Album extends React.Component{
       tracks.push(
         <div className="TrackListItem-box" key={`Box${prop}`}>
           <ul className="TrackListItem">
-            <li className="play-small" onClick={this.syncAudioPlayer.bind(this)}key={`play${prop}`}
+            <li className="play-small" key={`play${prop}`}
               onClick={this.togglePlay.bind(this)} value={prop} />
             <li className="trackNumber" key={`Track_${prop}`}>
               {obj[prop].track_number}.

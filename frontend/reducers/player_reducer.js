@@ -1,4 +1,4 @@
-import {PLAY_TRACKS} from "../actions/player_actions";
+import {PLAY_TRACKS, PAUSE_TRACK} from "../actions/player_actions";
 import merge from 'lodash/merge';
 
 const _nullState = {
@@ -14,7 +14,9 @@ const sessionReducer = (state = _nullState, action) => {
       tracks: action.tracks,
       trackFiles: action.trackFiles
     }
-      return merge({}, state, nowPlayingObject)
+      return merge({}, nowPlayingObject)
+    case PAUSE_TRACK:
+      return merge({}, state)
     default:
       return state;
   }

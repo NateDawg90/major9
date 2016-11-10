@@ -14,8 +14,11 @@ class Footer extends React.Component {
   //Play button should stop and start this player from the track list
   //START DYNO
 
-  componentWillReceiveProps() {
-      this.setState({songs: this.props.songs})
+  //autoclick play when updated
+  componentDidUpdate() {
+    console.log($('#play_pause_button'));
+    window.setTimeout(() => {$('#play_pause_button').click()}, 500);
+    // window.setTimeout(() => {$('play-small').eq()}
   }
 
   render() {
@@ -23,7 +26,7 @@ class Footer extends React.Component {
     this.props.songs.tracks.forEach( (song, index) => {
       trackPlaylist.push({
         url: this.props.songs.trackFiles[index].url,
-        displayText: `${song.track_name} by ${song.artist.artist_name}`
+        displayText: `${song.track_number}. ${song.track_name} by ${song.artist.artist_name}`
         }
       )
     })
@@ -47,11 +50,11 @@ class Footer extends React.Component {
     //
     // let songs = [song1,song2]
     // console.log(songs);
-    console.log(AudioPlayer);
+    // console.log(AudioPlayer);
 
     return(
       <footer>
-        <AudioPlayer playlist={trackPlaylist} hideBackSkip={true} autoPlay={true}/>
+        <AudioPlayer playlist={trackPlaylist} hideBackSkip={true} autoplay={true}/>
       </footer>
     )
   }
