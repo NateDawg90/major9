@@ -18,3 +18,23 @@ bundle.js.map
 
 # Ignore application configuration
 /config/application.yml
+
+awscli-bundle.zip
+ awscli-bundle/install
+ awscli-bundle/packages/argparse-1.2.1.tar.gz
+ awscli-bundle/packages/awscli-1.11.13.tar.gz
+ awscli-bundle/packages/botocore-1.4.70.tar.gz
+ awscli-bundle/packages/colorama-0.3.7.zip
+ awscli-bundle/packages/docutils-0.12.tar.gz
+ awscli-bundle/packages/futures-3.0.5.tar.gz
+ awscli-bundle/packages/jmespath-0.9.0.tar.gz
+ awscli-bundle/packages/ordereddict-1.1.tar.gz
+ awscli-bundle/packages/pyasn1-0.1.9.tar.gz
+ awscli-bundle/packages/python-dateutil-2.5.3.tar.gz
+ awscli-bundle/packages/rsa-3.4.2.tar.gz
+ awscli-bundle/packages/s3transfer-0.1.9.tar.gz
+ awscli-bundle/packages/simplejson-3.3.0.tar.gz
+ awscli-bundle/packages/six-1.10.0.tar.gz
+ awscli-bundle/packages/virtualenv-13.0.3.tar.gz
+ get-pip.py
+ output.txt
