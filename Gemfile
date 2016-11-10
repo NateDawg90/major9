@@ -42,7 +42,8 @@ group :development do
   gem "binding_of_caller"
   gem "pry-rails"
   gem "annotate"
-
+  gem 'aws-sdk'
+  gem 'figaro'
   gem 'guard', require: false
   gem 'guard-livereload', require: false
   gem 'rack-livereload'

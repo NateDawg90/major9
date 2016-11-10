@@ -6,9 +6,14 @@ import {withRouter} from 'react-router'
 
 const mapStateToProps = (state, ownProps) => {
   let tracks = state.albums.albums[ownProps.params.albumId].tracks
-  let result = tracks.filter((obj) => {
+  let trackFiles = state.albums.albums[ownProps.params.albumId].track_files
+  let currentTrackResult = tracks.filter((obj) => {
     return obj.id == ownProps.params.trackId
   })[0]
+  let currentFilesResult = trackFiles.filter((obj) => {
+    // debugger
+    return obj.track_id == ownProps.params.trackId
+  })
 
   return {
   albums: state.albums,
@@ -16,7 +21,8 @@ const mapStateToProps = (state, ownProps) => {
   editMode: state.albums.editMode,
   currentUser: state.session.currentUser,
   currentAlbum: state.albums.albums[ownProps.params.albumId],
-  currentTrack: result
+  currentTrack: currentTrackResult,
+  currentFiles: currentFilesResult
 }}
 
 const mapDispatchToProps = (dispatch) => ({

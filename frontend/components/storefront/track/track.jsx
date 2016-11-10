@@ -76,7 +76,7 @@ class Track extends React.Component{
     }
   }
   currentTrackGrabbed() {
-    debugger
+    // debugger
     if (Object.keys(this.props.albums.albums).length !== 0) {
       // console.log(this.props.params.trackId);
       if (Object.keys(this.props.albums.albums[this.props.params.albumId].tracks).includes(this.props.params.trackId)){
@@ -109,7 +109,7 @@ class Track extends React.Component{
     return false
   }
   render() {
-    debugger
+    // debugger
     // If not purchaseale, "Buy the Full Digital Album"
     // If purchaseable, "Purchasing Component"
     // if (this.currentTrackGrabbed()===true) {
@@ -120,7 +120,8 @@ class Track extends React.Component{
     }else if(this.props.editMode === true && this.isArtist.bind(this)() === true){
       return(<div className="Show">
       <EditTrack currentAlbum={this.props.currentAlbum} currentUser={this.props.currentUser}
-        currentTrack={this.props.currentTrack} params={this.props.params} updateAlbum={this.props.updateAlbum}
+        currentTrack={this.props.currentTrack} currentFiles={this.props.currentFiles}
+         params={this.props.params} updateAlbum={this.props.updateAlbum}
         editAlbumMode={this.props.editAlbumMode} updateTrack={this.props.updateTrack}/>
       <ArtContainer image_url={this.currentAlbum('image_url')} editMode={true}/>
       </div>)
@@ -132,7 +133,8 @@ class Track extends React.Component{
       <div className="Show">
         <div className="Tracks">
           <h1>{this.props.currentTrack.track_name}</h1>
-            <h3>from <Link to={albumLink}>{this.props.currentAlbum.album_name}</Link> by <Link to={artistLink}> {this.props.currentAlbum.artist.artist_name}
+            <h3>from <Link to={albumLink}>{this.props.currentAlbum.album_name}</Link> by
+               <Link to={artistLink}> {this.props.currentAlbum.artist.artist_name}
             </Link></h3>
             <h2> Song Player goes here</h2>
             <h3>Buy the Full Digital Album</h3>

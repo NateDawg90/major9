@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
+import ReactS3Uploader from 'react-s3-uploader';
 
 class EditTrack extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class EditTrack extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  currentTrack
+  // currentTrack
   // stateMaker() {
   //   let state = {}
   //   let obj = this.props
@@ -46,9 +47,20 @@ class EditTrack extends React.Component {
     this.setState({editMode:false})
   }
 
+  currentFilesResult() {
+    return this.props.currentFiles.map( (obj, index) => (
+      <li key={obj.id}>{index + 1}. {obj.url}</li>
+    ))
+  }
+
+  createTrack(data) {
+      debugger
+  }
+
   render() {
     console.log(this.props);
     let artist_name = this.props.currentUser['artist_name']
+    let currentFiles = this.currentFilesResult.bind(this)()
     return(
       <div className="Tracks">
         <form className="TrackForm" onSubmit={this.handleSubmit}>
@@ -81,12 +93,26 @@ class EditTrack extends React.Component {
             onChange={this.update('credits')}
             placeholder="Credits"/>
         <br />
+          <ul>
+            <li>Current Files:</li>
+            {currentFiles}
+          </ul>
+          <br />
+          <ReactS3Uploader
+            signingUrl="/api/signed_url"
+            onFinish = {this.createTrack.bind(this)}
+            uploadRequestHeaders={{
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': '*'}}
+            contentDisposition="auto" />
         <br />
         <button onClick={this.handleSubmit.bind(this)}>Save</button>
         </form>
       </div>
     )
   }
+
+
 }
 
 export default EditTrack
