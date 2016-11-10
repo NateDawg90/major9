@@ -17,6 +17,12 @@ class Album extends React.Component{
 
   }
 
+  togglePlay(e) {
+    console.log(e.target.value);
+    $('.play-small').eq(e.target.value).toggleClass('active');
+     return false;
+  }
+
   displayTracks() {
     let obj;
     let tracks = [];
@@ -26,11 +32,14 @@ class Album extends React.Component{
 
     }
 
+
     for(var prop in obj){
       let trackLink = `/artist/${this.props.params.artistId}/album/${this.props.params.albumId}/track/${obj[prop].id}`
       tracks.push(
         <div className="TrackListItem-box" key={`Box${prop}`}>
           <ul className="TrackListItem">
+            <li className="play-small" key={`play${prop}`}
+              onClick={this.togglePlay.bind(this)} value={prop} />
             <li className="trackNumber" key={`Track_${prop}`}>
               {obj[prop].track_number}.
             </li>

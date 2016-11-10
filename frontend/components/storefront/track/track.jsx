@@ -123,7 +123,7 @@ class Track extends React.Component{
         currentTrack={this.props.currentTrack} currentFiles={this.props.currentFiles}
          params={this.props.params} updateAlbum={this.props.updateAlbum}
         editAlbumMode={this.props.editAlbumMode} updateTrack={this.props.updateTrack}/>
-      <ArtContainer image_url={this.currentAlbum('image_url')} editMode={true}/>
+      <ArtContainer image_url={this.trackArt()} editMode={true}/>
       </div>)
     }
       let featAlbumId = Object.keys(this.props.albums.albums)[0]

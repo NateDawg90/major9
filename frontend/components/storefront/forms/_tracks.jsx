@@ -28,6 +28,7 @@ class TracksForm extends React.Component {
       tracks.push(
         <div className="TrackListItem-box" key={`Box${prop}`}>
           <ul className="TrackListItem">
+            <li className="playButton" />
             <li className="trackNumber trackNumEdit" key={`Track_${prop}`}>
               {obj[prop].track_number}.
             </li>

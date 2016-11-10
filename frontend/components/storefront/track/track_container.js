@@ -22,7 +22,8 @@ const mapStateToProps = (state, ownProps) => {
   currentUser: state.session.currentUser,
   currentAlbum: state.albums.albums[ownProps.params.albumId],
   currentTrack: currentTrackResult,
-  currentFiles: currentFilesResult
+  currentFiles: currentFilesResult,
+  imageUrl: currentTrackResult.image_url
 }}
 
 const mapDispatchToProps = (dispatch) => ({

@@ -15,6 +15,144 @@
 
   }
 
+  $transition-time:0.3s;
+  $size:50px;
+  $smallSize:5px;
+  $ratio:1.2;
+  $background:#f9f9f9;
+  $foreground:#2c3e50;
+
+  $foreground-light:#34495e;
+
+.play-small {
+  display:block;
+  background:white;
+  width: 0;
+  height: 3px;
+  border-top: $smallSize solid transparent;
+  border-bottom: $smallSize solid transparent;
+  border-left: ($smallSize*$ratio) solid $foreground;
+  // margin: ($smallSize * 2) auto $smallSize auto;
+  margin-left: 5px;
+  position:relative;
+  margin-right: 8px;
+  z-index:1;
+  transition: all $transition-time;
+  -webkit-transition: all $transition-time;
+  -moz-transition: all $transition-time;
+  left:($smallSize*0.2);
+
+  &:before {
+    content:'';
+    position:absolute;
+    // background:white;
+    top:($smallSize*-1.5);
+    left:($smallSize*-2.3);
+    bottom:($smallSize*-1.5);
+    right:($smallSize*-0.7);
+    border-radius:0%;
+    border: ($smallSize*0.2) solid $foreground;
+    z-index:2;
+    transition: all $transition-time;
+    -webkit-transition: all $transition-time;
+    -moz-transition: all $transition-time;
+  }
+  &:after {
+    content:'';
+    opacity:0;
+    transition: opacity ($transition-time * 2);
+    -webkit-transition: opacity ($transition-time * 2);
+    -moz-transition: opacity ($transition-time * 2);
+  }
+
+  &:hover, &:focus {
+    &:before {
+       transform: scale(1.1);
+       -webkit-transform: scale(1.1);
+       -moz-transform: scale(1.1);
+       cursor: pointer;
+    }
+  }
+
+  &.active {
+    border-color:transparent;
+    background:white;
+    &:after {
+      content:'';
+      opacity:1;
+      width:($smallSize);
+      height:($smallSize*1.6);
+      background:$foreground;
+      position:absolute;
+      right: ($smallSize*0.1);
+      top: ($smallSize*-0.8);
+      border-left:($smallSize*0.4) solid $foreground;
+      box-shadow:inset ($smallSize*0.6) 0 0 0 $background;
+    }
+  }
+}
+  .play-large {
+    display:block;
+    width: 0;
+  	height: 0;
+  	border-top: $size solid transparent;
+  	border-bottom: $size solid transparent;
+  	border-left: ($size*$ratio) solid $foreground;
+    margin: ($size * 2) auto $size auto;
+    position:relative;
+    z-index:1;
+    transition: all $transition-time;
+    -webkit-transition: all $transition-time;
+    -moz-transition: all $transition-time;
+    left:($size*0.2);
+
+    &:before {
+      content:'';
+      position:absolute;
+      top:($size*-1.5);
+      left:($size*-2.3);
+      bottom:($size*-1.5);
+      right:($size*-0.7);
+      border-radius:50%;
+      border: ($size*0.2) solid $foreground;
+      z-index:2;
+      transition: all $transition-time;
+      -webkit-transition: all $transition-time;
+      -moz-transition: all $transition-time;
+    }
+    &:after {
+      content:'';
+      opacity:0;
+      transition: opacity ($transition-time * 2);
+      -webkit-transition: opacity ($transition-time * 2);
+      -moz-transition: opacity ($transition-time * 2);
+    }
+
+    &:hover, &:focus {
+      &:before {
+         transform: scale(1.1);
+         -webkit-transform: scale(1.1);
+         -moz-transform: scale(1.1);
+      }
+    }
+
+    &.active {
+  	  border-color:transparent;
+      &:after {
+        content:'';
+        opacity:1;
+        width:($size);
+        height:($size*1.6);
+        background:$foreground;
+        position:absolute;
+        right: ($size*0.1);
+        top: ($size*-0.8);
+        border-left:($size*0.4) solid $foreground;
+        box-shadow:inset ($size*0.6) 0 0 0 $background;
+      }
+    }
+  }
+
   .trackNumber{
     width: 20px;
     text-align:right;
