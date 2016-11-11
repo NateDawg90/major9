@@ -209,7 +209,6 @@ class Album extends React.Component{
         <h3>by <Link to={artistLink} onClick={this.handleNameClick}>
           {this.currentArtist('artist_name')}
         </Link></h3>
-        <h2> Song Player goes here</h2>
         <h3>Digital Album</h3>
         <h4>Includes unlimited streaming via the free Major9 app, plus
         high-quality download in MP3.</h4>

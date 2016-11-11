@@ -81,11 +81,12 @@
       content:'';
       opacity:1;
       width:($smallSize);
-      height:($smallSize*1.6);
+      height:($smallSize*2);
       background:$foreground;
       position:absolute;
       right: ($smallSize*0.1);
-      top: ($smallSize*-0.8);
+      top: ($smallSize*-0.7);
+      margin-right:3px;
       border-left:($smallSize*0.4) solid $foreground;
       box-shadow:inset ($smallSize*0.6) 0 0 0 $background;
     }

@@ -75,7 +75,6 @@ class EditTrack extends React.Component {
           placeholder = "Album Name"
           onChange={this.update('track_name')}
           value={this.state.track_name} />
-        <h2> Song Player goes here</h2>
         <h3>Digital Album</h3>
         <h4>Includes unlimited streaming via the free Major9 app, plus
         high-quality download in MP3.</h4>

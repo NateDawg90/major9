@@ -154,3 +154,12 @@ export const uploadTrack = (track, success, error) => {
     error
   })
 }
+
+export const search = (query, success, error) => {
+  $.ajax({ url:'api/search',
+    type: 'GET',
+    data: {search: query},
+    success,
+    error
+    })
+}

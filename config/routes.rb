@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :tracks, only: [:index, :show, :create, :update, :destroy]
     end
     resources :track_files, only: [:create, :update, :destroy]
+    resources :search, only: [:index]
+
     get "signed_url", to: "track_files#sign_url"
   end
 

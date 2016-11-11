@@ -140,7 +140,6 @@ class Track extends React.Component{
             <h3>from <Link to={albumLink}>{this.props.currentAlbum.album_name}</Link> by
                <Link to={artistLink}> {this.props.currentAlbum.artist.artist_name}
             </Link></h3>
-            <h2> Song Player goes here</h2>
             <h3>Buy the Full Digital Album</h3>
             <br/>
             <h2> Purchasing Component </h2>

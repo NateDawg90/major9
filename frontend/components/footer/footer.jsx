@@ -18,7 +18,7 @@ class Footer extends React.Component {
   componentDidUpdate() {
     console.log($('#play_pause_button'));
     window.setTimeout(() => {$('#play_pause_button').click()}, 500);
-    // window.setTimeout(() => {$('play-small').eq()}
+
   }
 
   render() {
@@ -54,7 +54,9 @@ class Footer extends React.Component {
 
     return(
       <footer>
-        <AudioPlayer playlist={trackPlaylist} hideBackSkip={true} autoplay={true}/>
+        <AudioPlayer playlist={trackPlaylist} hideBackSkip={true}
+          autoplay={true}
+          autoplayDelayInSeconds={1000} />
       </footer>
     )
   }

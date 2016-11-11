@@ -1,6 +1,7 @@
 class Api::TracksController < ApplicationController
   def index
     @tracks = Track.where(album_id: params[:album_id])
+
   end
 
   def create

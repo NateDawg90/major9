@@ -55,9 +55,12 @@ class Splash extends React.Component {
         let artistLink = `#/artist/${artistIdx}`
         content.push(<li className="frontpage-album">
             {albumObject[albumId].album_name}
+            <div class="image">
             <Link to={`artist/${artistIdx}/album/${albumObject[albumId].id}`} key={albumObject[albumId].id}>
               <img className="frontpage-picture" src={albumObject[albumId].image_url} alt={albumObject[albumId].album_name}/>
             </Link>
+            </div>
+            <div class="play"><img src="http://cliparts.co/cliparts/pT5/8xK/pT58xKE7c.png" /></div>
         </li>
       )})
   } else {
