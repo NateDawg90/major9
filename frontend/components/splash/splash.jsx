@@ -3,6 +3,7 @@ import { Link, hashHistory } from 'react-router';
 import ReactDOM from 'react-dom';
 import Coverflow from 'react-coverflow';
 import AlbumContainer from '../storefront/album/album_container';
+import Modal from 'react-modal';
 
 function shuffle(a) {
     for (let i = a.length; i; i--) {
@@ -43,7 +44,7 @@ class Splash extends React.Component {
       if (secondAlbum){
       parsedArtists.push(<li className="frontpage-album">
           {this.props.artists[artistIdx].artist_name}
-          <Link to={`artist/${artistIdx}`} key={artistIdx}><img className="frontpage-picture" src={secondAlbum.image_url} alt={this.props.artists[artistIdx].artist_name}/>
+          <Link to={`artist/${artistIdx}/album/${secondAlbum.id}`} key={artistIdx}><img className="frontpage-picture" src={secondAlbum.image_url} alt={this.props.artists[artistIdx].artist_name}/>
             </Link>
       </li>
 
@@ -96,7 +97,7 @@ class Splash extends React.Component {
 }
   return(
     <div>
-      <h2>Your Albums</h2>
+      <h2>Your Albums:</h2>
       <ul>
         {content}
       </ul>
@@ -146,16 +147,16 @@ class Splash extends React.Component {
           <img src="https://s3-us-west-1.amazonaws.com/major9/Major9_Logo.png" className="splash-logo" />
         <br/>
         <h2> The Homepage of Japanese Jazz</h2>
-          <h2> Here are our featured artists: </h2>
           <br/>
           </div>
           <div>
             <div className="albums">
+              <h2> Here are our featured artists: </h2>
               <ul className="splash">
                 {artists}
               </ul>
             <br />
-            <div className="content">
+            <div className="content artist">
             {currentUserAlbums}
             </div>
           </div>

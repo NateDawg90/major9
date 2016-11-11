@@ -1,7 +1,13 @@
+
+
 .albums{
   margin: 0 auto;
+  padding: 50px;
   text-align: center;
   width: 900px;
+  border-left: 1px dotted black;
+  border-right: 1px dotted black;
+
   ul{
     overflow: auto;
     white-space: nowrap;

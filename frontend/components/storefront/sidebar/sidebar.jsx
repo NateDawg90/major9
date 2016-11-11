@@ -10,7 +10,8 @@ class Sidebar extends React.Component {
     this.state = {
       modalOpen: false,
       editMode: this.props.editMode,
-      showAll: false
+      showAll: false,
+      artistInfoMode: true
     }
     this.albums = this.albums.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -20,6 +21,7 @@ class Sidebar extends React.Component {
     this.toggleEdit = this.toggleEdit.bind(this)
     this.deleteAlbum = this.deleteAlbum.bind(this)
     this.albumNames = []
+    this.toggleInfo = this.toggleInfo.bind(this)
   }
 
 
@@ -183,11 +185,29 @@ class Sidebar extends React.Component {
     }
   }
   //Make default artist_name username, allow it to be changed on edit
+  toggleInfo(){
+    this.setState({artistInfoMode: (this.state.artistInfoMode === true) ? false : true})
+  }
+
+
+  artistInfo() {
+    if (this.state.artistInfoMode) {
+      return (<button onClick={this.toggleInfo}>More Info</button>)
+    } else {
+      return(
+        <div>
+        <h5>{this.currentArtist('about')}</h5>
+        <br/>
+    <button onClick={this.toggleInfo}>Less Info</button>
+      </div>)
+    }
+  }
 
   render() {
     let parsedAlbums = this.albums();
     let editButton = this.editButton();
     let newAlbum = this.newAlbum();
+    let moreinfo = this.artistInfo();
     if(this.contentMatching(this.props.params.artistId) == false) {
       return (
         <div>
@@ -199,7 +219,11 @@ class Sidebar extends React.Component {
       <h1>{this.currentArtist('artist_name')}</h1>
       {editButton}
       <br/>
+      {moreinfo}
+      <br/>
+      <br/>
       <h3>Discography:</h3>
+      <br/>
       {newAlbum}
       {parsedAlbums}
       <Modal

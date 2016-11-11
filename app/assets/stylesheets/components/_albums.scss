@@ -10,6 +10,7 @@
     flex-direction:row;
     flex-wrap: wrap;
     padding: 5px 0px;
+    max-height: 26px;
     width: 370px;
     // float: left;
 
@@ -155,7 +156,8 @@
   }
 
   .trackNumber{
-    width: 20px;
+    width: 23px;
+    margin-right: 10px;
     text-align:right;
   }
 
