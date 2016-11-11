@@ -5,6 +5,8 @@ import Root from './components/root';
 import Modal from 'react-modal';
 import { Router, Route, IndexRoute, hashHistory, withRouter } from 'react-router';
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
   Modal.setAppElement(document.body)
   let store;

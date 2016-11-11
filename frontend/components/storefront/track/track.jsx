@@ -108,6 +108,14 @@ class Track extends React.Component{
     }
     return false
   }
+
+  handlePlay(e){
+    $('.play-large').toggleClass('active')
+    console.log(this.props.currentTrack);
+    console.log(this.props.currentTrack.track_files);
+    this.props.playTracks([this.props.currentTrack], this.props.currentTrack.track_files)
+  }
+
   render() {
     // debugger
     // If not purchaseale, "Buy the Full Digital Album"
@@ -140,6 +148,11 @@ class Track extends React.Component{
             <h3>from <Link to={albumLink}>{this.props.currentAlbum.album_name}</Link> by
                <Link to={artistLink}> {this.props.currentAlbum.artist.artist_name}
             </Link></h3>
+          <div className="play-large" onClick={this.handlePlay.bind(this)}></div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
             <h3>Buy the Full Digital Album</h3>
             <br/>
             <h2> Purchasing Component </h2>

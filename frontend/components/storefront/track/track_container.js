@@ -3,6 +3,7 @@ import Track from './track';
 import {fetchTracks, updateTrack} from '../../../actions/track_actions';
 import {fetchAlbum, editAlbumMode} from '../../../actions/album_actions';
 import {withRouter} from 'react-router'
+import {playTracks, pauseTrack} from '../../../actions/player_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let tracks = state.tracks.tracks
@@ -30,7 +31,9 @@ const mapDispatchToProps = (dispatch) => ({
   fetchAlbum: (userId) => dispatch(fetchAlbum(userId)),
   fetchTracks: (albumId) => dispatch(fetchTracks(albumId)),
   editAlbumMode: (toggle) => dispatch(editAlbumMode(toggle)),
-  updateTrack: (albumId,track) => dispatch(updateTrack(albumId,track))
+  updateTrack: (albumId,track) => dispatch(updateTrack(albumId,track)),
+  playTracks: (track, trackFiles) => dispatch(playTracks(track, trackFiles)),
+
 })
 
 

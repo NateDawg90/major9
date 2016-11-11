@@ -1,0 +1,10 @@
+.suggestions{
+  background:white;
+  display:flex;
+  flex-direction:column;
+}
+
+.result:hover{
+  background:$hover-color;
+  cursor: pointer;
+}

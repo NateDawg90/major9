@@ -55,12 +55,11 @@ class Splash extends React.Component {
         let artistLink = `#/artist/${artistIdx}`
         content.push(<li className="frontpage-album">
             {albumObject[albumId].album_name}
-            <div class="image">
+            <div className="image">
             <Link to={`artist/${artistIdx}/album/${albumObject[albumId].id}`} key={albumObject[albumId].id}>
               <img className="frontpage-picture" src={albumObject[albumId].image_url} alt={albumObject[albumId].album_name}/>
             </Link>
             </div>
-            <div class="play"><img src="http://cliparts.co/cliparts/pT5/8xK/pT58xKE7c.png" /></div>
         </li>
       )})
   } else {
@@ -118,6 +117,19 @@ class Splash extends React.Component {
 
     return(
         <div className="splash">
+          <div className="homepage-hero-module">
+            <div className="video-container">
+                <div className="filter"></div>
+                <video autoPlay loop className="fillWidth">
+                    <source src="https://s3-us-west-1.amazonaws.com/major9/Strum-Away.mp4" type="video/mp4" />
+                      <source src="https://s3-us-west-1.amazonaws.com/major9/Strum-Away.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+
+              </video>
+                <div className="poster hidden">
+                    <img src="https://s3-us-west-1.amazonaws.com/major9/Strum-Away.jpg" alt="Strumming Video" />
+                </div>
+            </div>
+        </div>
           <h1> Welcome to Major9</h1>
           <h2> The Homepage of Japanese Jazz</h2>
           <h2> Here are our featured artists: </h2>
@@ -127,7 +139,6 @@ class Splash extends React.Component {
               <ul className="splash">
                 {artists}
               </ul>
-
             </div>
             <br />
             <div className="content">

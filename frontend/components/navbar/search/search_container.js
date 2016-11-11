@@ -4,11 +4,11 @@ import {searchQuery} from '../../../actions/search_actions';
 
 
 const mapStateToProps = (state) => ({
-  suggestions: state.suggestions
+  suggestions: state.suggestions.suggestions
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  searchQuery: query => dispatch(searchQuery(query))
+  searchQuery: (query) => dispatch(searchQuery(query))
 })
 
 export default connect(
