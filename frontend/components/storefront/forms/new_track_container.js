@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
-import {createTrack} from "../../../actions/track_actions";
+import {createTrack, receiveTrackErrors} from "../../../actions/track_actions";
 import {receiveErrors} from '../../../actions/session_actions';
 import NewTrack from './_track';
 
 const mapStateToProps = (state, ownProps) => {
   return{
-  errors: state.albums.errors,
+  errors: state.tracks.errors,
   currentAlbumId: ownProps.params.albumId,
   tracks: state.tracks.tracks
 }
@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   createTrack: (albumId, form) => dispatch(createTrack(albumId, form)),
-  clearErrors: (blank) => {dispatch(receiveErrors(blank))}
+  clearErrors: (blank) => {dispatch(receiveTrackErrors(blank))}
 
 })
 

@@ -3,6 +3,7 @@ import { receiveAlbum,
          receiveAlbumErrors,
          receiveArtist,
          receiveArtists,
+         editAlbumMode,
          deleteAlbumFromStore,
          FETCH_ARTIST,
          FETCH_ARTISTS,
@@ -26,10 +27,15 @@ const albumMiddleware = ({getState, dispatch}) => next => action => {
     hashHistory.replace(`/artist/${firstAlbum.artist.id}/album/${firstAlbumId}`)
   }
 
-  let handleAlbum = (album) => {
+  let handleUpdateAlbum = (album) => {
     dispatch(receiveAlbum(album))
     hashHistory.replace(`/artist/${album.artist_id}/album/${album.id}`)
   };
+
+  let handleCreateAlbum = (album) => {
+    dispatch(receiveAlbum(album))
+    dispatch(editAlbumMode(true))
+  }
 
   let handleAlbums = (albums) => {
     dispatch(receiveAlbums(albums))
@@ -63,10 +69,10 @@ const albumMiddleware = ({getState, dispatch}) => next => action => {
       fetchAlbum(action.albumId, handleAlbum, handleAlbumErrors)
       return next(action);
     case CREATE_ALBUM:
-      createAlbum(action.album, handleAlbum, handleAlbumErrors)
+      createAlbum(action.album, handleCreateAlbum, handleAlbumErrors)
       return next(action);
     case UPDATE_ALBUM:
-      updateAlbum(action.album, handleAlbum, handleAlbumErrors)
+      updateAlbum(action.album, handleUpdateAlbum, handleAlbumErrors)
       return next(action);
     case DELETE_ALBUM:
       deleteAlbum(action.albumId, handleDelete, handleAlbumErrors)

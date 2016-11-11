@@ -16,6 +16,10 @@ const trackReducer = (state= _defaultState, action) => {
     case RECEIVE_TRACK:
       return merge({}, state, {tracks: {[action.track.id]: action.track}, errors: []})
     case RECEIVE_TRACK_ERRORS:
+      if (action.trackErrors[0] === ""){
+        newState = {tracks:state.tracks, errors: []}
+        return newState
+      }
       return merge({}, state, {errors: action.trackErrors})
     case DELETE_TRACK_FROM_STORE:
       let newState = merge({}, state)

@@ -17,6 +17,10 @@ const albumReducer = (state= _defaultState, action) => {
     case RECEIVE_ALBUM:
       return merge({}, state, {albums:{[action.album.id]: action.album}})
     case RECEIVE_ALBUM_ERRORS:
+      if (action.albumErrors[0] === ""){
+        newState = {artists:state.artists, albums:state.albums, errors: []}
+        return newState
+      }
       return merge({}, state, {errors: action.albumErrors})
     case RECEIVE_ARTIST:
       return merge({}, state, {artists: action.artist})

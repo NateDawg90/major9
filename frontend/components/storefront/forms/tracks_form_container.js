@@ -1,16 +1,22 @@
 import {connect} from 'react-redux';
 import TracksForm from './_tracks.jsx';
+import {receiveTrackErrors} from '../../../actions/track_actions'
 const mapStateToProps= (state, ownProps) => {
   // debugger
   return{
   tracks: state.tracks.tracks,
   albums: state.albums,
   albumCount: state.albums.albums,
-  errors: state.errors,
+  errors: state.tracks.errors,
   currentUser: state.session.currentUser,
   editMode: state.albums.editMode
 }}
 
+const mapDispatchToProps = (dispatch) => ({
+  clearErrors: (blank) => dispatch(receiveTrackErrors(blank))
+})
+
 export default connect(
-mapStateToProps
+mapStateToProps,
+mapDispatchToProps
 )(TracksForm)

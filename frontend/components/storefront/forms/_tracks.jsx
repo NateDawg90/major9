@@ -55,6 +55,7 @@ class TracksForm extends React.Component {
     console.log(this.props.tracks);
       if (Object.keys(newProps.tracks).length > Object.keys(this.props.tracks).length){
         this.setState({modalOpen: false});
+        this.clearErrors([""]);
       }
 
   }
@@ -69,7 +70,7 @@ class TracksForm extends React.Component {
 
   }
   onModalClose() {
-    // this.props.clearErrors([""]);
+    this.props.clearErrors([""]);
     this.setState({modalOpen: false})
   }
 

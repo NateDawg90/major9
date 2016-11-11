@@ -11,26 +11,26 @@ class NewTrack extends React.Component {
       image_url: "",
       credits: ""
     }
-      this.nameError = []
-      this.priceError = []
-      this.dateError = []
+      this.trackNameError = []
+      this.trackPriceError = []
+      this.trackDateError = []
       this.update = this.update.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
       this.handleErrors = this.handleErrors.bind(this)
   }
 
   handleErrors () {
-    this.nameError = [];
-    this.dateError = [];
-    this.priceError = [];
+    this.trackNameError = [];
+    this.trackDateError = [];
+    this.trackPriceError = [];
     console.log(this.props.errors);
     let errors = this.props.errors.forEach((error, index) => {
-      if (error[0] === 'A') {
-      this.nameError.push(<h3 key={`${index}A`} className="error">{error}</h3>)
+      if (error[0] === 'T') {
+      this.trackNameError.push(<h3 key={`${index}T`} className="error">{error}</h3>)
     } else if (error[0] === 'R'){
-      this.dateError.push(<h3 key={`${index}R`} className="error">Release Date is invalid.</h3>)
+      this.trackDateError.push(<h3 key={`${index}R`} className="error">Release Date is invalid.</h3>)
     } else if (error[0] === 'P'){
-      this.priceError.push(<h3 key={`${index}P`} className="error">{error}</h3>)
+      this.trackPriceError.push(<h3 key={`${index}P`} className="error">{error}</h3>)
     }
     });
   }
@@ -42,12 +42,13 @@ class NewTrack extends React.Component {
     };
   }
 
+
   handleSubmit(e){
     e.preventDefault();
     this.props.clearErrors([""]);
-    this.nameError = [];
-    this.dateError = [];
-    this.priceError = [];
+    this.trackNameError = [];
+    this.trackDateError = [];
+    this.trackPriceError = [];
     this.props.createTrack(this.props.currentAlbumId, this.state)
   }
 
@@ -61,17 +62,17 @@ class NewTrack extends React.Component {
           <input type="input" onChange={this.update('track_name') }
               placeholder="Track Name"/>
           <br />
-          {this.nameError[0]}
+          {this.trackNameError[0]}
           <br />
           <input type="input" onChange={this.update('price')}
             placeholder="Price"/>
           <br />
-          {this.priceError[0]}
+          {this.trackPriceError[0]}
           <br />
           <input type="input" onChange={this.update('release_date')}
             placeholder="Release Date"/>
           <br />
-          {this.dateError[0]}
+          {this.trackDateError[0]}
           <br />
           <textArea placeholder="Description" onChange={this.update('description')}/>
           <br />

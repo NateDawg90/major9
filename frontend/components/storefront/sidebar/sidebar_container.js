@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 import Sidebar from './sidebar';
-import {fetchAlbums, fetchArtist,editAlbumMode, deleteAlbum} from '../../../actions/album_actions';
+import {fetchAlbums, fetchArtist,editAlbumMode, deleteAlbum, receiveAlbumErrors} from '../../../actions/album_actions';
 import {fetchTracks} from '../../../actions/track_actions';
 import {receiveErrors} from '../../../actions/session_actions';
 const mapStateToProps = (state, ownProps) => ({
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchArtist: () => dispatch(fetchArtist(ownProps.params.artistId)),
   editAlbumMode: (toggle) => dispatch(editAlbumMode(toggle)),
   deleteAlbum: (albumId) => dispatch(deleteAlbum(albumId)),
-  clearErrors: (blank) => dispatch(receiveErrors(blank))
+  clearErrors: (blank) => dispatch(receiveAlbumErrors(blank))
 })
 
 export default withRouter(connect(

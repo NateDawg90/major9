@@ -42,7 +42,7 @@ const trackMiddleware = ({getState, dispatch}) => next => action => {
     dispatch(deleteTrackFromStore(Track));
   }
   let handleTracks = (tracks) => dispatch(receiveTracks(tracks));
-  let handleTrackErrors = (errors) => dispatch(receiveTrackErrors(errors.responseText));
+  let handleTrackErrors = (errors) => dispatch(receiveTrackErrors(errors.responseJSON));
   switch(action.type){
     case FETCH_TRACKS:
       fetchTracks(action.albumId, handleTracks, handleTrackErrors)
