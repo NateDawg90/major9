@@ -5,10 +5,10 @@ import {fetchAlbum, editAlbumMode} from '../../../actions/album_actions';
 import {withRouter} from 'react-router'
 
 const mapStateToProps = (state, ownProps) => {
-  let tracks = state.albums.albums[ownProps.params.albumId].tracks
+  let tracks = state.tracks.tracks
   let trackFiles = state.albums.albums[ownProps.params.albumId].track_files
-  let currentTrackResult = tracks.filter((obj) => {
-    return obj.id == ownProps.params.trackId
+  let currentTrackResult = Object.keys(tracks).filter((objKey) => {
+    return objKey == ownProps.params.trackId
   })[0]
   let currentFilesResult = trackFiles.filter((obj) => {
     // debugger
@@ -21,9 +21,9 @@ const mapStateToProps = (state, ownProps) => {
   editMode: state.albums.editMode,
   currentUser: state.session.currentUser,
   currentAlbum: state.albums.albums[ownProps.params.albumId],
-  currentTrack: currentTrackResult,
+  currentTrack: state.tracks.tracks[ownProps.params.trackId],
   currentFiles: currentFilesResult,
-  imageUrl: currentTrackResult.image_url
+  imageUrl: state.tracks.tracks[ownProps.params.trackId].image_url
 }}
 
 const mapDispatchToProps = (dispatch) => ({

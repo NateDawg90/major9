@@ -10,7 +10,6 @@ class EditTrack extends React.Component {
     //set state to new object
     ;
     // let defaultState = this.stateMaker()
-    console.log(this.props);
     this.state = {
       track_name: this.props.currentTrack.track_name,
       price: this.props.currentTrack.price,
@@ -43,11 +42,18 @@ class EditTrack extends React.Component {
   }
 
   handleSubmit() {
-    debugger
     this.props.updateTrack(this.props.params.albumId, this.state)
     this.setState({editMode:false})
   }
 
+  componentWillReceiveProps(nextProps){
+    console.log('jQuery is');
+    console.log($('.Tracks'));
+    if(JSON.stringify(nextProps.currentTrack) != JSON.stringify(this.props.currentTrack)){
+      this.props.editAlbumMode(false)
+    }
+    // console.log(nextProps);
+  }
   currentFilesResult() {
     return this.props.currentFiles.map( (obj, index) => (
       <li key={obj.id}>{index + 1}. {obj.url}</li>
