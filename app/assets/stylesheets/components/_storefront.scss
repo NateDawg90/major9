@@ -25,8 +25,12 @@ h5{
   min-height:1000px;
   display: flex;
   justify-content: space-between;
-  width:975px;
+  width:1000px;
   margin: 0 auto;
+  border-left: 1px dotted black;
+  border-right: 1px dotted black;
+
+  box-shadow: 30px;
 }
 
 
