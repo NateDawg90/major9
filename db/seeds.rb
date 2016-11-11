@@ -12,7 +12,7 @@ about:"This recruiter has the best music in the world!")
   Album.create(artist_id:1, image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/7d52009dcdc24917c64059eb16244e93_qxomuw.jpg",
   album_name:"Greatest Hits from the Greatest Recruiter", price: 30, release_date:Date.new)
 
-    Track.create(album_id:3, release_date: Date.new, track_number:1, price: 5, track_name:"Greatest Song")
+    Track.create(album_id:1, release_date: Date.new, track_number:1, price: 5, track_name:"Greatest Song")
 # 2
 User.create(username:"Andrew", password:"hunter2", artist_name:"DJ Saitae",
 about:"Local Guitarist Looking for Musical Love", location:"San Jose")
@@ -27,7 +27,7 @@ about:"Local Guitarist Looking for Musical Love", location:"San Jose")
     about: "This album isn't real yet.",
     credits: "Target for having the best deals.",
     )
-    Track.create(album_id:1,
+    Track.create(album_id:2,
     release_date: Date.new,
     track_number:1,
     price: 1,
@@ -38,8 +38,8 @@ about:"Local Guitarist Looking for Musical Love", location:"San Jose")
     credits: "Target again for best deals.",
     bonus: true
     )
-    Track.create(album_id:1, image_url:"http://res.cloudinary.com/dprtxlyhi/image/upload/download_ap2iwu.jpeg", release_date: Date.new, track_number:2, price: 1, track_name:"Jam in Key of Toast")
-    Track.create(album_id:1, image_url:"http://res.cloudinary.com/dprtxlyhi/image/upload/21076_4158_zphrmy.jpg", release_date: Date.new, track_number:3, price: 1, track_name:"Night in Tunisia")
+    Track.create(album_id:2, image_url:"http://res.cloudinary.com/dprtxlyhi/image/upload/download_ap2iwu.jpeg", release_date: Date.new, track_number:2, price: 1, track_name:"Jam in Key of Toast")
+    Track.create(album_id:2, image_url:"http://res.cloudinary.com/dprtxlyhi/image/upload/21076_4158_zphrmy.jpg", release_date: Date.new, track_number:3, price: 1, track_name:"Night in Tunisia")
 
   Album.create(artist_id:2, image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/funk-graffiti-vector_23-2147497930_eyvd44.jpg",
   album_name:"The Funkiest", price: 10, release_date:Date.new)
@@ -52,8 +52,8 @@ about:"Local Guitarist Looking for Musical Love", location:"San Jose")
   image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/key_holder_uhfpir.jpg",
   price: 10,
   release_date: "11/2/2016")
-    Track.create(album_id:2, release_date: Date.new, track_number:1, price: 1, track_name:"Run")
-    Track.create(album_id:2, release_date: Date.new, track_number:2, price: 1, track_name:"Something Smells")
+    Track.create(album_id:3, release_date: Date.new, track_number:1, price: 1, track_name:"Run")
+    Track.create(album_id:3, release_date: Date.new, track_number:2, price: 1, track_name:"Something Smells")
 
 
 

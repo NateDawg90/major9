@@ -16,10 +16,18 @@ class Splash extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      infoOpen: false
+      infoOpen: false,
+      modalOpen: false
     }
   }
 
+  onModalClose() {
+    this.setState({modalOpen: false})
+  }
+
+  openForm() {
+    this.setState({modalOpen: true});
+  }
   componentWillMount() {
     this.props.fetchArtists
   }
@@ -138,8 +146,9 @@ class Splash extends React.Component {
     //   >
     //   {artists}
     // </Coverflow>
-    <div className="content">
-    </div>
+    // <div className="content">
+    // </div>
+
 
     return(
         <div className="splash">
@@ -151,7 +160,7 @@ class Splash extends React.Component {
         <h2> The Homepage of Japanese Jazz</h2>
         <h3> Buy. Listen. Create.</h3>
         <br/>
-          <button className="bigButton">First Time Here?</button>
+          <button className="bigButton" onClick={this.openForm.bind(this)}>First Time Here?</button>
           <br/>
           </div>
           <div className="outer">
@@ -169,6 +178,43 @@ class Splash extends React.Component {
           <br/>
           <br/>
           <br/><br/><br/><br/>
+            <Modal
+               isOpen={this.state.modalOpen}
+               onRequestClose={this.onModalClose.bind(this)}
+               style = {{content :{
+                  top                   : '50%',
+                  left                  : '50%',
+                  right                 : 'auto',
+                  bottom                : 'auto',
+                  marginRight           : '-50%',
+                  transform             : 'translate(-50%, -50%)'
+                  }
+                }
+              }
+              >
+              <div className="splash-box">
+                <h1>Welcome to Major9!</h1>
+                  <p>This site was intended to be a Bandcamp clone with a focus on
+                  Japanese jazz music.</p>
+                <p> Here are some functions that you can try out on this site!</p>
+                  <ol>
+                    <li>Try the guest login and create albums and tracks!</li>
+                    <li>Log in as the following artists and pretend that you are a famous Japanese jazz musician.</li>
+                      <ul>Jimmy Weckl: jweckl (pass: 573573)</ul>
+                      <ul> Password from this point is 'hunter2'</ul>
+                      <ul>Hiromi: hiromi</ul>
+                      <ul>T-Square: tsquare</ul>
+                      <ul>JABBERLOOP: jabberloop</ul>
+                      <ul>Tokyo Jihen: tokyojihen</ul>
+                      <ul>Soil and "Pimp" Sessions: soil</ul>
+                    <li>Listen to songs that won't stop playing even if you're browsing other pages.</li>
+                    <li>Edit album and track information without being sent to a whole new page.</li>
+                  </ol>
+                  <p>Thank you for visiting Major9! I hope you come away with a newfound appreciation for the hidden arts of Japanese jazz.</p>
+
+                <button onClick={this.onModalClose.bind(this)}>Close</button>
+              </div>
+            </Modal>
         </div>
     )
 

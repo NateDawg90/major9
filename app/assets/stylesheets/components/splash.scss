@@ -43,7 +43,24 @@
 
 
 }
+.splash-box{
+  margin: 0 auto;
+  padding: 50px 100px;
+  width:500px;
+  text-align: center;
 
+  p{
+    padding-bottom:30px;
+  }
+  ol{
+    list-style: disc;
+  }
+
+  ul{
+    list-style:inside;
+  }
+
+}
 .frontpage-album:hover .play{display:block}
 .play{
   position : absolute;

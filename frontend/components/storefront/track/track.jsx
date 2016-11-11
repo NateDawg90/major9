@@ -17,11 +17,6 @@ class Track extends React.Component{
 
 
   currentTrack(prop) {
-    // console.log(this.props.tracks.track);
-    // console.log(this.props);
-    // console.log('break');
-    // console.log(this.props.params.trackId);
-    // console.log(Object.keys(this.props.tracks.tracks));
 
       if (Object.keys(this.props.tracks.tracks).length !== 0 &&
       Object.keys(this.props.tracks.tracks).includes(this.props.params.trackId)){
@@ -78,7 +73,6 @@ class Track extends React.Component{
   currentTrackGrabbed() {
     // debugger
     if (Object.keys(this.props.albums.albums).length !== 0) {
-      // console.log(this.props.params.trackId);
       if (Object.keys(this.props.albums.albums[this.props.params.albumId].tracks).includes(this.props.params.trackId)){
         return true
       }
@@ -111,8 +105,6 @@ class Track extends React.Component{
 
   handlePlay(e){
     $('.play-large').toggleClass('active')
-    console.log(this.props.currentTrack);
-    console.log(this.props.currentTrack.track_files);
     this.props.playTracks([this.props.currentTrack], this.props.currentTrack.track_files)
   }
 

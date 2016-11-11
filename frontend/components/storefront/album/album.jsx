@@ -173,14 +173,11 @@ class Album extends React.Component{
 
   handlePlay(e) {
     $('.play-large').toggleClass('active')
-    console.log(this.props.currentAlbum.tracks);
-    console.log(this.props.currentAlbum.track_files);
     this.props.playTracks(this.props.currentAlbum.tracks, this.props.currentAlbum.track_files)
   }
 
   render() {
     // debugger
-    console.log(this.props);
 
 
 
@@ -194,7 +191,6 @@ class Album extends React.Component{
     } else if(this.currentAlbumObject() == undefined) {
       return <div className="loader">Loading...</div>
     }else if(this.props.editMode === true && this.isArtist.bind(this)() === true){
-      console.log(this.props);
       return(<div className="Show">
       <EditAlbum currentAlbum={this.props.currentAlbum}
          currentUser={this.props.currentUser}

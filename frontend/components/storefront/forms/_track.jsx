@@ -23,7 +23,6 @@ class NewTrack extends React.Component {
     this.trackNameError = [];
     this.trackDateError = [];
     this.trackPriceError = [];
-    console.log(this.props.errors);
     let errors = this.props.errors.forEach((error, index) => {
       if (error[0] === 'T') {
       this.trackNameError.push(<h3 key={`${index}T`} className="error">{error}</h3>)
@@ -38,7 +37,6 @@ class NewTrack extends React.Component {
   update(property){
     return (e) => {
         this.setState({[property]: e.target.value});
-        console.log(`${property} : ${e.target.value}`);
     };
   }
 
@@ -85,7 +83,7 @@ class NewTrack extends React.Component {
             placeholder="Credits"/>
           <br />
           <br />
-          <h2>Upload Track Component</h2>
+          <button className="bigButton">Upload Track</button>
           <button>Create Track</button>
           <br />
         </form>
