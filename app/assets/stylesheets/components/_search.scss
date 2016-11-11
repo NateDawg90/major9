@@ -4,7 +4,8 @@
   flex-direction:column;
   width:921px;
   margin-left: 205px;
-
+  z-index: 90000;
+  box-shadow: 200px;
 }
 
 .result:hover{

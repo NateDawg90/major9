@@ -82,9 +82,9 @@ class NewTrack extends React.Component {
           <input type="input" onChange={this.update('credits')}
             placeholder="Credits"/>
           <br />
-          <br />
-          <button className="bigButton">Upload Track</button>
+          <br/>
           <button>Create Track</button>
+          <br />
           <br />
         </form>
       </div>

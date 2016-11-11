@@ -48,7 +48,7 @@ class Navbar extends React.Component{
           <img src="https://s3-us-west-1.amazonaws.com/major9/Major9_Logo.png"/></li></Link>
           <SearchContainer />
           <li><ul className="navbar-session">
-            <Link className="navbar-link" to={`/artist/${this.props.currentUser.id}/`}><li>Storefront</li></Link>
+            <Link className="navbar-link" to={`/artist/${this.props.currentUser.id}/`}><li></li></Link>
           <li><h3>{this.props.currentUser.artist_name}</h3></li>
           <Link className="navbar-link session-button" onClick={this.handleLogout}><li>Logout</li></Link>
           </ul></li>

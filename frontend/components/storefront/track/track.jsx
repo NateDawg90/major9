@@ -108,6 +108,14 @@ class Track extends React.Component{
     this.props.playTracks([this.props.currentTrack], this.props.currentTrack.track_files)
   }
 
+  downloadLink(){
+    if (this.props.currentFilesResult){
+      if (this.props.currentFilesResult.length !== 0){
+        return (<button onClick={`location.href=${this.props.currentFiles[0].url}`}> Download Track </button>)
+      }
+    }
+  }
+
   render() {
     // debugger
     // If not purchaseale, "Buy the Full Digital Album"
@@ -126,13 +134,15 @@ class Track extends React.Component{
          params={this.props.params}
          updateAlbum={this.props.updateAlbum}
         editAlbumMode={this.props.editAlbumMode}
-         updateTrack={this.props.updateTrack}/>
+         updateTrack={this.props.updateTrack}
+         uploadTrack={this.props.uploadTrack}/>
       <ArtContainer image_url={this.trackArt()} editMode={true}/>
       </div>)
     }
       let featAlbumId = Object.keys(this.props.albums.albums)[0]
       let artistLink = `artist/${this.props.params.artistId}/album/${featAlbumId}`
       let albumLink = `artist/${this.props.params.artistId}/album/${this.props.currentAlbum.id}`
+      let downloadLink =this.downloadLink();
       return(
       <div className="Show">
         <div className="Tracks">
@@ -147,6 +157,7 @@ class Track extends React.Component{
           <br/>
             <h3>Buy the Full Digital Album</h3>
             <br/>
+            {downloadLink}
             <h2> Purchasing Component </h2>
             <h2>Buy Now {this.currentTrack('price')}</h2>
               <br />

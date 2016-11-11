@@ -18,7 +18,8 @@ class EditTrack extends React.Component {
       image_url: this.props.currentTrack.image_url,
       track_number: this.props.currentTrack.track_number,
       credits: this.props.currentTrack.credits,
-      id: this.props.params.trackId
+      id: this.props.params.trackId,
+      track_files: this.props.currentAlbum.track_files
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -56,12 +57,29 @@ class EditTrack extends React.Component {
   }
   currentFilesResult() {
     return this.props.currentFiles.map( (obj, index) => (
+      <div>
       <li key={obj.id}>{index + 1}. {obj.url}</li>
+      <button>Delete Track</button>
+      </div>
     ))
   }
 
   createTrack(data) {
       debugger
+  }
+
+  handleUpload(e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, (error, successObject) => {
+      if(error === null) {
+          let trackFileObject = {
+            user_id: this.props.currentUser.id,
+            track_id: this.props.currentTrack.id,
+            url: successObject[0].url
+          }
+          this.props.uploadTrack(trackFileObject)
+      }
+    })
   }
 
   render() {
@@ -104,13 +122,8 @@ class EditTrack extends React.Component {
             {currentFiles}
           </ul>
           <br />
-          <ReactS3Uploader
-            signingUrl="/api/signed_url"
-            onFinish = {this.createTrack.bind(this)}
-            uploadRequestHeaders={{
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Headers': '*'}}
-            contentDisposition="auto" />
+          <button className="bigButton" onClick={this.handleUpload.bind(this)}>Upload Track</button>
+        <br />
         <br />
         <button onClick={this.handleSubmit.bind(this)}>Save</button>
         </form>

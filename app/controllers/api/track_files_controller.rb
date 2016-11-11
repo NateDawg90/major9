@@ -2,10 +2,10 @@ class Api::TrackFilesController < ApplicationController
 
   def create
     @track_file = TrackFile.new(track_file_params)
-    @track_file.uploadTrack(@track_file.track_name)
     @track_file.user_id = current_user.id
     if @track_file.save
-      render json: @track_file
+      @album = Album.find(@track_file.track.album.id)
+      render json: @album
     else
       render json: @track_file.errors.full_messages, status: 422
     end
@@ -27,8 +27,9 @@ class Api::TrackFilesController < ApplicationController
   def update
     @track_file = TrackFile.find(params[:id])
 
-    if @track_file
-      render json: @track_file
+    if @track_file.update(track_file_params)
+      @album = Album.find(@track_file.track.album.id)
+      render json: @album
     else
       render json: @track_file.errors.full_messages, status: 422
     end
@@ -45,7 +46,8 @@ class Api::TrackFilesController < ApplicationController
 
   def delete
     if @track_file = TrackFile.destroy(params[:id])
-      render json: ["File destroyed"]
+      @album = Album.find(@track_file.track.album.id)
+      render json: @album
     else
       render json: ["File cannot be found"], status: 404
     end

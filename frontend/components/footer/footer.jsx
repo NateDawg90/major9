@@ -22,13 +22,19 @@ class Footer extends React.Component {
   }
 
   render() {
+    //Consider sending in a blank playlist first to clear it out so we can start
+    // from earlier tracks
     let trackPlaylist = [];
     this.props.songs.tracks.forEach( (song, index) => {
+      if (this.props.songs.trackFiles[index]) {
+        if(this.props.songs.trackFiles[index].track_id == song.id){
       trackPlaylist.push({
         url: this.props.songs.trackFiles[index].url,
         displayText: `${song.track_number}. ${song.track_name} by ${song.artist.artist_name}`
         }
       )
+    }
+      }
     })
 
     // console.log(trackPlaylist);
