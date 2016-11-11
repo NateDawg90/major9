@@ -13,6 +13,23 @@ body {
 // }
 
 
+
+table{
+  padding:20px;
+  margin: 0 auto;
+  text-align: right;
+
+}
+th, td{
+  padding: 2px;
+  font-size: 14px;
+}
+
+th{
+  font-size:20px;
+}
+
+
 #mainContainer {
     position: absolute;
     top: 0;

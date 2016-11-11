@@ -199,17 +199,55 @@ class Splash extends React.Component {
                 <p> Here are some functions that you can try out on this site!</p>
                   <ol>
                     <li>Try the guest login and create albums and tracks!</li>
+                    <li>Listen to songs that keep playing even if you're browsing other pages.</li>
+                    <li>Edit album and track info without being sent to a whole new page.</li>
                     <li>Log in as the following artists and pretend that you are a famous Japanese jazz musician.</li>
-                      <ul>Jimmy Weckl: jweckl (pass: 573573)</ul>
-                      <ul> Password from this point is 'hunter2'</ul>
-                      <ul>Hiromi: hiromi</ul>
-                      <ul>T-Square: tsquare</ul>
-                      <ul>JABBERLOOP: jabberloop</ul>
-                      <ul>Tokyo Jihen: tokyojihen</ul>
-                      <ul>Soil and "Pimp" Sessions: soil</ul>
-                    <li>Listen to songs that won't stop playing even if you're browsing other pages.</li>
-                    <li>Edit album and track information without being sent to a whole new page.</li>
                   </ol>
+                    <table>
+                        <tr>
+                          <th>Artist</th>
+                          <th>Username</th>
+                          <th>Password</th>
+                        </tr>
+                        <tr>
+                          <td>Jimmy Weckl</td>
+                          <td>jweckl</td>
+                          <td>573573</td>
+                        </tr>
+                        <tr>
+                          <td>Greatest Recruiter</td>
+                          <td>Guest</td>
+                          <td>123456</td>
+                        </tr>
+                          <td>Andrew Tae</td>
+                          <td>Andrew</td>
+                          <td>hunter2</td>
+                        <tr>
+                          <td>Hiromi</td>
+                          <td>hiromi</td>
+                          <td>hunter2</td>
+                        </tr>
+                        <tr>
+                          <td>T-Square</td>
+                          <td>tsquare</td>
+                          <td>hunter2</td>
+                        </tr>
+                        <tr>
+                          <td>JABBERLOOP</td>
+                          <td>jabberloop</td>
+                          <td>hunter2</td>
+                        </tr>
+                        <tr>
+                          <td>Tokyo Jihen</td>
+                          <td>tokyojihen</td>
+                          <td>hunter2</td>
+                        </tr>
+                        <tr>
+                          <td>Soil and "Pimp"</td>
+                          <td>soil</td>
+                          <td>hunter2</td>
+                        </tr>
+                      </table>
                   <p>Thank you for visiting Major9! I hope you come away with a newfound appreciation for the hidden arts of Japanese jazz.</p>
 
                 <button onClick={this.onModalClose.bind(this)}>Close</button>
