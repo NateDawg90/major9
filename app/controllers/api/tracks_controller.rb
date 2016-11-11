@@ -8,10 +8,8 @@ class Api::TracksController < ApplicationController
     @track.album_id = params[:album_id]
     album = Album.find(params[:album_id])
     @track.track_number = album.tracks.length + 1
-    @tracks = Track.where(album_id: params[:album_id])
-
     if @track.save
-      render :index
+      render :show
     else
       render json: @track.errors.full_messages, status: 422
     end
@@ -20,7 +18,6 @@ class Api::TracksController < ApplicationController
   def show
     @track = Track.find_by(track_number: params[:id],
       album_id: params[:album_id])
-
   end
 
   def update
@@ -42,10 +39,8 @@ class Api::TracksController < ApplicationController
           track.track_number = track.track_number - 1
           track.save
         end
-      @tracks = Track.where(album_id: params[:album_id])
-
       end
-      render :index
+      render json: @track
     else
       render json: @track.errors.full_messages, status: 422
     end

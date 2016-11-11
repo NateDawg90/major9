@@ -11,7 +11,6 @@ const mapStateToProps = (state, ownProps) => ({
   errors: state.errors,
   currentUser: state.session.currentUser,
   editMode: state.albums.editMode,
-  count: state.albums.albums.count
 })
 
 const mapDispatchToProps = (dispatch) => ({

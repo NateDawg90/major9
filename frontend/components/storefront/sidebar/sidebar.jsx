@@ -29,6 +29,11 @@ class Sidebar extends React.Component {
     }
   }
 
+  componentWillReceiveProps(newProps){
+    if (Object.keys(newProps.albums.albums).length > Object.keys(this.props.albums.albums).length){
+      this.setState({modalOpen: false});
+    }
+  }
 
   parseAlbums() {
     let obj= this.props.albums.albums

@@ -21,14 +21,21 @@ const trackMiddleware = ({getState, dispatch}) => next => action => {
     let requestedTrack = getState().tracks.tracks[requestedTrackId]
     hashHistory.replace(`/artist/${requestedTrack.artist_id}/album/${requestedTrack.album_id}/track/${requestedTrack.id}`)
   }
+
+  let redirectToCurrentAlbum = (Track) => {
+    let AlbumId = Track.album_id
+    let firstAlbum = getState().albums.albums[AlbumId]
+    hashHistory.replace(`/artist/${firstAlbum.artist.id}/album/${AlbumId}`)
+  }
+
   let handleTrack = (Track) => {
     dispatch(receiveTrack(Track));
-    redirectToRequestedTrack();
+    redirectToRequestedTrack(Track);
   }
 
   let handleTrackNoRedirect = (Track) => {
     dispatch(receiveTrack(Track));
-    dispatch(editAlbumMode(true));
+    redirectToCurrentAlbum();
   }
   let handleTracks = (tracks) => dispatch(receiveTracks(tracks));
   let handleTrackErrors = (errors) => dispatch(receiveTrackErrors(errors.responseText));
