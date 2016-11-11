@@ -23,7 +23,6 @@ class NewAlbum extends React.Component {
     this.nameError = [];
     this.dateError = [];
     this.priceError = [];
-    console.log(this.props.errors);
     let errors = this.props.errors.forEach((error, index) => {
       if (error[0] === 'A') {
       this.nameError.push(<h3 key={`${index}A`} className="error">{error}</h3>)
@@ -38,7 +37,6 @@ class NewAlbum extends React.Component {
   update(property){
     return (e) => {
         this.setState({[property]: e.target.value});
-        console.log(`${property} : ${e.target.value}`);
     };
   }
 

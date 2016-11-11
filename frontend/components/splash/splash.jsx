@@ -147,6 +147,7 @@ class Splash extends React.Component {
           <img src="https://s3-us-west-1.amazonaws.com/major9/Major9_Logo.png" className="splash-logo" />
         <br/>
         <h2> The Homepage of Japanese Jazz</h2>
+          <button className="bigButton">First Time Here?</button>
           <br/>
           </div>
           <div>
