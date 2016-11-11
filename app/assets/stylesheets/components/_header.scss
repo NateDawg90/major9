@@ -14,6 +14,11 @@
   background: rgba(0,0,0,0.08);
 }
 
+.navbar-session{
+  display:flex;
+  justify-content: flex-end;
+}
+
 .navbar {
   min-width:300px;
   display: block;
@@ -26,7 +31,10 @@
 
   .search{
     width:900px;
+    height:15px;
+    margin-top: 3px;
   }
+
 
   ul {
       position: relative;

@@ -4,6 +4,13 @@ import ReactDOM from 'react-dom';
 import Coverflow from 'react-coverflow';
 import AlbumContainer from '../storefront/album/album_container';
 
+function shuffle(a) {
+    for (let i = a.length; i; i--) {
+        let j = Math.floor(Math.random() * i);
+        [a[i - 1], a[j]] = [a[j], a[i - 1]];
+    }
+}
+
 class Splash extends React.Component {
   constructor(props) {
     super(props)
@@ -18,7 +25,7 @@ class Splash extends React.Component {
 // e => {hashHistory.replace(`artist/${artistIdx}`
   parseArtists() {
     console.log(this.props.artists);
-    return Object.keys(this.props.artists).map( (artistIdx) => {
+    let parsedArtists = Object.keys(this.props.artists).map( (artistIdx) => {
       let featuredAlbum = this.props.artists[artistIdx].albums[this.props.artists[artistIdx].albums.length-1]
       let artistLink = `#/artist/${artistIdx}`
       return(<li className="frontpage-album">
@@ -27,7 +34,23 @@ class Splash extends React.Component {
             </Link>
       </li>
 
-    )})
+    )
+  })
+
+    Object.keys(this.props.artists).map( (artistIdx) => {
+      let secondAlbum = this.props.artists[artistIdx].albums[this.props.artists[artistIdx].albums.length-2]
+      let artistLink = `#/artist/${artistIdx}`
+      if (secondAlbum){
+      parsedArtists.push(<li className="frontpage-album">
+          {this.props.artists[artistIdx].artist_name}
+          <Link to={`artist/${artistIdx}`} key={artistIdx}><img className="frontpage-picture" src={secondAlbum.image_url} alt={this.props.artists[artistIdx].artist_name}/>
+            </Link>
+      </li>
+
+    )
+  }})
+  shuffle(parsedArtists);
+  return parsedArtists
   }
 
   // <img src={featuredAlbum.image_url}
@@ -114,6 +137,8 @@ class Splash extends React.Component {
     //   >
     //   {artists}
     // </Coverflow>
+    <div className="content">
+    </div>
 
     return(
         <div className="splash">
@@ -126,11 +151,9 @@ class Splash extends React.Component {
           </div>
           <div>
             <div className="albums">
-            <div className="content">
               <ul className="splash">
                 {artists}
               </ul>
-            </div>
             <br />
             <div className="content">
             {currentUserAlbums}

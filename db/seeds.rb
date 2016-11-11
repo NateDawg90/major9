@@ -294,7 +294,7 @@ Track.create(album_id:13, release_date:"2016.04.27", price:1.50, track_number:7,
 Track.create(album_id:13, release_date:"2016.04.27", price:1.50, track_number:8, track_name:"Scissors Paper Rock")
 Track.create(album_id:13, release_date:"2016.04.27", price:1.50, track_number:9, track_name:"Last Scene")
 
-Album.create(artist_id:7 , album_name: "Truth", about:"", price: 5, release_date:"11.11.11.11.1987", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/truth_qvnmxxp.jpg")
+Album.create(artist_id:7 , album_name: "Truth", about:"", price: 5, release_date:"11.11.11.11.1987", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/truth_qvmxxp.jpg")
 Track.create(album_id:14, release_date:"11.11.1987", price: 0.50, track_number:1, track_name:"Grand Prix")
 Track.create(album_id:14, release_date:"11.11.1987", price: 0.50, track_number:2, track_name:"Celebration")
 Track.create(album_id:14, release_date:"11.11.1987", price: 0.50, track_number:3, track_name:"Beat in Beat")
@@ -338,7 +338,7 @@ Track.create(album_id:17, release_date:"11.11.2012", price: 2, track_number:5, t
 Track.create(album_id:17, release_date:"11.11.2012", price: 2, track_number:6, track_name:"Gymnopedies No.1")
 # ./EAT A CLASSIC 4.jpg
 
-Album.create(artist_id:8 , album_name: "Re-EARTH", about:"", price: 10, release_date:"11.11.2013", image_url: "")
+Album.create(artist_id:8 , album_name: "Re-EARTH", about:"", price: 10, release_date:"11.11.2013", image_url: "http://www.livescience.com/images/i/000/050/749/original/moore-tornado-earth-disk.jpg?interpolation=lanczos-none&downsize=660:*")
 Track.create(album_id:18, release_date: "11.11.2013", price: 2, track_number:1, track_name: "METROPOLIS")
 Track.create(album_id:18, release_date: "11.11.2013", price: 2, track_number:2, track_name: "Savanna")
 Track.create(album_id:18, release_date: "11.11.2013", price: 2, track_number:3, track_name: "Flor do Sol")

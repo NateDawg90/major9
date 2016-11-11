@@ -47,8 +47,10 @@ class Navbar extends React.Component{
         <Link className="navbar-link" onClick={this.handleLogo.bind(this)}to="/"><li className="logo">
           <img src="https://s3-us-west-1.amazonaws.com/major9/Major9_Logo.png"/></li></Link>
           <SearchContainer />
-          <li><h3>{this.props.currentUser.username}!</h3></li>
-          <Link className="navbar-link" onClick={this.handleLogout}><li>Logout</li></Link>
+          <li><ul className="navbar-session">
+          <li><h3>Welcome, {this.props.currentUser.artist_name}!</h3></li>
+          <Link className="navbar-link session-button" onClick={this.handleLogout}><li>Logout</li></Link>
+          </ul></li>
         </ul>
       </nav>
     );
@@ -58,10 +60,11 @@ class Navbar extends React.Component{
         <Link className="navbar-link" onClick={this.handleLogo.bind(this)} to="/" ><li className="logo">
           <img src="https://s3-us-west-1.amazonaws.com/major9/Major9_Logo.png"/></li></Link>
           <SearchContainer />
-        <Link onClick={this.handleClick("signup")} className="navbar-link"><li>Sign Up</li></Link>
-        <Link onClick={this.handleClick("login")} className="navbar-link"><li>Log In</li></Link>
-        <Link onClick={this.props.guestLogin} className="navbar-link"><li>Guest Login</li></Link>
-
+            <li><ul className="navbar-session">
+        <Link onClick={this.handleClick("signup")} className="navbar-link session-button"><li>Sign Up</li></Link>
+        <Link onClick={this.handleClick("login")} className="navbar-link session-button"><li>Log In</li></Link>
+        <Link onClick={this.props.guestLogin} className="navbar-link session-button"><li>Guest Login</li></Link>
+          </ul></li>
       </ul>
         <Modal
            isOpen={this.state.modalOpen}
