@@ -6,6 +6,7 @@ export const DELETE_TRACK = "DELETE_TRACK";
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const RECEIVE_TRACK_ERRORS = "RECEIVE_TRACK_ERRORS";
+export const DELETE_TRACK_FROM_STORE = "DELETE_TRACK_FROM_STORE";
 
 export const fetchTracks = (albumId) => ({
   type: FETCH_TRACKS,
@@ -46,6 +47,10 @@ export const receiveTrack = (track) => ({
   track
 })
 
+export const deleteTrackFromStore = (track) => ({
+  type: DELETE_TRACK_FROM_STORE,
+  track
+})
 export const receiveTrackErrors = (trackErrors) => ({
   type: RECEIVE_TRACK_ERRORS,
   trackErrors

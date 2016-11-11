@@ -7,7 +7,7 @@ import {playTracks, pauseTrack} from '../../../actions/player_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   albums: state.albums,
-  tracks: state.tracks,
+  tracks: state.tracks.tracks,
   editMode: state.albums.editMode,
   currentUser: state.session.currentUser,
   currentAlbum: state.albums.albums[ownProps.params.albumId]

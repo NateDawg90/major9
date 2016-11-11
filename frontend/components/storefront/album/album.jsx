@@ -44,9 +44,8 @@ class Album extends React.Component{
     let obj;
     let tracks = [];
 
-    if (Object.keys(this.props.albums.albums).length !== 0) {
-      obj = this.props.albums.albums[this.props.params.albumId].tracks
-
+    if (Object.keys(this.props.tracks).length !== 0) {
+      obj = this.props.tracks
     }
     //
     // <li className="trackLength" key={`Length_${prop}`}>
@@ -153,7 +152,6 @@ class Album extends React.Component{
       return(<div className="Show">
       <EditAlbum currentAlbum={this.props.currentAlbum}
          currentUser={this.props.currentUser}
-        tracks={this.props.albums.albums[this.props.params.albumId].tracks}
          params={this.props.params}
          updateAlbum={this.props.updateAlbum}
         router={this.props.router}

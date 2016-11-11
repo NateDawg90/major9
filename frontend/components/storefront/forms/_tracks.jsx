@@ -50,13 +50,21 @@ class TracksForm extends React.Component {
     return tracks
   }
 
+  componentWillReceiveProps(newProps){
+    console.log(newProps);
+    console.log(this.props.tracks);
+      if (Object.keys(newProps.tracks).length > Object.keys(this.props.tracks).length){
+        this.setState({modalOpen: false});
+      }
+
+  }
+
   handleDelete(trackId){
     return e => {
       e.preventDefault();
       console.log(trackId);
     this.props.deleteTrack(this.props.params.albumId, trackId)
     this.setState({})
-
    }
 
   }
@@ -94,6 +102,7 @@ class TracksForm extends React.Component {
   }
 
   newButton(){
+    console.log(this.props.tracks);
     return(
       <div className="TrackListItem-box" key={`BoxNew`}>
         <ul className="TrackListItem">

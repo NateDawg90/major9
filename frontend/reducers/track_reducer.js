@@ -1,6 +1,6 @@
 import merge from 'lodash/merge'
 import { RECEIVE_TRACKS, RECEIVE_TRACK,
-    RECEIVE_TRACK_ERRORS } from '../actions/track_actions'
+    RECEIVE_TRACK_ERRORS, DELETE_TRACK_FROM_STORE } from '../actions/track_actions'
 
 const _defaultState = {
   tracks: {},
@@ -14,9 +14,13 @@ const trackReducer = (state= _defaultState, action) => {
     case RECEIVE_TRACKS:
       return {tracks: action.tracks, errors: []}
     case RECEIVE_TRACK:
-      return {tracks: action.track, errors: []}
+      return merge({}, state, {tracks: {[action.track.id]: action.track}, errors: []})
     case RECEIVE_TRACK_ERRORS:
       return merge({}, state, {errors: action.trackErrors})
+    case DELETE_TRACK_FROM_STORE:
+      let newState = merge({}, state)
+      delete newState['tracks'][action.track.id]
+      return merge({}, newState)
     default:
       return state
   }

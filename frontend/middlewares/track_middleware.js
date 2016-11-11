@@ -5,7 +5,8 @@ import { receiveTrack,
          FETCH_TRACKS,
          CREATE_TRACK,
          UPDATE_TRACK,
-         DELETE_TRACK
+         DELETE_TRACK,
+         deleteTrackFromStore
        } from '../actions/track_actions';
 
 import { fetchTracks, fetchTrack, createTrack,
@@ -30,12 +31,15 @@ const trackMiddleware = ({getState, dispatch}) => next => action => {
 
   let handleTrack = (Track) => {
     dispatch(receiveTrack(Track));
-    redirectToRequestedTrack(Track);
   }
 
   let handleTrackNoRedirect = (Track) => {
     dispatch(receiveTrack(Track));
     redirectToCurrentAlbum();
+  }
+
+  let handleDelete = (Track) => {
+    dispatch(deleteTrackFromStore(Track));
   }
   let handleTracks = (tracks) => dispatch(receiveTracks(tracks));
   let handleTrackErrors = (errors) => dispatch(receiveTrackErrors(errors.responseText));
@@ -49,7 +53,7 @@ const trackMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     case CREATE_TRACK:
       createTrack(action.albumId, action.track,
-        handleTracks, handleTrackErrors)
+        handleTrack, handleTrackErrors)
       return next(action);
     case UPDATE_TRACK:
       updateTrack(action.albumId, action.track,
@@ -57,7 +61,7 @@ const trackMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     case DELETE_TRACK:
       deleteTrack(action.albumId, action.trackNum,
-        handleTracks, handleTrackErrors)
+        handleDelete, handleTrackErrors)
       return next(action);
     default:
       return next(action);

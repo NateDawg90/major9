@@ -1,5 +1,5 @@
 import React from 'react'
-import  TracksFormContainer  from '../forms/tracks_form_container';
+import TracksFormContainer  from '../forms/tracks_form_container';
 
 class EditAlbum extends React.Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class EditAlbum extends React.Component {
         <br/>
         <h2> Purchasing Component </h2>
         <h2>Buy Now {this.state.price}</h2>
-          <TracksFormContainer tracks={this.props.tracks}
+          <TracksFormContainer 
              currentAlbum={this.state}
              onChange={this.update('price')}
              params={this.props.params}
