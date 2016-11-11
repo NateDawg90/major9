@@ -149,10 +149,12 @@ class Splash extends React.Component {
         <br/>
         <h1> Welcome to Major 9</h1>
         <h2> The Homepage of Japanese Jazz</h2>
+        <h3> Buy. Listen. Create.</h3>
+        <br/>
           <button className="bigButton">First Time Here?</button>
           <br/>
           </div>
-          <div>
+          <div className="outer">
             <div className="albums">
               <h2> Here are our featured artists: </h2>
               <ul className="splash">

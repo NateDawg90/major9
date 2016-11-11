@@ -170,6 +170,14 @@ class Album extends React.Component{
   // <EditAlbum currentAlbum={this.currentAlbumObject()} currentUser={this.props.currentUser}
   //   tracks={this.props.albums.albums[this.props.params.albumId].tracks
   //   } params={this.props.params}/>
+
+  handlePlay(e) {
+    $('.play-large').toggleClass('active')
+    console.log(this.props.currentAlbum.tracks);
+    console.log(this.props.currentAlbum.track_files);
+    this.props.playTracks(this.props.currentAlbum.tracks, this.props.currentAlbum.track_files)
+  }
+
   render() {
     // debugger
     console.log(this.props);
@@ -212,8 +220,9 @@ class Album extends React.Component{
         <h3>Digital Album</h3>
         <h4>Includes unlimited streaming via the free Major9 app, plus
         high-quality download in MP3.</h4>
+
+        <div className="play-large" onClick={this.handlePlay.bind(this)}/>
         <br/>
-        <h2> Purchasing Component </h2>
         <h2>Buy Now {this.currentAlbum('price')}</h2>
           {this.displayTracks()}
         <br />
