@@ -52,7 +52,7 @@ class Search extends React.Component {
 
     return(
       <div>
-        <input onChange={this.handleInput} placeholder="Search for Tracks" value={this.state.inputVal}/>
+        <input className="search" onChange={this.handleInput} placeholder="Search for Tracks" value={this.state.inputVal}/>
         <ul className="suggestions">
           {renderedSuggestions}
         </ul>
