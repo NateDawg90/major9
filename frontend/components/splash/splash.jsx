@@ -28,15 +28,15 @@ class Splash extends React.Component {
     console.log(this.props.artists);
     let parsedArtists = Object.keys(this.props.artists).map( (artistIdx) => {
       let featuredAlbum = this.props.artists[artistIdx].albums[this.props.artists[artistIdx].albums.length-1]
+      if (featuredAlbum){
       let artistLink = `#/artist/${artistIdx}`
       return(<li className="frontpage-album">
           {this.props.artists[artistIdx].artist_name}
-          <Link to={`artist/${artistIdx}`} key={artistIdx}><img className="frontpage-picture" src={featuredAlbum.image_url} alt={this.props.artists[artistIdx].artist_name}/>
-            </Link>
+          <Link to={`artist/${artistIdx}`} key={artistIdx}><img className="frontpage-picture" src={featuredAlbum.image_url} alt={this.props.artists[artistIdx].artist_name}/></Link>
       </li>
 
     )
-  })
+  }})
 
     Object.keys(this.props.artists).map( (artistIdx) => {
       let secondAlbum = this.props.artists[artistIdx].albums[this.props.artists[artistIdx].albums.length-2]
@@ -146,6 +146,8 @@ class Splash extends React.Component {
         <div className="top">
           <img src="https://s3-us-west-1.amazonaws.com/major9/Major9_Logo.png" className="splash-logo" />
         <br/>
+        <br/>
+        <h1> Welcome to Major 9</h1>
         <h2> The Homepage of Japanese Jazz</h2>
           <button className="bigButton">First Time Here?</button>
           <br/>

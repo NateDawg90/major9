@@ -210,7 +210,7 @@ Track.create(album_id: 9, release_date:"11.11.2015", price:1, track_number:7, tr
 Track.create(album_id: 9, release_date:"11.11.2015", price:1, track_number:8, track_name:"記憶の旅")
 Track.create(album_id: 9, release_date:"11.11.2015", price:1, track_number:9, track_name:"Frog in the World!")
 Track.create(album_id: 9, release_date:"11.11.2015", price:1, track_number:10, track_name:"Hey Tagger, I’m Here")
-Track.create(album_id: 9, release_date:"11.11.2015", price:1, track_number:11, track_name:"殺し屋危機一髪 (DEATH JAZZ ver.)")
+Track.create(album_id: 9, release_date:"11.11.2015", price:1, track_number:11, track_name:"殺し屋危機一髪 ")
 # ./Circles.jpg
 
 # ./CIRCLES (Limited Edition)/01. ジャズィ・カンヴァセイション.mp3
@@ -234,7 +234,7 @@ Track.create(album_id:10, release_date:"11.11.2005", price: 1, track_number:5, t
 Track.create(album_id:10, release_date:"11.11.2005", price: 1, track_number:6, track_name: "Truth and Lies")
 Track.create(album_id:10, release_date:"11.11.2005", price: 1, track_number:7, track_name: "Dancando No Pariso")
 Track.create(album_id:10, release_date:"11.11.2005", price: 1, track_number:8, track_name: "Another Mind")
-Track.create(album_id:10, release_date:"11.11.2005", price: 1, track_number:9, track_name: "The Tom and Jerry Show [bonus track]")
+Track.create(album_id:10, release_date:"11.11.2005", price: 1, track_number:9, track_name: "The Tom and Jerry Show")
 # ./Another Mind.jpg
 #
 # ./2003 - Another Mind/01. XYZ.mp3
@@ -437,15 +437,15 @@ Track.create(album_id:25, release_date:"2009.08.05", price: 2, track_number:4, t
 Track.create(album_id:25, release_date:"2009.08.05", price: 2, track_number:5, track_name: "黄金ジェット")
 Track.create(album_id:25, release_date:"2009.08.05", price: 2, track_number:6, track_name: "Fish in the sky")
 Track.create(album_id:25, release_date:"2009.08.05", price: 2, track_number:7, track_name: "Fiesta")
-Track.create(album_id:25, release_date:"2009.08.05", price: 2, track_number:8, track_name: "Behind the wind(DJ HEAVYGRINDER Remix)")
+Track.create(album_id:25, release_date:"2009.08.05", price: 2, track_number:8, track_name: "Behind the wind")
 
 
 Album.create(artist_id:11 , album_name: "Seme Moeru", about:"", price: 20 , release_date:"2010.10.02", image_url: "http://res.cloudinary.com/dprtxlyhi/image/upload/Seme_Moeru_l8zvdy.jpg")
-Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:1, track_name: "Round Mirror Moon feat. Yoshika (from SOULHEAD)")
+Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:1, track_name: "Round Mirror Moon")
 Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:2, track_name: "Red")
 Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:3, track_name: "ソレソレ")
 Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:4, track_name: "Hot Guys")
-Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:5, track_name: "Natural High feat. Tsugumi (from SOULHEAD)")
+Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:5, track_name: "Natural High")
 Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:6, track_name: "センキュー!")
 Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:7, track_name: "Shake Bossa Groovy")
 Track.create(album_id:26, release_date:"2010.10.02", price: 2, track_number:8, track_name: "本日モ晴天ナリ")

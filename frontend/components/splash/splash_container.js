@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import {fetchArtists} from '../../actions/album_actions'
 import Splash from './splash';
+import {playTracks} from '../../actions/player_actions'
 
 
 const mapStateToProps = (state) => ({
@@ -11,7 +12,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return{
-  fetchArtists: () => dispatch(fetchArtists())
+  fetchArtists: () => dispatch(fetchArtists()),
+  playTracks: (track, trackFiles) => dispatch(playTracks(track, trackFiles)),
 }}
 
 export default withRouter(connect(

@@ -32,9 +32,14 @@ class Sidebar extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
+    if (Object.keys(newProps.albums.albums).length === 0){
+      hashHistory.push(`artist/${this.props.currentUser.id}`)
+    }
+
     if (Object.keys(newProps.albums.albums).length > Object.keys(this.props.albums.albums).length){
       this.setState({modalOpen: false});
     }
+
   }
 
   parseAlbums() {
@@ -115,7 +120,6 @@ class Sidebar extends React.Component {
 
   handleDelete(e) {
     return e => {
-      console.log(e.target.value);
       this.props.deleteAlbum(e.target.value)
       this.setState({})
     }
