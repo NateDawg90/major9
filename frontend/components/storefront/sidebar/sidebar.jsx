@@ -9,7 +9,7 @@ class Sidebar extends React.Component {
     super(props)
     this.state = {
       modalOpen: false,
-      editMode: false,
+      editMode: this.props.editMode,
       showAll: false
     }
     this.albums = this.albums.bind(this)

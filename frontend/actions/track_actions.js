@@ -28,7 +28,7 @@ export const createTrack = (albumId, track) => ({
 export const updateTrack = (albumId, track) => ({
   type: UPDATE_TRACK,
   albumId,
-  track: track
+  track
 })
 
 export const deleteTrack = (albumId, trackNum) => ({

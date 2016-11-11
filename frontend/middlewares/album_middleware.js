@@ -56,7 +56,6 @@ const albumMiddleware = ({getState, dispatch}) => next => action => {
     dispatch(receiveArtists(artists))
     hashHistory.replace(`/`)
   }
-
   switch(action.type){
     case FETCH_ALBUMS:
       if (action.redirect === true) {

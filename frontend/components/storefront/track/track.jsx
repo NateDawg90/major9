@@ -119,10 +119,14 @@ class Track extends React.Component{
       return <div className="loader">Loading...</div>
     }else if(this.props.editMode === true && this.isArtist.bind(this)() === true){
       return(<div className="Show">
-      <EditTrack currentAlbum={this.props.currentAlbum} currentUser={this.props.currentUser}
-        currentTrack={this.props.currentTrack} currentFiles={this.props.currentFiles}
-         params={this.props.params} updateAlbum={this.props.updateAlbum}
-        editAlbumMode={this.props.editAlbumMode} updateTrack={this.props.updateTrack}/>
+      <EditTrack currentAlbum={this.props.currentAlbum}
+        currentUser={this.props.currentUser}
+        currentTrack={this.props.currentTrack}
+        currentFiles={this.props.currentFiles}
+         params={this.props.params}
+         updateAlbum={this.props.updateAlbum}
+        editAlbumMode={this.props.editAlbumMode}
+         updateTrack={this.props.updateTrack}/>
       <ArtContainer image_url={this.trackArt()} editMode={true}/>
       </div>)
     }

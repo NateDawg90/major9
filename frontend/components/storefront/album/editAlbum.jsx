@@ -38,6 +38,16 @@ class EditAlbum extends React.Component {
     }
   }
 
+
+
+
+  componentWillReceiveProps(nextProps){
+    console.log('jQuery is');
+    console.log($('.Tracks'));
+    if(JSON.stringify(nextProps.currentAlbum) != JSON.stringify(this.props.currentAlbum)){
+      this.props.editAlbumMode(false)
+    }
+  }
   handleSubmit() {
     this.props.updateAlbum(this.state)
   }
@@ -61,7 +71,7 @@ class EditAlbum extends React.Component {
         <br/>
         <h2> Purchasing Component </h2>
         <h2>Buy Now {this.state.price}</h2>
-          <TracksFormContainer 
+          <TracksFormContainer
              currentAlbum={this.state}
              onChange={this.update('price')}
              params={this.props.params}

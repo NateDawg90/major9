@@ -21,7 +21,7 @@ class Api::TracksController < ApplicationController
   end
 
   def update
-    @track = Track.find_by(track_number: params[:id],
+    @track = Track.find_by(id: params[:id],
       album_id: params[:album_id])
     if @track.update(track_params)
       render :show

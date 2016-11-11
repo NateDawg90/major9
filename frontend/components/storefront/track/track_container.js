@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchAlbum: (userId) => dispatch(fetchAlbum(userId)),
   fetchTracks: (albumId) => dispatch(fetchTracks(albumId)),
   editAlbumMode: (toggle) => dispatch(editAlbumMode(toggle)),
-  updateTrack: (track) => dispatch(updateTrack(track))
+  updateTrack: (albumId,track) => dispatch(updateTrack(albumId,track))
 })
 
 

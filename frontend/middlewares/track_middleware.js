@@ -17,10 +17,11 @@ import {hashHistory} from 'react-router';
 import merge from 'lodash/merge'
 
 const trackMiddleware = ({getState, dispatch}) => next => action => {
-  let redirectToRequestedTrack = () => {
-    let requestedTrackId = Object.keys(getState().tracks.tracks)[0]
-    let requestedTrack = getState().tracks.tracks[requestedTrackId]
-    hashHistory.replace(`/artist/${requestedTrack.artist_id}/album/${requestedTrack.album_id}/track/${requestedTrack.id}`)
+  let redirectToRequestedTrack = (Track) => {
+    //
+    // let requestedTrackId = Object.keys(getState().tracks.tracks)[0]
+    // let requestedTrack = getState().tracks.tracks[]
+    hashHistory.replace(`/artist/${Track.artist.id}/album/${Track.album_id}/track/${Track.id}`)
   }
 
   let redirectToCurrentAlbum = (Track) => {
@@ -31,6 +32,7 @@ const trackMiddleware = ({getState, dispatch}) => next => action => {
 
   let handleTrack = (Track) => {
     dispatch(receiveTrack(Track));
+    redirectToRequestedTrack(Track);
   }
 
   let handleTrackNoRedirect = (Track) => {

@@ -4,7 +4,7 @@ import { RECEIVE_ALBUM, RECEIVE_ALBUMS,
      DELETE_ALBUM_FROM_STORE, RECEIVE_ARTISTS } from '../actions/album_actions'
 const _defaultState = {
   artists: {},
-  albums: {},
+  albums: {editMode:false},
   errors: [],
   editMode: false
 }

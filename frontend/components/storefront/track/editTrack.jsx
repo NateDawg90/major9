@@ -43,6 +43,7 @@ class EditTrack extends React.Component {
   }
 
   handleSubmit() {
+    debugger
     this.props.updateTrack(this.props.params.albumId, this.state)
     this.setState({editMode:false})
   }
@@ -66,7 +67,7 @@ class EditTrack extends React.Component {
         <form className="TrackForm" onSubmit={this.handleSubmit}>
         <input className="TrackTitle" type="text"
           placeholder = "Album Name"
-          onChange={this.update('album_name')}
+          onChange={this.update('track_name')}
           value={this.state.track_name} />
         <h2> Song Player goes here</h2>
         <h3>Digital Album</h3>

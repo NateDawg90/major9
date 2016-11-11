@@ -13,7 +13,7 @@ const mapStateToProps= (state, ownProps) => {
 }}
 
 const mapDispatchToProps = (dispatch) => ({
-  clearErrors: (blank) => dispatch(receiveTrackErrors(blank))
+  clearTrackErrors: (blank) => dispatch(receiveTrackErrors(blank))
 })
 
 export default connect(
