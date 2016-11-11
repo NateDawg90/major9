@@ -109,11 +109,8 @@ class Track extends React.Component{
   }
 
   downloadLink(){
-    if (this.props.currentFilesResult){
-      if (this.props.currentFilesResult.length !== 0){
-        return (<button onClick={`location.href=${this.props.currentFiles[0].url}`}> Download Track </button>)
-      }
-    }
+        return (<a href={`${this.props.currentFiles[0].url}`} download> Download Track </a>)
+
   }
 
   render() {
