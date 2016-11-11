@@ -62,14 +62,14 @@ With this dataset, I rendered an unordered list that was rearranged into a dropd
 In the future, I will improve the search results with a relevancy-ranked switch statement and fuzzy search.
 
 
-###Future
+##Future
 As my first full web app, I still have many ideas I would like to experiment with. Here is a list of those features.
 
-##Bonus Items
+###Bonus Items
 One of the coolest aspects of bandcamp is the ease of inclusion of bonus tracks and additional materials. Implementing a system that organizes these bonus items for distribution would be beneficial.
 
-##Color Thief CSS styling
+###Color Thief CSS styling
 A cool concept from iTunes is the automatic creation of styling. I've wanted to explore this idea of using a tool like Color Thief to automatically style each band page based solely on the track art. I feel this would create an overall pleasing aesthetic for the web app.
 
-##Song Discovery
+###Song Discovery
 This is implemented in bandcamp and most famously in Spotify, but I would like to explore the idea of song recommendations based on user habits and social trends.
