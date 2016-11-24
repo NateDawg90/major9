@@ -117,7 +117,7 @@ class SessionForm extends React.Component {
     this.handleErrors();
     if (this.props.loggedIn) {
       return (
-        <div>What's Up</div>
+        `<div>What's Up</div>`
       )
       //  ("I am logged in maybe.");
       // this.props.router.push('artist/1')
@@ -139,6 +139,7 @@ class SessionForm extends React.Component {
                 <button className = "session-parts">{this.buttonText()}</button>
               </form>
               <br/>
+              <button className = "session-parts"><Link onClick={this.props.guestLogin}>Guest Login</Link></button>
             </div>
         </div>
       );

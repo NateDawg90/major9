@@ -14,19 +14,20 @@ const mapStateToProps = (state, ownProps) => {
 
 
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  clearErrors: (blank) => {dispatch(receiveErrors(blank))},
-  processForm: (formType, user) => {
-    let userObject = { user : user};
-    if (formType === 'signup') {
-      dispatch(signup(userObject));
-    } else if (formType === 'login') {
-      dispatch(login(userObject));
+const mapDispatchToProps = (dispatch, ownProps) => {
+  let guest = {user:{username:"Guest", password:"123456"}}
+  return {
+    clearErrors: (blank) => {dispatch(receiveErrors(blank))},
+    guestLogin: () => dispatch(login(guest)),
+    processForm: (formType, user) => {
+      let userObject = { user : user};
+      if (formType === 'signup') {
+        dispatch(signup(userObject));
+      } else if (formType === 'login') {
+        dispatch(login(userObject));
+      }
     }
-  }
-
-
-});
+}};
 
 
 export default withRouter(connect(
