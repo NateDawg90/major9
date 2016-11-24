@@ -4,14 +4,15 @@
   margin: 0 auto;
   padding: 50px;
   text-align: center;
-  width: 900px;
+  width:50%;
   border-left: 1px dotted black;
   border-right: 1px dotted black;
 
   ul{
     overflow: auto;
+    // overflow-y:scroll;
     white-space: nowrap;
-    width: 899px;
+    width: 100%;
     height: 400px;
     display:flex;
     justify-content: space-between;

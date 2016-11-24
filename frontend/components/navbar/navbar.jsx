@@ -43,7 +43,7 @@ class Navbar extends React.Component{
     if (this.props.currentUser !== null) {
     return (
       <nav id="loggedIn" className="navbar">
-        <ul >
+        <ul className="navbar-list">
         <Link className="navbar-link" onClick={this.handleLogo.bind(this)}to="/"><li className="logo">
           <img src="https://s3-us-west-1.amazonaws.com/major9/Major9_Logo.png"/></li></Link>
           <SearchContainer />

@@ -30,13 +30,16 @@
   border-bottom: 1px dotted gray;
 
   .search{
-    width:900px;
-    margin-left: 205px;
+    width:50vw;
+    margin-left: 20px;
     height:15px;
     margin-top: 3px;
   }
 
-
+.navbar-list {
+  display:flex;
+  justify-content: space-between;
+}
   ul {
       position: relative;
       display: flex;
@@ -46,7 +49,7 @@
         padding-top: 12px;
         line-height: 50px;
         width: 35px;
-        align-self: left;
+        // align-self: left;
       }
     li {
       padding: 0px 10px;
