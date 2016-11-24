@@ -67,16 +67,16 @@ class SessionForm extends React.Component {
     // debugger
     this.props.clearErrors;
 
-    console.log("I'm out here");
+     ("I'm out here");
     e.preventDefault();
     this.props.processForm(this.state.formType, this.state)
     this.handleLogin();
   }
 
   handleLogin() {
-    // console.log(this.props.loggedIn);
+    //  (this.props.loggedIn);
     // if (this.props.loggedIn){
-    //   console.log("Why hello there.");
+    //    ("Why hello there.");
     // }
     this.setState({})
   }
@@ -87,7 +87,7 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log(newProps);
+     (newProps);
     if (newProps.currentUser) {
     this.props.router.push(`/artist/${newProps.currentUser.id}`)
     }
@@ -119,7 +119,7 @@ class SessionForm extends React.Component {
       return (
         <div>What's Up</div>
       )
-      // console.log("I am logged in maybe.");
+      //  ("I am logged in maybe.");
       // this.props.router.push('artist/1')
     } else {
       return (

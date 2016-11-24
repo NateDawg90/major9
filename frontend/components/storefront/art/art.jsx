@@ -22,7 +22,7 @@ class Art extends React.Component {
     e.preventDefault();
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, (error, successObject) => {
       if(error === null) {
-        console.log('Im Here');
+         ('Im Here');
           this.setState({image_url:successObject[0].url});
       }
     })

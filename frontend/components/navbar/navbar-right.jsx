@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router";
 
 const NavbarRight = (props) => {
-  console.log(props);
+   (props);
   // debugger
   // TODO: turn Greeting into Navbar Components Left and Right
   if (props.currentUser !== null) {

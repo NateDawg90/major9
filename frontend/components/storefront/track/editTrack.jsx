@@ -37,7 +37,7 @@ class EditTrack extends React.Component {
 
   update(property) {
     return e => {
-      console.log(e.target.value);
+       (e.target.value);
       this.setState({[property]: e.target.value})
     }
   }
@@ -48,12 +48,12 @@ class EditTrack extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    console.log('jQuery is');
-    console.log($('.Tracks'));
+     ('jQuery is');
+     ($('.Tracks'));
     if(JSON.stringify(nextProps.currentTrack) != JSON.stringify(this.props.currentTrack)){
       this.props.editAlbumMode(false)
     }
-    // console.log(nextProps);
+    //  (nextProps);
   }
   currentFilesResult() {
     return this.props.currentFiles.map( (obj, index) => (
@@ -83,7 +83,7 @@ class EditTrack extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+     (this.props);
     let artist_name = this.props.currentUser['artist_name']
     let currentFiles = this.currentFilesResult.bind(this)()
     return(

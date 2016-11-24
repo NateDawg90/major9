@@ -6,7 +6,6 @@ import { Router, Route, IndexRoute, hashHistory, withRouter } from 'react-router
 // <NavbarContainer/>
 
 const App = (store) => {
-  // console.log(store);
   return (
   <div>
     <NavbarContainer />

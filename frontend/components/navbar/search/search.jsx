@@ -27,7 +27,7 @@ class Search extends React.Component {
   }
 
   renderSuggestions() {
-    console.log(this.props.suggestions);
+     (this.props.suggestions);
     let suggestions;
     if(this.state.inputVal === ''){
       return(<div></div>)
@@ -36,13 +36,13 @@ class Search extends React.Component {
     suggestions = Object.keys(this.props.suggestions).map( (suggestionId) =>{
       let suggestedSong = this.props.suggestions[suggestionId].result
       return(
-        <li className="result" onClick={this.clearVal.bind(this)}>
         <Link to={`/artist/${suggestedSong.artist.id}/album/${suggestedSong.album_id}/track/${suggestedSong.id}`}>
-        {this.props.suggestions[suggestionId].result.track_name}</Link></li>
+          <li className="result" onClick={this.clearVal.bind(this)}>
+        {this.props.suggestions[suggestionId].result.track_name}</li></Link>
       )
     })
     }
-    console.log(suggestions);
+     (suggestions);
     return suggestions
   }
 

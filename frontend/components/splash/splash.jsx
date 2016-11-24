@@ -33,7 +33,6 @@ class Splash extends React.Component {
   }
 // e => {hashHistory.replace(`artist/${artistIdx}`
   parseArtists() {
-    console.log(this.props.artists);
     let parsedArtists = Object.keys(this.props.artists).map( (artistIdx) => {
       let featuredAlbum = this.props.artists[artistIdx].albums[this.props.artists[artistIdx].albums.length-1]
       if (featuredAlbum){
@@ -79,7 +78,6 @@ class Splash extends React.Component {
   parseUser(){
     let content = [];
      let  artistIdx = this.props.currentUser.id
-     console.log(this.props.artists);
      if(this.props.artists){
     if(Object.keys(this.props.artists).length !== 0){
       let albumObject = this.props.artists[artistIdx].albums
@@ -128,7 +126,6 @@ class Splash extends React.Component {
     }
 
     let currentUserAlbums;
-    console.log(this.props.currentUser);
       if(this.props.currentUser) {
         if(Object.keys(this.props.currentUser).length !== 0) {
           currentUserAlbums = this.parseUser.bind(this)()
@@ -175,9 +172,7 @@ class Splash extends React.Component {
             </div>
           </div>
           </div>
-          <br/>
-          <br/>
-          <br/><br/><br/><br/>
+
             <Modal
                isOpen={this.state.modalOpen}
                onRequestClose={this.onModalClose.bind(this)}

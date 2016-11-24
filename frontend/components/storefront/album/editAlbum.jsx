@@ -33,7 +33,7 @@ class EditAlbum extends React.Component {
 
   update(property) {
     return e => {
-      console.log(e.target.value);
+       (e.target.value);
       this.setState({[property]: e.target.value})
     }
   }
@@ -42,8 +42,8 @@ class EditAlbum extends React.Component {
 
 
   componentWillReceiveProps(nextProps){
-    console.log('jQuery is');
-    console.log($('.Tracks'));
+     ('jQuery is');
+     ($('.Tracks'));
     if(JSON.stringify(nextProps.currentAlbum) != JSON.stringify(this.props.currentAlbum)){
       this.props.editAlbumMode(false)
     }
@@ -53,9 +53,9 @@ class EditAlbum extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.state);
-    console.log(this.props.params.albumId);
+     (this.props);
+     (this.state);
+     (this.props.params.albumId);
     let artist_name = this.props.currentUser['artist_name']
     return(
       <div className="Tracks">

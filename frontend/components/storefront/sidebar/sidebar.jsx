@@ -44,8 +44,8 @@ class Sidebar extends React.Component {
 
   parseAlbums() {
     let obj= this.props.albums.albums
-    // console.log(this.props.albums.albums);
-    // console.log(this.props.children);
+    //  (this.props.albums.albums);
+    //  (this.props.children);
     this.albumNames = [];
     Object.keys(obj).reverse().forEach( (prop) => {
       if (this.albumNames.length < 3 || this.state.showAll === true) {
@@ -100,7 +100,7 @@ class Sidebar extends React.Component {
   }
 
   // componentWillUpdate(newProps) {
-  //   console.log(newProps);
+  //    (newProps);
   //   if (this.state.modalOpen === true) {
   //   this.setState({modalOpen: false})
   //   }
