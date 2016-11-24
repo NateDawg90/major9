@@ -139,7 +139,7 @@ class SessionForm extends React.Component {
                 <button className = "session-parts">{this.buttonText()}</button>
               </form>
               <br/>
-              <button className = "session-parts"><Link onClick={this.props.guestLogin}>Guest Login</Link></button>
+              <button className = "session-parts guest-login" onClick={this.props.guestLogin}>Guest Login</button>
             </div>
         </div>
       );
