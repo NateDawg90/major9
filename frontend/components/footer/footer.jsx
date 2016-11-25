@@ -16,7 +16,7 @@ class Footer extends React.Component {
 
   //autoclick play when updated
   componentDidUpdate() {
-    console.log($('#play_pause_button'));
+     ($('#play_pause_button'));
     window.setTimeout(() => {$('#play_pause_button').click()}, 500);
 
   }
@@ -35,9 +35,25 @@ class Footer extends React.Component {
       )
     }
       }
+    //
+    // this.props.songs.trackFiles.forEach( (track, index) => {
+    //   if (this.props.songs.tracks[index].id == track.track_id){
+    //     trackPlaylist.push({
+    //       url: this.props.songs.trackFiles[index].url,
+    //       displayText: `${song.track_number}. ${song.track_name} by ${song.artist.artist_name}`
+    //       }
+    //     )
+    //   } else ({
+    //     difference = track.track_id - this.props.songs.tracks[index].id
+    //
+    //   })
+
+    // })
+
+
     })
 
-    // console.log(trackPlaylist);
+    //  (trackPlaylist);
     // let song1 = {
     //   url: 'https://s3-us-west-1.amazonaws.com/major9/5-21+%E4%B8%87%E8%8F%AF%E9%8F%A1.mp3',
     //   artist: {
@@ -55,11 +71,11 @@ class Footer extends React.Component {
     // }
     //
     // let songs = [song1,song2]
-    // console.log(songs);
-    // console.log(AudioPlayer);
-
+    //  (songs);
+    //  (AudioPlayer);
+    let hidden = (trackPlaylist.length === 0) ? "hidden" : "animated bounceInUp "
     return(
-      <footer>
+      <footer className={hidden}>
         <AudioPlayer playlist={trackPlaylist} hideBackSkip={true}
           autoplay={true}
           autoplayDelayInSeconds={1000} />

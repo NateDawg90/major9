@@ -37,7 +37,7 @@ class Splash extends React.Component {
       let featuredAlbum = this.props.artists[artistIdx].albums[this.props.artists[artistIdx].albums.length-1]
       if (featuredAlbum){
       let artistLink = `#/artist/${artistIdx}`
-      return(<li className="frontpage-album">
+      return(<li className="frontpage-album" key={`albumList${artistIdx}1`}>
           {this.props.artists[artistIdx].artist_name}
           <Link to={`artist/${artistIdx}`} key={artistIdx}><img className="frontpage-picture" src={featuredAlbum.image_url} alt={this.props.artists[artistIdx].artist_name}/></Link>
       </li>
@@ -49,7 +49,7 @@ class Splash extends React.Component {
       let secondAlbum = this.props.artists[artistIdx].albums[this.props.artists[artistIdx].albums.length-2]
       let artistLink = `#/artist/${artistIdx}`
       if (secondAlbum){
-      parsedArtists.push(<li className="frontpage-album">
+      parsedArtists.push(<li className="frontpage-album" key={`albumList${artistIdx}2`}>
           {this.props.artists[artistIdx].artist_name}
           <Link to={`artist/${artistIdx}/album/${secondAlbum.id}`} key={artistIdx}><img className="frontpage-picture" src={secondAlbum.image_url} alt={this.props.artists[artistIdx].artist_name}/>
             </Link>
@@ -83,7 +83,7 @@ class Splash extends React.Component {
       let albumObject = this.props.artists[artistIdx].albums
       Object.keys(this.props.artists[artistIdx].albums).forEach( (albumId) => {
         let artistLink = `#/artist/${artistIdx}`
-        content.push(<li className="frontpage-album">
+        content.push(<li key={`albumList${albumId}`} className="frontpage-album">
             {albumObject[albumId].album_name}
             <div className="image">
             <Link to={`artist/${artistIdx}/album/${albumObject[albumId].id}`} key={albumObject[albumId].id}>
@@ -154,7 +154,7 @@ class Splash extends React.Component {
         <br/>
         <br/>
         <h1> Welcome to Major 9</h1>
-        <h2> The Homepage of Japanese Jazz</h2>
+        <h2> The Home of Japanese Jazz</h2>
         <h3> Buy. Listen. Create.</h3>
         <br/>
           <button className="bigButton" onClick={this.openForm.bind(this)}>First Time Here?</button>
