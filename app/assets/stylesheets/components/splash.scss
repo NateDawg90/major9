@@ -45,6 +45,7 @@
 
 }
 .splash-box{
+  background:blue;
   margin: 0 auto;
   padding: 50px 100px;
   width:500px;
@@ -68,6 +69,11 @@
     list-style:inside;
   }
 
+}
+
+.splash-logo{
+width: 340px;
+height:182px;
 }
 .frontpage-album:hover .play{display:block}
 .play{

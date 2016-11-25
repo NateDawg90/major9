@@ -150,14 +150,14 @@ class Splash extends React.Component {
     return(
         <div className="splash">
         <div className="top">
-          <img src="https://s3-us-west-1.amazonaws.com/major9/Major9_Logo.png" className="splash-logo" />
+          <img src="https://s3-us-west-1.amazonaws.com/major9/Major9_Logo.png" className="splash-logo animated fadeInDown" />
         <br/>
         <br/>
-        <h1> Welcome to Major 9</h1>
-        <h2> The Home of Japanese Jazz</h2>
-        <h3> Buy. Listen. Create.</h3>
+        <h1 className="animated fadeInUp"> Welcome to Major 9</h1>
+        <h2 className="animated fadeInUp"> The Home of Japanese Jazz</h2>
+        <h3 className="animated fadeInUp"> Buy. Listen. Create.</h3>
         <br/>
-          <button className="bigButton" onClick={this.openForm.bind(this)}>First Time Here?</button>
+          <button className="bigButton animated fadeInUp" onClick={this.openForm.bind(this)}>First Time Here?</button>
           <br/>
           </div>
           <div className="outer">
